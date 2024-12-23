@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -27,9 +26,25 @@ public class PlayerController : MonoBehaviour
     public Transform wallCheckBottomLeft;
     public Transform wallCheckBottomRight;
     public float wallSlideSpeed = 2f;
+    public GameObject model;
+
+    [Header("Attack Settings")]
+    public GameObject regularProjectilePrefab; // Regular attack projectile prefab
+    public GameObject chargedProjectilePrefab; // Charged attack projectile prefab
+    public Transform projectileSpawnPoint; // Where projectiles spawn
+
+    public float attackCooldown = 0.1f; // Cooldown between regular attacks
+    public float chargeTime = 1.0f; // Time required to charge an attack
+
+    private float nextAttackCounter; // Time of the last attack
+    public bool isCharging; // Whether the player is charging an attack
+    public bool isChargeComplete; // Whether the charge attack is ready
+    public float chargeStartTime; // When the charge started
+    private bool isAttackBuffered; // Whether an attack input is buffered
 
     private Rigidbody2D rb;
-    private Vector2 moveInput;
+    private Vector2 moveInput; 
+    private bool facingRight = true;
     private bool isGrounded;
     private bool isTouchingWallLeft;
     private bool isTouchingWallRight;
@@ -40,17 +55,35 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimeCounter;
     private bool jumpHeld;
     private bool isWallSliding;
-    public bool isWallStickAllowed;
+    private bool isWallStickAllowed;
+    private float originalSpeed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalSpeed = moveSpeed;
     }
 
     private void Update()
     {
         UpdateGroundAndWallChecks();
         UpdateCoyoteAndJumpBuffer();
+
+        if (isCharging && !isChargeComplete && Time.time - chargeStartTime >= chargeTime)
+        {
+            isChargeComplete = true;
+            Debug.Log("Charge attack ready!");
+        }
+        if (nextAttackCounter > 0)
+            nextAttackCounter -= Time.deltaTime;
+        else
+        {
+            if (isAttackBuffered)
+            {
+                isAttackBuffered = false;
+                FireProjectile(regularProjectilePrefab);
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -84,37 +117,103 @@ public class PlayerController : MonoBehaviour
             if (hit.collider != null)
             {
                 // Snap the player to the wall by adjusting their position
-                float snapOffset = hit.distance - (wallSnapDistance / 2); // Adjust based on wallSnapDistance
-                transform.position = new Vector3(transform.position.x + snapOffset * wallDirection, transform.position.y, transform.position.z);
+                //float snapOffset = hit.distance - (wallSnapDistance / 2); // Adjust based on wallSnapDistance
+                //transform.position = new Vector3(transform.position.x + snapOffset * wallDirection, transform.position.y, transform.position.z);
+
+
+                //float snapOffset = hit.point; // Adjust based on wallSnapDistance
+                transform.position = new Vector3(hit.point.x - (wallSnapDistance * wallDirection), transform.position.y, transform.position.z);
             }
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(float noveDir)
     {
-        moveInput = context.ReadValue<Vector2>();
+        moveInput = new Vector2(noveDir, 0);
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    public void OnJump(bool isPressed)
     {
-        if (context.started)
+        if (isPressed)
         {
             jumpBufferCounter = jumpBufferTime;
         }
-        else if (context.canceled)
+        else if (!isPressed)
         {
             OnJumpReleased();
         }
 
-        jumpHeld = context.performed;
+        jumpHeld = isPressed;
     }
 
-    public void OnAttack1(InputAction.CallbackContext context)
+    public void OnAttack1(bool isPressed)
     {
-        if (context.performed)
+        if (isPressed)
         {
-            Debug.Log("Attack action called!");
+            if (nextAttackCounter <= 0)
+            {
+                Debug.Log("Attack action called!");
+                FireProjectile(regularProjectilePrefab);
+            }
+            else
+                isAttackBuffered = true;
         }
+        else if (!isPressed)
+        {
+            OnAttackReleased();
+        }
+    }
+    public void OnAttackPressed()
+    {
+        // Start charging the attack
+        isCharging = true;
+        chargeStartTime = Time.time;
+        isChargeComplete = false;
+    }
+
+    public void OnAttackReleased()
+    {
+        if (isCharging)
+        {
+            isCharging = false;
+
+            // Check if the charge was completed
+            if (isChargeComplete)
+            {
+                FireProjectile(chargedProjectilePrefab);
+                isChargeComplete = false;
+            }
+        }
+    }
+
+    private void FireProjectile(GameObject projectilePrefab)
+    {
+        // Stop movement briefly
+        StartCoroutine(TemporaryStop());
+
+        // Instantiate the projectile
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+
+        // Set its direction based on the player's facing direction
+        Vector2 direction = new Vector2(facingRight ? 1 : -1, 0);
+        projectile.GetComponent<Rigidbody2D>().velocity = direction * 10f; // Adjust speed as needed
+
+        // Record the time of this attack
+        nextAttackCounter = attackCooldown;
+
+        OnAttackPressed();
+        // Check for buffered attack
+        //if (isAttackBuffered)
+        //{
+        //    isAttackBuffered = false;
+        //    OnAttackPressed();
+        //}
+    }
+    private IEnumerator TemporaryStop()
+    {
+        moveSpeed = 0f;
+        yield return new WaitForSeconds(attackCooldown);
+        moveSpeed = originalSpeed;
     }
 
     private void UpdateGroundAndWallChecks()
@@ -182,6 +281,20 @@ public class PlayerController : MonoBehaviour
             // Normal movement
             rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
         }
+
+        if ((moveInput.x > 0 && !facingRight) || (moveInput.x < 0 && facingRight))
+        {
+            Flip();
+        }
+    }
+    private void Flip()
+    {
+        facingRight = !facingRight;
+
+        // Flip the sprite by inverting the local scale's X value
+        Vector3 scale = model.transform.localScale;
+        scale.x *= -1;
+        model.transform.localScale = scale;
     }
 
     private void HandleJump()
