@@ -37,9 +37,9 @@ public class PlayerController : MonoBehaviour
     public float chargeTime = 1.0f; // Time required to charge an attack
 
     private float nextAttackCounter; // Time of the last attack
-    public bool isCharging; // Whether the player is charging an attack
-    public bool isChargeComplete; // Whether the charge attack is ready
-    public float chargeStartTime; // When the charge started
+    private bool isCharging; // Whether the player is charging an attack
+    private bool isChargeComplete; // Whether the charge attack is ready
+    private float chargeStartTime; // When the charge started
     private bool isAttackBuffered; // Whether an attack input is buffered
 
     private Rigidbody2D rb;
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
 
         // Set its direction based on the player's facing direction
         Vector2 direction = new Vector2(facingRight ? 1 : -1, 0);
-        projectile.GetComponent<Rigidbody2D>().velocity = direction * 10f; // Adjust speed as needed
+        projectile.GetComponent<Rigidbody2D>().velocity = direction * 20f; // Adjust speed as needed
 
         // Record the time of this attack
         nextAttackCounter = attackCooldown;

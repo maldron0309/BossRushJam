@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 2964233467582783970}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -402,7 +402,7 @@ MonoBehaviour:
   regularProjectilePrefab: {fileID: 4517658556040149496, guid: c4d273afad1611846a9b1915cb45a5a3, type: 3}
   chargedProjectilePrefab: {fileID: 3331633532306334330, guid: d0b6fb2bdd1fa3546ab418f968fd34d7, type: 3}
   projectileSpawnPoint: {fileID: 4140159643605789241}
-  attackCooldown: 0.2
+  attackCooldown: 0.1
   chargeTime: 1
   isCharging: 0
   isChargeComplete: 0
