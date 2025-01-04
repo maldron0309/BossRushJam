@@ -1,28 +1,16 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUI : MonoBehaviour
+class BossHealthUI : MonoBehaviour
 {
-    [SerializeField] private Slider healthSlider;
-    [SerializeField] private Slider easeHealthSlider;
+    [SerializeField] Slider healthSlider;
+    [SerializeField] Slider easeHealthSlider;
+    [SerializeField] float lerpSpeed = 0.01f;
+
+    float maxHealth;
+    float currentHealth;
     
-    [SerializeField] private float maxHealth = 100f;
-    private float currentHealth;
-
-    [SerializeField] private float lerpSpeed = 0.01f;
-
-    private void Start()
-    {
-        currentHealth = maxHealth;
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = currentHealth;
-        
-        easeHealthSlider.maxValue = maxHealth;
-        easeHealthSlider.value = currentHealth;
-    }
-
-    private void Update()
+    void Update()
     {
         if (healthSlider.value != currentHealth)
         {
@@ -38,8 +26,13 @@ public class HealthUI : MonoBehaviour
     public void SetMaxHealth(float health)
     {
         maxHealth = health;
+        currentHealth = health;
+
         healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
+
         easeHealthSlider.maxValue = maxHealth;
+        easeHealthSlider.value = currentHealth;
     }
 
     public void SetHealth(float health)
