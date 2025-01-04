@@ -5,6 +5,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public int damage = 10;
+    private Rigidbody2D rb;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,5 +22,12 @@ public class Projectile : MonoBehaviour
 
         // Destroy the projectile
         Destroy(gameObject);
+    }
+    public void ApplyForce(Vector2 force)
+    {
+        if (rb != null)
+        {
+            rb.velocity += force;
+        }
     }
 }

@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     public float attackCooldown = 0.1f; // Cooldown between regular attacks
     public float chargeTime = 1.0f; // Time required to charge an attack
+    public float projectileSpeed = 10f;
 
     private float nextAttackCounter; // Time of the last attack
     private bool isCharging; // Whether the player is charging an attack
@@ -57,6 +58,8 @@ public class PlayerController : MonoBehaviour
     private bool isWallSliding;
     private bool isWallStickAllowed;
     private float originalSpeed;
+    private Vector2 externalVelocity;
+    private Rigidbody2D exRb;
 
     private void Start()
     {
@@ -196,7 +199,7 @@ public class PlayerController : MonoBehaviour
 
         // Set its direction based on the player's facing direction
         Vector2 direction = new Vector2(facingRight ? 1 : -1, 0);
-        projectile.GetComponent<Rigidbody2D>().velocity = direction * 20f; // Adjust speed as needed
+        projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed; // Adjust speed as needed
 
         // Record the time of this attack
         nextAttackCounter = attackCooldown;
@@ -266,6 +269,11 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        // Start with the external velocity (e.g., platform influence)
+        if (exRb)
+            externalVelocity = exRb.velocity;
+        Vector2 totalVelocity = externalVelocity;
+
         if ((isTouchingWallLeft || isTouchingWallLeftPartial) && moveInput.x < 0 && !isGrounded)
         {
             // Prevent moving left when touching the left wall and airborne
@@ -279,7 +287,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             // Normal movement
-            rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
+            rb.velocity = externalVelocity +  new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
         }
 
         if ((moveInput.x > 0 && !facingRight) || (moveInput.x < 0 && facingRight))
@@ -363,6 +371,23 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(wallCheckBottomRight.position, groundCheckRadius);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Patform"))
+        {
+            exRb = collision.collider.GetComponent<Rigidbody2D>();
+            if (exRb)
+                externalVelocity = exRb.velocity;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Patform") && exRb == collision.collider.GetComponent<Rigidbody2D>())
+        {
+            externalVelocity = Vector2.zero;
+            exRb = null;
         }
     }
 }
