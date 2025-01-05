@@ -102,4 +102,6 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 6865130350340156775}
   attackCooldown: 0.1
   chargeTime: 1
-  projectileSpeed: 10
+  projectileSpeed: 20
+  maxCharges: 5
+  currentCharges: 0

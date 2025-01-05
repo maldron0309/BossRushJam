@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Attack Settings")]
     public BaseAttack weapon;
+    public GameObject weaponPlacement;
+    public TextMeshPro ammoText;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -59,6 +62,9 @@ public class PlayerController : MonoBehaviour
     {
         UpdateGroundAndWallChecks();
         UpdateCoyoteAndJumpBuffer();
+
+        if (weapon)
+            ammoText.text = $"{weapon.currentCharges}/{weapon.maxCharges}";
     }
 
     private void FixedUpdate()
@@ -137,6 +143,10 @@ public class PlayerController : MonoBehaviour
     {
         if(weapon)
             weapon.OnRelease();
+    }
+    public void PreventMovementFortime(float cooldown)
+    {
+        StartCoroutine(TemporaryStop(cooldown));
     }
     public IEnumerator TemporaryStop(float cooldown)
     {

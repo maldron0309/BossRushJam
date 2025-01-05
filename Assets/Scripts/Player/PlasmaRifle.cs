@@ -20,6 +20,7 @@ public class PlasmaRifle : BaseAttack
     void Start()
     {
         player = GetComponentInParent<PlayerController>();
+        currentCharges = maxCharges;
     }
     void Update()
     {
@@ -55,20 +56,22 @@ public class PlasmaRifle : BaseAttack
     }
     private void FireProjectile(GameObject projectilePrefab)
     {
-        // Stop movement briefly
-        StartCoroutine(player.TemporaryStop(attackCooldown));
+        if(currentCharges > 0)
+        {
+            player.PreventMovementFortime(attackCooldown);
 
-        // Instantiate the projectile
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
 
-        // Set its direction based on the player's facing direction
-        Vector2 direction = new Vector2(player.facingRight ? 1 : -1, 0);
-        projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed; // Adjust speed as needed
+            Vector2 direction = new Vector2(player.facingRight ? 1 : -1, 0);
+            projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed; // Adjust speed as needed
 
-        // Record the time of this attack
-        nextAttackCounter = attackCooldown;
+            nextAttackCounter = attackCooldown;
+            currentCharges--;
+            if (currentCharges <= 0)
+                WeaponsInventory.instance.GiveNextWeapon(player);
 
-        OnPressed();
+            OnPressed();
+        }
     }
 
     override public void OnPressed()

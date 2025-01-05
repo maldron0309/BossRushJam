@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BaseAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int maxCharges = 1;
+    public int currentCharges;
     void Start()
     {
         
