@@ -6,6 +6,7 @@ public class WeaponsInventory : MonoBehaviour
 {
     public static WeaponsInventory instance;
     public WeaponSlot[] weapons;
+    public WeaponWheelController WeaponWheel;
     private int currentIdx;
     private void Awake()
     {
@@ -37,5 +38,7 @@ public class WeaponsInventory : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         GiveWeapon(player);
+        StartCoroutine(WeaponWheel.RotateWheel((currentIdx) * 45f));
+        
     }
 }

@@ -9,4 +9,5 @@ public class WeaponSlot : ScriptableObject
     public string weaponName;
     public string weaponDescription;
     public GameObject weaponPrefab;
+    public Sprite weaponImage;
 }
