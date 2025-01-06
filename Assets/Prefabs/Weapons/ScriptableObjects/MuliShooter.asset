@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: MultiSHooter
   weaponDescription: 
   weaponPrefab: {fileID: 1283368908312018702, guid: 9e293f0b03910ab4986eaa076886892d, type: 3}
+  icon: {fileID: 701441343, guid: 636ca0bce4498fe4cae497b83fc64fdf, type: 3}

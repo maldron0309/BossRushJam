@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: Plasma Rifle
   weaponDescription: 
   weaponPrefab: {fileID: 7858170756528366886, guid: f457f5c21cbbbe842bf20ed71e965107, type: 3}
+  icon: {fileID: 1488804524, guid: 636ca0bce4498fe4cae497b83fc64fdf, type: 3}
