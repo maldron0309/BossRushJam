@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -29,23 +30,13 @@ public class PlayerController : MonoBehaviour
     public GameObject model;
 
     [Header("Attack Settings")]
-    public GameObject regularProjectilePrefab; // Regular attack projectile prefab
-    public GameObject chargedProjectilePrefab; // Charged attack projectile prefab
-    public Transform projectileSpawnPoint; // Where projectiles spawn
-
-    public float attackCooldown = 0.1f; // Cooldown between regular attacks
-    public float chargeTime = 1.0f; // Time required to charge an attack
-    public float projectileSpeed = 10f;
-
-    private float nextAttackCounter; // Time of the last attack
-    private bool isCharging; // Whether the player is charging an attack
-    private bool isChargeComplete; // Whether the charge attack is ready
-    private float chargeStartTime; // When the charge started
-    private bool isAttackBuffered; // Whether an attack input is buffered
+    public BaseAttack weapon;
+    public GameObject weaponPlacement;
+    public TextMeshPro ammoText;
 
     private Rigidbody2D rb;
-    private Vector2 moveInput; 
-    private bool facingRight = true;
+    private Vector2 moveInput;
+    public bool facingRight = true;
     private bool isGrounded;
     private bool isTouchingWallLeft;
     private bool isTouchingWallRight;
@@ -72,21 +63,8 @@ public class PlayerController : MonoBehaviour
         UpdateGroundAndWallChecks();
         UpdateCoyoteAndJumpBuffer();
 
-        if (isCharging && !isChargeComplete && Time.time - chargeStartTime >= chargeTime)
-        {
-            isChargeComplete = true;
-            Debug.Log("Charge attack ready!");
-        }
-        if (nextAttackCounter > 0)
-            nextAttackCounter -= Time.deltaTime;
-        else
-        {
-            if (isAttackBuffered)
-            {
-                isAttackBuffered = false;
-                FireProjectile(regularProjectilePrefab);
-            }
-        }
+        if (weapon)
+            ammoText.text = $"{weapon.currentCharges}/{weapon.maxCharges}";
     }
 
     private void FixedUpdate()
@@ -119,12 +97,6 @@ public class PlayerController : MonoBehaviour
 
             if (hit.collider != null)
             {
-                // Snap the player to the wall by adjusting their position
-                //float snapOffset = hit.distance - (wallSnapDistance / 2); // Adjust based on wallSnapDistance
-                //transform.position = new Vector3(transform.position.x + snapOffset * wallDirection, transform.position.y, transform.position.z);
-
-
-                //float snapOffset = hit.point; // Adjust based on wallSnapDistance
                 transform.position = new Vector3(hit.point.x - (wallSnapDistance * wallDirection), transform.position.y, transform.position.z);
             }
         }
@@ -153,13 +125,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isPressed)
         {
-            if (nextAttackCounter <= 0)
-            {
-                Debug.Log("Attack action called!");
-                FireProjectile(regularProjectilePrefab);
-            }
-            else
-                isAttackBuffered = true;
+            if(weapon)
+                weapon.Fire();
         }
         else if (!isPressed)
         {
@@ -168,54 +135,23 @@ public class PlayerController : MonoBehaviour
     }
     public void OnAttackPressed()
     {
-        // Start charging the attack
-        isCharging = true;
-        chargeStartTime = Time.time;
-        isChargeComplete = false;
+        if(weapon)
+            weapon.OnPressed();
     }
 
     public void OnAttackReleased()
     {
-        if (isCharging)
-        {
-            isCharging = false;
-
-            // Check if the charge was completed
-            if (isChargeComplete)
-            {
-                FireProjectile(chargedProjectilePrefab);
-                isChargeComplete = false;
-            }
-        }
+        if(weapon)
+            weapon.OnRelease();
     }
-
-    private void FireProjectile(GameObject projectilePrefab)
+    public void PreventMovementFortime(float cooldown)
     {
-        // Stop movement briefly
-        StartCoroutine(TemporaryStop());
-
-        // Instantiate the projectile
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-
-        // Set its direction based on the player's facing direction
-        Vector2 direction = new Vector2(facingRight ? 1 : -1, 0);
-        projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed; // Adjust speed as needed
-
-        // Record the time of this attack
-        nextAttackCounter = attackCooldown;
-
-        OnAttackPressed();
-        // Check for buffered attack
-        //if (isAttackBuffered)
-        //{
-        //    isAttackBuffered = false;
-        //    OnAttackPressed();
-        //}
+        StartCoroutine(TemporaryStop(cooldown));
     }
-    private IEnumerator TemporaryStop()
+    public IEnumerator TemporaryStop(float cooldown)
     {
         moveSpeed = 0f;
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(cooldown);
         moveSpeed = originalSpeed;
     }
 
