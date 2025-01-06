@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed = 5f;
+    public Animator anim;
 
     [Header("Jumping")]
     public float minJumpHeight = 2f;
@@ -229,6 +230,15 @@ public class PlayerController : MonoBehaviour
         if ((moveInput.x > 0 && !facingRight) || (moveInput.x < 0 && facingRight))
         {
             Flip();
+        }
+
+        if((rb.velocity.x > 0 || rb.velocity.x < 0) && Mathf.Abs(moveInput.x) > 0.01f)
+        {
+            anim.Play("Move");
+        }
+        else
+        {
+            anim.Play("Idle");
         }
     }
     private void Flip()
