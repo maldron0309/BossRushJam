@@ -28,7 +28,6 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-}
     public void ApplyForce(Vector2 force)
     {
         if (rb != null)
@@ -37,3 +36,4 @@ public class Projectile : MonoBehaviour
         }
     }
 }
+

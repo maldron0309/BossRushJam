@@ -1,27 +1,50 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+class PlayerHealth : MonoBehaviour, IHealable
 {
-    public float maxHealth = 100f;
-    private float currentHealth;
-    private HealthUI healthUI;
+    [SerializeField] float maxHealth = 100f;
+    [SerializeField] EstusFlask estusFlask;
+    [SerializeField] float estusFlaskHealAmount = 50f;
+
+    float currentHealth;
 
     void Start()
     {
         currentHealth = maxHealth;
-        healthUI = FindObjectOfType<HealthUI>();
-        healthUI.SetMaxHealth(maxHealth);
     }
 
-    public void TakeDamage(float damage)
+    void Update()
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            currentHealth = 0;
-            Debug.Log("Player is dead!");
+            UseEstusFlask();
         }
+    }
 
-        healthUI.SetHealth(currentHealth);
+    void UseEstusFlask()
+    {
+        estusFlask.UseFlask(this, estusFlaskHealAmount);
+    }
+
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        Debug.Log($"Healed! Current Health: {currentHealth}");
+    }
+
+    public void IncreaseEstusFlask(int amount)
+    {
+        estusFlask.IncreaseFlask(amount);
+        Debug.Log($"Increased Estus Flasks by {amount}");
+    }
+
+    public void IncreaseEstusFlaskHeal(float amount)
+    {
+        estusFlaskHealAmount += amount;
+        Debug.Log($"Increased Estus Flask Heal Amount by {amount}");
     }
 }
