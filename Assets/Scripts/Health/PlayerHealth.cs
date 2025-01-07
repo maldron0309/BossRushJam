@@ -1,12 +1,18 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-class PlayerHealth : MonoBehaviour, IHealable
+public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 100f;
-    [SerializeField] EstusFlask estusFlask;
-    [SerializeField] float estusFlaskHealAmount = 50f;
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private int potionCount = 3;
+    [SerializeField] private int maxPotions = 5; 
+    [SerializeField] private int healAmount = 20; 
 
-    float currentHealth;
+    [SerializeField] TextMeshProUGUI potionCountText; 
+
+    private bool potionSystemActive = false; 
 
     void Start()
     {
@@ -15,36 +21,57 @@ class PlayerHealth : MonoBehaviour, IHealable
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (potionSystemActive && Input.GetKeyDown(KeyCode.R) && potionCount > 0 && currentHealth < maxHealth)
         {
-            UseEstusFlask();
+            UsePotion();
+            Debug.Log("Upd");
         }
     }
 
-    void UseEstusFlask()
+    public void ActivatePotionSystem()
     {
-        estusFlask.UseFlask(this, estusFlaskHealAmount);
+        potionSystemActive = true;
+        UpdatePotionUI();
     }
 
-    public void Heal(float amount)
+    public void AddPotion()
     {
-        currentHealth += amount;
-        if (currentHealth > maxHealth)
+        if (potionCount < maxPotions)
         {
-            currentHealth = maxHealth;
+            potionCount++;
+            UpdatePotionUI();
         }
-        Debug.Log($"Healed! Current Health: {currentHealth}");
     }
 
-    public void IncreaseEstusFlask(int amount)
+    public void TakeDamage(int damage)
     {
-        estusFlask.IncreaseFlask(amount);
-        Debug.Log($"Increased Estus Flasks by {amount}");
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); 
+
+        FindObjectOfType<HealthUI>().SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
-    public void IncreaseEstusFlaskHeal(float amount)
+    void UsePotion()
     {
-        estusFlaskHealAmount += amount;
-        Debug.Log($"Increased Estus Flask Heal Amount by {amount}");
+        currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
+        potionCount--;
+        UpdatePotionUI();
+
+        FindObjectOfType<HealthUI>().SetHealth(currentHealth);
+    }
+
+    void UpdatePotionUI()
+    {
+        potionCountText.text = $"x{potionCount}";
+    }
+
+    void Die()
+    {
+        Debug.Log("Player Died!");
     }
 }

@@ -24,7 +24,7 @@ public class Obstacle : MonoBehaviour
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                StopCoroutine(DealDamage(playerHealth));
+                StopAllCoroutines();
             }
         }
     }
@@ -33,7 +33,8 @@ public class Obstacle : MonoBehaviour
     {
         while (true)
         {
-            playerHealth.TakeDamage(damagePerSecond * Time.deltaTime);
+            int damage = Mathf.RoundToInt(damagePerSecond * Time.deltaTime); 
+            playerHealth.TakeDamage(damage);
             yield return null;
         }
     }
