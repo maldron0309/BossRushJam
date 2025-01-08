@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float maxJumpHeight = 4f;
     public float jumpBufferTime = 0.2f;
     public float coyoteTime = 0.2f;
+    public bool wallJumpEnabled = false;
     public float wallJumpForce = 7f;
     public float wallJumpUpwardForce = 10f;
     public float wallSnapDistance = 0.5f;
@@ -176,8 +177,8 @@ public class PlayerController : MonoBehaviour
             isWallSliding = false;
             isWallStickAllowed = true;
         }
-        else if ((isTouchingWallLeft && moveInput.x < 0 && isWallStickAllowed) ||
-                 (isTouchingWallRight && moveInput.x > 0 && isWallStickAllowed))
+        else if ((wallJumpEnabled && isTouchingWallLeft && moveInput.x < 0 && isWallStickAllowed) ||
+                 (wallJumpEnabled && isTouchingWallRight && moveInput.x > 0 && isWallStickAllowed))
         {
             isWallSliding = true;
         }

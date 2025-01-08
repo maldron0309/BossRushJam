@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -13,15 +11,22 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Logic for hitting enemies
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Boss"))
         {
-            // Deal damage to the enemy (you'll need an enemy health script)
-            Debug.Log($"Hit enemy for {damage} damage!");
-        }
+            BossHealth bossHealth = collision.gameObject.GetComponent<BossHealth>();
+            if (bossHealth != null)
+            {
+                bossHealth.TakeDamage(damage);
+                Debug.Log($"Hit boss for {damage} damage!");
+            }
 
-        // Destroy the projectile
-        Destroy(gameObject);
+            // Destroy the projectile
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     public void ApplyForce(Vector2 force)
     {
