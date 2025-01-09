@@ -11,6 +11,7 @@ public class MultiShooter : BaseAttack
     public float projectileSpeed = 10f;
     public float angleStep = 7.5f;
     public int numProjectiles = 5;
+    public int damage = 4;
 
     private float nextAttackCounter;
     private bool isAttackBuffered;
@@ -50,6 +51,7 @@ public class MultiShooter : BaseAttack
                 Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
                 projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
                 projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
+                projectile.GetComponent<Projectile>().damage = damage;
             }
             nextAttackCounter = attackCooldown;
 

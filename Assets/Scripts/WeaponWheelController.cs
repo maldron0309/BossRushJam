@@ -52,8 +52,8 @@ public class WeaponWheelController : MonoBehaviour
             gameObject.transform.Rotate(0f, 0f, -(targetDeg+startingDeg)/20);
             yield return new WaitForSeconds(0.01f);
         }
-        Debug.Log(targetDeg);
-        Debug.Log(startingDeg);
+        //Debug.Log(targetDeg);
+        //Debug.Log(startingDeg);
 
     }
 }

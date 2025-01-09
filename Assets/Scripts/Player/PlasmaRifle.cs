@@ -84,7 +84,6 @@ public class PlasmaRifle : BaseAttack
     {
         if (nextAttackCounter <= 0)
         {
-            Debug.Log("Attack action called!");
             FireProjectile(regularProjectilePrefab);
         }
         else

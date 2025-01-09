@@ -15,7 +15,9 @@ public class WeaponsInventory : MonoBehaviour
     }
     void Start()
     {
-
+        PlayerController player = FindAnyObjectByType<PlayerController>();
+        if(player)
+            GiveWeapon(player);
     }
     public void GiveNextWeapon(PlayerController player)
     {
