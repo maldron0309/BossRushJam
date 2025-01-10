@@ -22,6 +22,11 @@ public class WeaponSelectController : MonoBehaviour
         filled = new bool[8];
         currentslot = 0;
         Time.timeScale = 0f;
+        for (int i = 0; i < filled.Length; i++)
+        {
+            filled[i] = true;
+        }
+        updateWheel();
     }
 
     // Update is called once per frame
