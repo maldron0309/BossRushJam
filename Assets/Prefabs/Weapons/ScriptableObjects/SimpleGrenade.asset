@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3f36acd6707fa438bad3a0190f69f6, type: 3}
   m_Name: SimpleGrenade
   m_EditorClassIdentifier: 
-  weaponName: SlowHeal
+  weaponName: Grenade
   weaponDescription: Throw grenade in angle
   weaponPrefab: {fileID: 7858170756528366886, guid: 1e509572cd18ce3488897fe364648989, type: 3}
   weaponImage: {fileID: 21300000, guid: 20e67e1de2675f0479fe552b78156b80, type: 3}
