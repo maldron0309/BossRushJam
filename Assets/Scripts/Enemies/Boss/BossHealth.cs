@@ -3,6 +3,7 @@ using UnityEngine;
 public class BossHealth : MonoBehaviour
 {
     [SerializeField] float maxHealth = 500f;
+    [SerializeField] private GameObject door;
     float currentHealth;
     BossHealthUI bossHealthUI;
 
@@ -24,6 +25,10 @@ public class BossHealth : MonoBehaviour
         {
             currentHealth = 0;
             Debug.Log("Boss is dead!");
+
+            ActivateDoor();
+            Destroy(gameObject);
+            
         }
 
         bossHealthUI.SetHealth(currentHealth);
@@ -31,5 +36,14 @@ public class BossHealth : MonoBehaviour
     public float PercentageHealth()
     {
         return currentHealth / maxHealth;
+    }
+
+    private void ActivateDoor()
+    {
+        if (door != null)
+        {
+            door.SetActive(true);
+            Debug.Log("Door is active");
+        }
     }
 }
