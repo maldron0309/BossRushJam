@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    public delegate void PlayerAttacAction(PlayerController player);
+
+    public event PlayerAttacAction OnPlayerAttack;
     [Header("Movement")]
     public float moveSpeed = 5f;
     public Animator anim;
@@ -127,8 +131,11 @@ public class PlayerController : MonoBehaviour
     {
         if (isPressed)
         {
-            if(weapon)
+            if (weapon)
+            {
                 weapon.Fire();
+                OnPlayerAttack?.Invoke(this);
+            }
         }
         else if (!isPressed)
         {
@@ -186,6 +193,10 @@ public class PlayerController : MonoBehaviour
         {
             isWallSliding = false;
         }
+    }
+    public bool IsGrounded()
+    {
+        return isGrounded;
     }
 
     private void UpdateCoyoteAndJumpBuffer()
