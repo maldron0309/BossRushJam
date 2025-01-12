@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
+    [SerializeField] private BaseBossController bossController;
     private float currentHealth;
     private HealthUI healthUI;
     private Vector3 initialPosition;
@@ -43,6 +44,10 @@ public class PlayerHealth : MonoBehaviour
 
         transform.position = initialPosition;
 
-        Debug.Log("Player has respawned");
+        if (bossController != null)
+        {
+            bossController.StopAllCoroutines();
+            bossController.ResetBoss();
+        }
     }
 }

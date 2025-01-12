@@ -3726,6 +3726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  bossController: {fileID: 0}
 --- !u!114 &1465114531 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7226776785713105089, guid: 1801de48c4519d24dad2a6c84494371e, type: 3}
@@ -5144,6 +5145,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6672855341750763990, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 695145419}
     - target: {fileID: 7361401758336444120, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.58

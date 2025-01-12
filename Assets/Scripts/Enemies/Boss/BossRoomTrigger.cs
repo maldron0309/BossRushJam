@@ -9,7 +9,6 @@ class BossRoomTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player entered the boss room");
             boss.GetComponent<BaseBossController>().StartBossBattle();
             bossUI.SetActive(true);
 

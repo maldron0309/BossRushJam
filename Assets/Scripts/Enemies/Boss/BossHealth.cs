@@ -3,13 +3,15 @@ using UnityEngine;
 public class BossHealth : MonoBehaviour
 {
     [SerializeField] float maxHealth = 500f;
-    [SerializeField] private GameObject door;
     float currentHealth;
     BossHealthUI bossHealthUI;
+    
+    private BaseBossController bossController;
 
     void Start()
     {
         currentHealth = maxHealth;
+        bossController = GetComponent<BaseBossController>();
     }
 
     public void Initialize(BossHealthUI ui)
@@ -24,9 +26,8 @@ public class BossHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            Debug.Log("Boss is dead!");
 
-            ActivateDoor();
+            bossController.ActivateDoor();
             Destroy(gameObject);
             
         }
@@ -38,12 +39,9 @@ public class BossHealth : MonoBehaviour
         return currentHealth / maxHealth;
     }
 
-    private void ActivateDoor()
+    public void ResetHealth()
     {
-        if (door != null)
-        {
-            door.SetActive(true);
-            Debug.Log("Door is active");
-        }
+        currentHealth = maxHealth;
     }
+    
 }
