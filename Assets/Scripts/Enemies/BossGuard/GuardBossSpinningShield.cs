@@ -6,13 +6,14 @@ public class GuardBossSpinningShield : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 30.0f;
     public GameObject[] orbs;
-    public int activeOrbs;
+    public List<GameObject> ShieldsLevel1;
+    public List<GameObject> ShieldsLevel2;
+    public List<GameObject> ShieldsLevel3;
+    public int activeStage = 0;
     void Start()
     {
 
     }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
@@ -23,6 +24,31 @@ public class GuardBossSpinningShield : MonoBehaviour
         {
             orbs[i].SetActive(true);
         }
-        activeOrbs = count;
+        activeStage = count;
+    }
+    public void EnterStage(int idx)
+    {
+        activeStage = idx;
+        if (idx == 1)
+        {
+            foreach (var orb in orbs)
+            {
+                orb.gameObject.SetActive(ShieldsLevel1.Contains(orb));
+            }
+        }
+        else if (idx == 2)
+        {
+            foreach (var orb in orbs)
+            {
+                orb.gameObject.SetActive(ShieldsLevel2.Contains(orb));
+            }
+        }
+        else if(idx == 3)
+        {
+            foreach (var orb in orbs)
+            {
+                orb.gameObject.SetActive(ShieldsLevel3.Contains(orb));
+            }
+        }
     }
 }

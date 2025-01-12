@@ -20,6 +20,7 @@ public class BossRedGirlController : BaseBossController
     private bool hadMoved = false;
     private bool isGrounded;
     private float nextActionCounter;
+    private int rage = 0;
 
     private Rigidbody2D rb;
     private void Awake()
@@ -56,6 +57,35 @@ public class BossRedGirlController : BaseBossController
         {
             MakeRandomMove();
         }
+
+        if (rage == 0 && health.PercentageHealth() < 0.75f)
+        {
+            rage = 1;
+            airDash.numberOfAattacks = 5;
+            runAndJump.moveSpeed = 12;
+        }
+        if (rage == 1 && health.PercentageHealth() < 0.50f)
+        {
+            rage = 2;
+            jumpAttack.airBounces = 4;
+            airDash.numberOfAattacks = 6;
+        }
+        if (rage == 2 && health.PercentageHealth() < 0.25f)
+        {
+            rage = 3;
+            jumpAttack.airBounces = 5;
+            airDash.numberOfAattacks = 7;
+            runAndJump.moveSpeed = 15;
+        }
+        if (rage == 3 && health.PercentageHealth() < 0.15f)
+        {
+            rage = 4;
+            jumpAttack.airBounces = 6;
+            airDash.numberOfAattacks = 8;
+            runAndJump.moveSpeed = 18;
+        }
+        if (health.PercentageHealth() == 0)
+            isBattleStarted = false;
     }
     public void MakeRandomMove()
     {

@@ -9,6 +9,7 @@ public class RedGirlAirDash : MonoBehaviour
 
     public float dashSpeed = 15f;
     public float dashDuration = 0.2f;
+    public int numberOfAattacks;
     private bool isDashing = false;
     private bool canDash = true;
     private float dashTimer = 0f;
@@ -72,11 +73,11 @@ public class RedGirlAirDash : MonoBehaviour
 
         Rigidbody2D bullet;
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < numberOfAattacks; i++)
         {
             bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
             bullet.velocity = new(0, -dashSpeed);
-            yield return new WaitForSeconds(dashDuration / 5);
+            yield return new WaitForSeconds(dashDuration / numberOfAattacks);
         }
 
         rb.gravityScale = originalGravity; // Restore gravity
