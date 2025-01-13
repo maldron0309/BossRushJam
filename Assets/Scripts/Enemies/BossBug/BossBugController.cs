@@ -12,6 +12,7 @@ public class BossBugController : BaseBossController
     private float nextActionCounter;
 
     public BugJumpAttack jumpAttack;
+    public ThrowAcid acidAttack;
     
     private Rigidbody2D rb;
     private void Awake()
@@ -46,9 +47,22 @@ public class BossBugController : BaseBossController
         
         int randomNumber = Random.Range(0, 100);
         {
-            StartCoroutine(jumpAttack.BeginAttack());
+            if(randomNumber <= 30)
+            {
+                acidAttack.BeginAttack();
+                nextActionCounter = 3;
+            }
+            if (randomNumber > 30)
+            {
+                StartCoroutine(jumpAttack.BeginAttack());
+                nextActionCounter = 5;
+            }
 
-            nextActionCounter = timeBetweenActions;
+
+            //StartCoroutine(jumpAttack.BeginAttack());
+
+
+            //nextActionCounter = timeBetweenActions;
         }
     }
     public void Jump()

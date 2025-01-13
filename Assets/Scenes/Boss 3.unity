@@ -1205,6 +1205,7 @@ GameObject:
   - component: {fileID: 583877009}
   - component: {fileID: 583877014}
   - component: {fileID: 583877015}
+  - component: {fileID: 583877016}
   m_Layer: 10
   m_Name: BossBug
   m_TagString: Boss
@@ -1379,10 +1380,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   isBattleStarted: 0
-  timeBetweenActions: 10
+  model: {fileID: 0}
+  timeBetweenActions: 2
   health: {fileID: 583877011}
   jumpForce: 50
   jumpAttack: {fileID: 583877015}
+  acidAttack: {fileID: 583877016}
 --- !u!114 &583877015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,11 +1398,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e9ff391acc85d479029b98d5a1d566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 7500
+  jumpForce: 4500
   minX: 41
   maxX: 61
   Ypos: -3
+  Player: {fileID: 0}
   DangerArea: {fileID: 5327946437497395094, guid: 9548cf2429d4e244387f9c27219e79c3, type: 3}
+--- !u!114 &583877016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583877008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae83b396ede9a4f4497008280f46502b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acidProjectile: {fileID: 4557689850580796286, guid: f795345233cd2294780ac5399a5bdd47, type: 3}
+  minForce: -1000
+  maxForce: -200
+  upwardsForce: 1500
 --- !u!1 &673933651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,6 +1587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 583877008}
   bossUI: {fileID: 1347406485}
+  doorObject: {fileID: 0}
 --- !u!1 &689071452
 GameObject:
   m_ObjectHideFlags: 0
