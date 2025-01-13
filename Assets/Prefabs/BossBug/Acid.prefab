@@ -163,4 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   damageDelay: 1
-  lifetime: 20
+  lifetime: 15
