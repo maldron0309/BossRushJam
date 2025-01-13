@@ -4,18 +4,14 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
-    [SerializeField] private BaseBossController bossController;
     private float currentHealth;
     private HealthUI healthUI;
-    private Vector3 initialPosition;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthUI = FindObjectOfType<HealthUI>();
         healthUI.SetMaxHealth(maxHealth);
-
-        initialPosition = transform.position;
     }
 
     public void TakeDamage(float damage)
@@ -39,15 +35,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Respawn()
     {
-        currentHealth = maxHealth;
-        healthUI.SetHealth(currentHealth);
-
-        transform.position = initialPosition;
-
-        if (bossController != null)
-        {
-            bossController.StopAllCoroutines();
-            bossController.ResetBoss();
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 }

@@ -5,7 +5,6 @@ public class BossHealth : MonoBehaviour
     [SerializeField] float maxHealth = 500f;
     float currentHealth;
     BossHealthUI bossHealthUI;
-    
     private BaseBossController bossController;
 
     void Start()
@@ -29,19 +28,13 @@ public class BossHealth : MonoBehaviour
 
             bossController.ActivateDoor();
             Destroy(gameObject);
-            
         }
 
         bossHealthUI.SetHealth(currentHealth);
     }
+
     public float PercentageHealth()
     {
         return currentHealth / maxHealth;
     }
-
-    public void ResetHealth()
-    {
-        currentHealth = maxHealth;
-    }
-    
 }
