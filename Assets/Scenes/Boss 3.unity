@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acidProjectile: {fileID: 4557689850580796286, guid: f795345233cd2294780ac5399a5bdd47, type: 3}
   minForce: -1000
-  maxForce: -200
+  maxForce: 200
   upwardsForce: 1500
 --- !u!1 &673933651
 GameObject:

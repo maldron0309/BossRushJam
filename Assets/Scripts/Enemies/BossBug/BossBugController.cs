@@ -47,12 +47,12 @@ public class BossBugController : BaseBossController
         
         int randomNumber = Random.Range(0, 100);
         {
-            if(randomNumber <= 30)
+            if(randomNumber <= 70)
             {
                 acidAttack.BeginAttack();
                 nextActionCounter = 3;
             }
-            if (randomNumber > 30)
+            if (randomNumber > 70)
             {
                 StartCoroutine(jumpAttack.BeginAttack());
                 nextActionCounter = 5;
