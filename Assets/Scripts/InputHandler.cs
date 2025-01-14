@@ -46,5 +46,10 @@ public class InputHandler : MonoBehaviour
         {
             playerController.OnAttack1(false); // Charging attack
         }
+        // Handle attack input
+        if (Input.GetButtonDown("Dash"))
+        {
+            playerController.PerformDodge(); // Regular attack
+        }
     }
 }

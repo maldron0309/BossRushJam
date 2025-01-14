@@ -32,11 +32,23 @@ public class BossBullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
+            if (playerHealth != null && !playerHealth.isInvincible)
             {
                 playerHealth.TakeDamage(damage);
+                Destroy(gameObject);
             }
-            Destroy(gameObject); 
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+            if (playerHealth != null && !playerHealth.isInvincible)
+            {
+                playerHealth.TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
     }
 }
