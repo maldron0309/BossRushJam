@@ -5,7 +5,7 @@ public class BossBullet : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float lifeTime = 5f; 
     [SerializeField] private float damage = 10f; 
-    [SerializeField] private bool isLocking = true; 
+    [SerializeField] public bool isLocking = true; 
 
     private Transform player;
     private Rigidbody2D rb;
@@ -31,7 +31,6 @@ public class BossBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Bullet hit the player!"); 
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {

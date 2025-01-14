@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossGuardController : BaseBossController
 {
     [SerializeField] float timeBetweenActions;
-    public GuardBossMultiShot multishot3;
+    public GuardBossYellowGun multishot3;
     public GuardBossMultiShot multishot5;
     public GuardSpecialAttack specialAttack;
     public BossHealth health;
@@ -13,6 +13,7 @@ public class BossGuardController : BaseBossController
     public float jumpForce = 50;
     private int normalAttacksPerformed = 0;
     private float nextActionCounter;
+    public bool isPerformingAction = false;
 
     // count repeates of same attack. used to restain long repeats
     private int rapidStrikes = 0;
@@ -41,17 +42,17 @@ public class BossGuardController : BaseBossController
             MakeRandomMove();
         }
 
-        if(shields.activeOrbs < 2 && health.PercentageHealth() < 0.66f)
+        if(shields.activeStage == 0  && health.PercentageHealth() < 0.75f)
         {
-            shields.EnableOrbs(2);
+            shields.EnterStage(1);
         }
-        if (shields.activeOrbs < 5 && health.PercentageHealth() < 0.33f)
+        if (shields.activeStage == 1 && health.PercentageHealth() < 0.50f)
         {
-            shields.EnableOrbs(5);
+            shields.EnterStage(2);
         }
-        if (shields.activeOrbs < 7 && health.PercentageHealth() < 0.15f)
+        if (shields.activeStage == 2 && health.PercentageHealth() < 0.15f)
         {
-            shields.EnableOrbs(7);
+            shields.EnterStage(3);
         }
         if (health.PercentageHealth() == 0)
             isBattleStarted = false;
@@ -83,8 +84,8 @@ public class BossGuardController : BaseBossController
                 slowStrikes++;
                 rapidStrikes = 0;
 
-                if (randomNumber % 2 == 0)
-                    Jump();
+                //if (randomNumber % 2 == 0)
+                //    Jump();
             }
             nextActionCounter = timeBetweenActions;
         }

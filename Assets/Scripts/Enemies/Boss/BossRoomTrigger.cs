@@ -4,6 +4,7 @@ class BossRoomTrigger : MonoBehaviour
 {
     [SerializeField] GameObject boss;
     [SerializeField] GameObject bossUI;
+    [SerializeField] GameObject doorObject;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,6 +19,8 @@ class BossRoomTrigger : MonoBehaviour
             {
                 bossHealth.Initialize(bossHealthUI);
             }
+            if (doorObject)
+                doorObject.SetActive(true);
 
             Destroy(gameObject);
         }

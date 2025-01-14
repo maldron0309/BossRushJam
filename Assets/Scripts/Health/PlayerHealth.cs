@@ -6,12 +6,15 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
     private HealthUI healthUI;
+    private Vector3 initialPosition;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthUI = FindObjectOfType<HealthUI>();
         healthUI.SetMaxHealth(maxHealth);
+
+        initialPosition = transform.position;
     }
 
     public void TakeDamage(float damage)
@@ -36,5 +39,11 @@ public class PlayerHealth : MonoBehaviour
     void Respawn()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        currentHealth = maxHealth;
+        healthUI.SetHealth(currentHealth);
+
+        transform.position = initialPosition;
+
+        Debug.Log("Player has respawned");
     }
 }
