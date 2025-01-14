@@ -38,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Respawn()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         currentHealth = maxHealth;
         healthUI.SetHealth(currentHealth);
 

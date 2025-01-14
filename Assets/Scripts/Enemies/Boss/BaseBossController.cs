@@ -1,25 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseBossController : MonoBehaviour
 {
     public bool facingRight = true;
     public bool isBattleStarted = false;
+    [SerializeField] private GameObject door;
     public GameObject model;
     void Start()
     {
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void StartBossBattle()
     {
         isBattleStarted = true;
     }
+    
+    public void ActivateDoor()
+    {
+        if (door != null)
+        {
+            door.SetActive(true);
+        }
+    }
+}
     public bool FacinRight()
     {
         return facingRight;

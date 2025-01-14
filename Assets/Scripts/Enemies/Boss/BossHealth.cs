@@ -6,10 +6,12 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private GameObject door;
     float currentHealth;
     BossHealthUI bossHealthUI;
+    private BaseBossController bossController;
 
     void Start()
     {
         currentHealth = maxHealth;
+        bossController = GetComponent<BaseBossController>();
     }
 
     public void Initialize(BossHealthUI ui)
@@ -24,6 +26,9 @@ public class BossHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+
+            bossController.ActivateDoor();
+            Destroy(gameObject);
             Debug.Log("Boss is dead!");
 
             ActivateDoor();
@@ -33,6 +38,7 @@ public class BossHealth : MonoBehaviour
 
         bossHealthUI.SetHealth(currentHealth);
     }
+
     public float PercentageHealth()
     {
         return currentHealth / maxHealth;
