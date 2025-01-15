@@ -32,6 +32,8 @@ public class WeaponsInventory : MonoBehaviour
         GameObject newWeapon = Instantiate(weapons[currentIdx].weaponPrefab);
         newWeapon.transform.position = player.weaponPlacement.transform.position;
         newWeapon.transform.SetParent(player.weaponPlacement.transform);
+        if (!player.facingRight)
+            newWeapon.transform.localScale = new Vector3(-newWeapon.transform.localScale.x, newWeapon.transform.localScale.y, newWeapon.transform.localScale.z);
 
         player.weapon = newWeapon.GetComponent<BaseAttack>();
         Destroy(oldWeapon);

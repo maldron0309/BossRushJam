@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class WeaponSelectController : MonoBehaviour
 {
+    public static WeaponSelectController instance;
     int currentslot;
     WeaponSlot currentweapon;
     bool[] filled;
     public Image[] slots;
     public WeaponsInventory inv;
     public TMP_Text description;
-    public GameObject weaponbuttons;
+    public InventorySlotUI[] weaponbuttons;
     public WeaponWheelController weaponWheel;
     public PlayerController player;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         filled = new bool[8];
@@ -66,11 +71,13 @@ public class WeaponSelectController : MonoBehaviour
     }
     public void setWeapon(WeaponSlot weapon)
     {
-        if (currentweapon != null) { weaponbuttons.transform.Find(currentweapon.weaponName).GetComponent<Button>().interactable = true; }
+        if (currentweapon != null)
+            weaponbuttons.Where(x => x.weapon == currentweapon).FirstOrDefault().GetComponent<Button>().interactable = true; 
+
         currentweapon = weapon;
         description.text = weapon.weaponDescription;
         Debug.Log("Set active to slot " + weapon.weaponName);
-        weaponbuttons.transform.Find(weapon.weaponName).GetComponent<Button>().interactable = false;
+        //weaponbuttons.transform.Find(weapon.weaponName).GetComponent<Button>().interactable = false;
     }
 
     void updateWheel()

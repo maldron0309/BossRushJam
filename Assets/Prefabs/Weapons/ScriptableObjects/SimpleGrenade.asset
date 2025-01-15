@@ -15,4 +15,4 @@ MonoBehaviour:
   weaponName: Grenade
   weaponDescription: Throw grenade in angle
   weaponPrefab: {fileID: 7858170756528366886, guid: 1e509572cd18ce3488897fe364648989, type: 3}
-  weaponImage: {fileID: 21300000, guid: 20e67e1de2675f0479fe552b78156b80, type: 3}
+  weaponImage: {fileID: 21300000, guid: 6d5f152eb082b9444955d15482498a7d, type: 3}
