@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public Animator anim;
     //private AnimatorStateInfo stateInfo;
+    public bool isInputEnabled = true;
 
     [Header("Jumping")]
     public float minJumpHeight = 2f;
@@ -444,5 +445,15 @@ public class PlayerController : MonoBehaviour
         health.isInvincible = false;
         canDash = true;
         dashTimer = dashCooldown;
+    }
+    
+    public void DisableInput()
+    {
+        isInputEnabled = false;
+    }
+
+    public void EnableInput()
+    {
+        isInputEnabled = true;
     }
 }
