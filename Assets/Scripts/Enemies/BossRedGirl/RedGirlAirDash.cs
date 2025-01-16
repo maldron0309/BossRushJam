@@ -19,10 +19,12 @@ public class RedGirlAirDash : MonoBehaviour
     private bool isStarted = false;
     private Rigidbody2D rb;
     private BossRedGirlController boss;
+    private Animator anim;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         boss = GetComponent<BossRedGirlController>();
+        anim = boss.anim;
     }
     void Start()
     {
@@ -63,6 +65,7 @@ public class RedGirlAirDash : MonoBehaviour
     }
     private IEnumerator Dash()
     {
+        anim.Play("Dash");
         isDashing = true;
 
         float originalGravity = rb.gravityScale;
@@ -75,9 +78,10 @@ public class RedGirlAirDash : MonoBehaviour
 
         for (int i = 0; i < numberOfAattacks; i++)
         {
-            bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+            bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0,0,-90)).GetComponent<Rigidbody2D>();
             bullet.velocity = new(0, -dashSpeed);
             yield return new WaitForSeconds(dashDuration / numberOfAattacks);
+            anim.Play("DashAttack");
         }
 
         rb.gravityScale = originalGravity; // Restore gravity

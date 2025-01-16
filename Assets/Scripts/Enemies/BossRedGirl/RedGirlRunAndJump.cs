@@ -13,7 +13,7 @@ public class RedGirlRunAndJump : MonoBehaviour
     private bool isFInishing = false;
     private Transform targetPost;
 
-    private bool isStarted = false;
+    public bool isStarted = false;
     private Rigidbody2D rb;
     private BossRedGirlController boss;
     private int movedir;
@@ -23,8 +23,19 @@ public class RedGirlRunAndJump : MonoBehaviour
         boss = GetComponent<BossRedGirlController>();
         FindAnyObjectByType<PlayerController>().OnPlayerAttack += JumpOver;
     }
-
-    // Update is called once per frame
+    private void Update()
+    {
+        if (!isStarted)
+            return;
+        if (boss.IsGrounded())
+        {
+            boss.anim.Play("Move");
+        }
+        else
+        {
+            boss.anim.Play("Jump");
+        }
+    }
     void FixedUpdate()
     {
         if (!isStarted)
@@ -49,7 +60,7 @@ public class RedGirlRunAndJump : MonoBehaviour
     }
     public void JumpOver(PlayerController player)
     {
-        if (player.IsGrounded() && boss.IsGrounded())
+        if (player.IsGrounded() && boss.IsGrounded() && isStarted)
         {
             Jump(bigJump);
         }
