@@ -16429,6 +16429,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1938344324534029602, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: facingRight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2417299555140087058, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
       propertyPath: fallHeight
       value: 
@@ -16436,6 +16440,38 @@ PrefabInstance:
     - target: {fileID: 3336579435353331997, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
       propertyPath: m_Name
       value: RedGirl
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797035683750802971, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: bigJump
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797035683750802971, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797035683750802971, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: targetPost
+      value: 
+      objectReference: {fileID: 1482958278}
+    - target: {fileID: 3797035683750802971, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7092856427572795367, guid: 36fa2b226dbad314186f3c2c2539fb0a, type: 3}
+    - target: {fileID: 3797035683750802971, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: idleSpinTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797035683750802971, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: numberOfJumps
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797035683750802971, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: maxTimeBetweenAttacks
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797035683750802971, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: minTimeBetweenAttacks
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4966487034186063207, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16536,7 +16572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7226776785713105089, guid: 1801de48c4519d24dad2a6c84494371e, type: 3}
       propertyPath: dashCooldown
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8330592193596990902, guid: 1801de48c4519d24dad2a6c84494371e, type: 3}
       propertyPath: m_Name
@@ -16744,7 +16780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000015825894
+      value: 0.000002787905
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y
