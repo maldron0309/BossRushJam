@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private Credits credits;
+    [SerializeField] private Settings settings;
     public void Play()
     {
         SceneManager.LoadScene("Boss 1");
@@ -12,12 +14,12 @@ public class MenuManager : MonoBehaviour
 
     public void Setting()
     {
-        SceneManager.LoadScene("Setting");
+        settings.OpenSettings();
     }
 
     public void Credit()
     {
-        SceneManager.LoadScene("Credits");
+        credits.OpenCredits();
     }
     
     public void QuitGame()
