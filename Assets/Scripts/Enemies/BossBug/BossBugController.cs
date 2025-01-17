@@ -13,6 +13,7 @@ public class BossBugController : BaseBossController
 
     public BugJumpAttack jumpAttack;
     public ThrowAcid acidAttack;
+    public SprayAttack sprayAttack;
     public BugJumpMovement movement;
     
     private Rigidbody2D rb;
@@ -54,16 +55,22 @@ public class BossBugController : BaseBossController
         }
         int randomNumber = Random.Range(0, 100);
         {
-            if(randomNumber <= 70)
+            if(randomNumber <= 20)
+            {
+                StartCoroutine(DisableMovement(4.5f));
+                StartCoroutine(sprayAttack.BeginAttack());
+                nextActionCounter = 6f;
+            }
+            else if(randomNumber <= 80)
             {
                 //StartCoroutine(DisableMovement(0.1f));
                 acidAttack.BeginAttack();
-                nextActionCounter = 3;
+                nextActionCounter = 2;
                 
             }
-            if (randomNumber > 70)
+            else if (randomNumber > 80)
             {
-                StartCoroutine(DisableMovement(4f));
+                StartCoroutine(DisableMovement(3.5f));
                 StartCoroutine(delayedJumpAttack());
                 nextActionCounter = 5f;
                 
