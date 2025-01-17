@@ -3,10 +3,14 @@ using UnityEngine;
 public class BackgroundMusicManager : MonoBehaviour
 {
     public static BackgroundMusicManager Instance;
-    public AudioClip backgroundTrack;
+    public AudioClip boss1Trak;
+    public AudioClip boss2Trak;
+    public AudioClip boss3Trak;
+    public AudioClip boss4Trak;
+    public AudioClip boss5Trak;
+    public AudioClip boss6Trak;
     public AudioClip menuTrack;
     public AudioClip endingTrack1;
-    public AudioClip endingTrack2;
     private AudioSource audioSource;
     public GameSettings gameSettings;
 
@@ -29,16 +33,12 @@ public class BackgroundMusicManager : MonoBehaviour
 
     void Start()
     {
-        audioSource.volume = 0.25f;// gameSettings.musicVolume;
-        //PlayBackgroundTrack();
+        audioSource.volume = 0.25f;
     }
 
     void Update()
     {
-        //if (!audioSource.isPlaying)
-        //{
-        //    PlayBackgroundTrack();
-        //}
+
     }
     public void UpdateMusicVolume(float volume)
     {
@@ -47,12 +47,6 @@ public class BackgroundMusicManager : MonoBehaviour
     public float GetVolume()
     {
         return audioSource.volume;
-    }
-
-    public void PlayBackgroundTrack()
-    {
-        audioSource.clip = backgroundTrack;
-        audioSource.Play();
     }
     public void PlayMenuTrack()
     {
@@ -64,9 +58,21 @@ public class BackgroundMusicManager : MonoBehaviour
         audioSource.clip = endingTrack1;
         audioSource.Play();
     }
-    public void PlayEndingTrack2()
+    public void PlayBossMusic(int bossIdx)
     {
-        audioSource.clip = endingTrack2;
+        if(bossIdx == 1)
+            audioSource.clip = boss1Trak;
+        else if (bossIdx == 2)
+            audioSource.clip = boss2Trak;
+        else if (bossIdx == 3)
+            audioSource.clip = boss3Trak;
+        else if (bossIdx == 4)
+            audioSource.clip = boss4Trak;
+        else if (bossIdx == 5)
+            audioSource.clip = boss5Trak;
+        else if (bossIdx == 6)
+            audioSource.clip = boss6Trak;
+
         audioSource.Play();
     }
     public void StopBGM()

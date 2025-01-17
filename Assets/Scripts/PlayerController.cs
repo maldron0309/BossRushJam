@@ -440,6 +440,8 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
         anim.Play("Idle");
+        // fix weapon placement if wepaon switch happened mid roll
+        GetComponentInChildren<BaseAttack>().gameObject.transform.rotation = Quaternion.identity;
 
         isDashing = false;
         health.isInvincible = false;
