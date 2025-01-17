@@ -104,6 +104,6 @@ MonoBehaviour:
   attackCooldown: 0.25
   chargeTime: 1
   projectileSpeed: 20
-  angleStep: 7.5
+  angleStep: 10
   numProjectiles: 5
   damage: 4

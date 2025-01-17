@@ -5,6 +5,7 @@ class BossRoomTrigger : MonoBehaviour
     [SerializeField] GameObject boss;
     [SerializeField] GameObject bossUI;
     [SerializeField] GameObject doorObject;
+    [SerializeField] int bossNumber;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,6 +23,8 @@ class BossRoomTrigger : MonoBehaviour
             }
             if (doorObject)
                 doorObject.SetActive(true);
+
+            BackgroundMusicManager.Instance.PlayBossMusic(bossNumber);
 
             Destroy(gameObject);
         }
