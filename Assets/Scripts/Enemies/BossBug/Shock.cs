@@ -42,8 +42,10 @@ public class Shock : MonoBehaviour
     IEnumerator stun(float time)
     {
         player.enabled = false;
+        player.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
         player.enabled = true; ;
+        player.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
 
     }
 }
