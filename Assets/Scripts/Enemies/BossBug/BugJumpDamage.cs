@@ -7,6 +7,8 @@ public class BugJumpDamage : MonoBehaviour
     GameObject player;
     public float damage;
 
+    [SerializeField] GameObject shockwave;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,11 @@ public class BugJumpDamage : MonoBehaviour
             {
                 player.GetComponent<PlayerHealth>().TakeDamage(damage);
             }
+
+            Instantiate(shockwave, transform.position, Quaternion.identity);
+            GameObject opp = Instantiate(shockwave, transform.position, Quaternion.identity);
+            opp.GetComponent<Shockwave>().speed *= -1;
+
             Destroy(gameObject); 
         }
         if (collision.gameObject.CompareTag("Player"))

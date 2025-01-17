@@ -47,9 +47,9 @@ public class BugJumpAttack : MonoBehaviour
         AttackSpot.transform.position = new Vector2(jumpPos, Ypos);
 
 
-        Debug.Log("JumpBackStart");
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(JumpBack());
+        //Debug.Log("JumpBackStart");
+        //yield return new WaitForSeconds(2f);
+        //StartCoroutine(JumpBack());
     }
 
     public IEnumerator JumpBack()
