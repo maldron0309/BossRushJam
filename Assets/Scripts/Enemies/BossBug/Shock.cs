@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shockwave : MonoBehaviour
+public class Shock : MonoBehaviour
 {
     
     public float stunTime = 5f;
@@ -30,7 +30,7 @@ public class Shockwave : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             player = collision.gameObject.GetComponent<PlayerController>();
-            StartCoroutine(stun(stunTime)); 
+            if (player.IsDashing() == false) { StartCoroutine(stun(stunTime)); }
         }
     }
 

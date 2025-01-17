@@ -446,6 +446,11 @@ public class PlayerController : MonoBehaviour
         canDash = true;
         dashTimer = dashCooldown;
     }
+
+    public bool IsDashing()
+    {
+        return isDashing;
+    }
     
     public void DisableInput()
     {

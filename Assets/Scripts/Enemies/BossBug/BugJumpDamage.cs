@@ -32,7 +32,7 @@ public class BugJumpDamage : MonoBehaviour
 
             Instantiate(shockwave, transform.position, Quaternion.identity);
             GameObject opp = Instantiate(shockwave, transform.position, Quaternion.identity);
-            opp.GetComponent<Shockwave>().speed *= -1;
+            opp.GetComponent<Shock>().speed *= -1;
 
             Destroy(gameObject); 
         }
