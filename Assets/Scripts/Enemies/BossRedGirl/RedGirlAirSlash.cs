@@ -15,10 +15,12 @@ public class RedGirlAirSlash : MonoBehaviour
     private bool isStarted = false;
     private Rigidbody2D rb;
     private BossRedGirlController boss;
+    private Animator anim;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         boss = GetComponent<BossRedGirlController>();
+        anim = boss.anim;
     }
     void Start()
     {
@@ -36,13 +38,13 @@ public class RedGirlAirSlash : MonoBehaviour
             Jump(airJump);
             airBounceCounter++;
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            anim.Play("SpinVertical");
         }
 
         if (boss.IsGrounded() && airBounceCounter == airBounces)
         {
             isStarted = false;
             boss.isPerformingAction = false;
-            Debug.Log("isPerformingAction = false");
         }
     }
     public void BeginAttack()
@@ -51,7 +53,6 @@ public class RedGirlAirSlash : MonoBehaviour
         airBounceCounter = 0;
         isStarted = true;
         boss.isPerformingAction = true;
-        Debug.Log("isPerformingAction = true");
     }
     public void Jump(float jumpForce)
     {

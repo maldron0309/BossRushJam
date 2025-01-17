@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public int damage = 10;
+    public GameObject hitEffect;
     private Rigidbody2D rb;
     private void Awake()
     {
@@ -19,12 +20,12 @@ public class Projectile : MonoBehaviour
                 bossHealth.TakeDamage(damage);
                 Debug.Log($"Hit boss for {damage} damage!");
             }
-
-            // Destroy the projectile
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else
         {
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

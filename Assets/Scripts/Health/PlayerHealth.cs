@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
+    public bool isInvincible = false;
     private float currentHealth;
     private HealthUI healthUI;
     private Vector3 initialPosition;
@@ -19,6 +20,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        // for dash and roll
+        if (isInvincible) 
+            return;
+
         currentHealth -= damage;
         healthUI.SetHealth(currentHealth);
 

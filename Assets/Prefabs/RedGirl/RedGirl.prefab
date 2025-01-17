@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 7003259762340996234}
   - component: {fileID: 2517843806499478584}
   - component: {fileID: 5820198666545609}
+  - component: {fileID: 3797035683750802971}
   m_Layer: 10
   m_Name: RedGirl
   m_TagString: Boss
@@ -147,15 +148,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f16b567045d8f4b84b04c86774102a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingRight: 0
+  facingRight: 1
   isBattleStarted: 0
   model: {fileID: 8975246490110525007}
-  timeBetweenActions: 1
+  timeBetweenActions: 0.5
   jumpAttack: {fileID: 2417299555140087058}
   SmallJump: {fileID: 7003259762340996234}
   airDash: {fileID: 2517843806499478584}
   runAndJump: {fileID: 5820198666545609}
+  tornadoAttack: {fileID: 3797035683750802971}
   health: {fileID: 3478296428786145581}
+  anim: {fileID: 4226884154247431549}
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
@@ -178,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 500
+  door: {fileID: 0}
 --- !u!114 &2417299555140087058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +252,24 @@ MonoBehaviour:
   post1: {fileID: 0}
   post2: {fileID: 0}
   moveSpeed: 12
+  isStarted: 0
+--- !u!114 &3797035683750802971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336579435353331997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1b3aa664fd3bc4c8981b7064e5acfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  isStarted: 0
+  targetPost: {fileID: 0}
+  idleSpinTime: 1
+  bigJump: 3500
 --- !u!1 &3583980124243370172
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2694447477708340100}
   - component: {fileID: 691459834839593460}
+  - component: {fileID: 4226884154247431549}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -413,3 +436,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4226884154247431549
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975246490110525007}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fdd9049ed3c87f54697a32a34c1bcd51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
