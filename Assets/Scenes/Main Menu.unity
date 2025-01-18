@@ -2613,10 +2613,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonPressSound: {fileID: 8300000, guid: 09517a8a7ace7a0499413e4a587d70c3, type: 3}
-  tickSound: {fileID: 0}
-  rainSound: {fileID: 0}
-  itemPickupSound: {fileID: 0}
-  gameSettings: {fileID: 11400000, guid: 8a23d22ad217f194cb8cfdc706e61fbe, type: 2}
+  tickSound: {fileID: 8300000, guid: 09517a8a7ace7a0499413e4a587d70c3, type: 3}
+  rainSound: {fileID: 8300000, guid: 09517a8a7ace7a0499413e4a587d70c3, type: 3}
+  itemPickupSound: {fileID: 8300000, guid: 09517a8a7ace7a0499413e4a587d70c3, type: 3}
+  gameSettings: {fileID: 11400000, guid: f5d1a33fcae7e404f9026f168eaa754a, type: 2}
 --- !u!114 &1613594377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2630,10 +2630,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundTrack: {fileID: 8300000, guid: 1c97b20080dd6ba4ea5ae4df2d9aba6c, type: 3}
-  menuTrack: {fileID: 0}
-  endingTrack1: {fileID: 0}
-  endingTrack2: {fileID: 0}
-  gameSettings: {fileID: 11400000, guid: 8a23d22ad217f194cb8cfdc706e61fbe, type: 2}
+  menuTrack: {fileID: 8300000, guid: 1c97b20080dd6ba4ea5ae4df2d9aba6c, type: 3}
+  endingTrack1: {fileID: 8300000, guid: 1c97b20080dd6ba4ea5ae4df2d9aba6c, type: 3}
+  endingTrack2: {fileID: 8300000, guid: 1c97b20080dd6ba4ea5ae4df2d9aba6c, type: 3}
+  gameSettings: {fileID: 11400000, guid: f5d1a33fcae7e404f9026f168eaa754a, type: 2}
 --- !u!1 &1615183575
 GameObject:
   m_ObjectHideFlags: 0
