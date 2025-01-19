@@ -99,5 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCharges: 10
   currentCharges: 0
+  canShoot: 1
   healInterval: 0.25
   effectPrefab: {fileID: 8538422803324167097, guid: 0cf5f98f0a0f89d45938894be31f40c7, type: 3}

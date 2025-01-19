@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCharges: 5
   currentCharges: 0
+  canShoot: 1
   regularProjectilePrefab: {fileID: 4517658556040149496, guid: c4d273afad1611846a9b1915cb45a5a3, type: 3}
   chargedProjectilePrefab: {fileID: 3331633532306334330, guid: d0b6fb2bdd1fa3546ab418f968fd34d7, type: 3}
   projectileSpawnPoint: {fileID: 6865130350340156775}
