@@ -10,11 +10,13 @@ public class GuardBossMultiShot : MonoBehaviour
     [SerializeField] float fireRate = 0.1f;
     [SerializeField] int bulletCount = 4;
     [SerializeField] bool aimAtPlayer = false;
+    [SerializeField] private Animator bossAnim;
     public BossGuardController boss;
     private float reloadCounter;
     private bool isExecuting;
     private int bulletsLeft;
     private Vector3 direction;
+    
 
     void Start()
     {
@@ -53,6 +55,7 @@ public class GuardBossMultiShot : MonoBehaviour
     }
     public void BeginSequence()
     {
+        bossAnim.SetTrigger("RedShoot");
         isExecuting = true;
         bulletsLeft = bulletCount;
         reloadCounter = 0;
