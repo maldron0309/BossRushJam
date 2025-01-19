@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IdleGuardBoss
+  m_Name: YellowBullet
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -883652326, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
+      value: {fileID: 814930447, guid: c208a9288827797428a0f2b7adb56c8f, type: 3}
     - time: 0.14285715
-      value: {fileID: 106473037, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
+      value: {fileID: 1614633390, guid: c208a9288827797428a0f2b7adb56c8f, type: 3}
     - time: 0.2857143
-      value: {fileID: -969605303, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
+      value: {fileID: -1951928896, guid: c208a9288827797428a0f2b7adb56c8f, type: 3}
     - time: 0.42857143
-      value: {fileID: 1799472159, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
+      value: {fileID: 1202557345, guid: c208a9288827797428a0f2b7adb56c8f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,10 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -883652326, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
-    - {fileID: 106473037, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
-    - {fileID: -969605303, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
-    - {fileID: 1799472159, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
+    - {fileID: 814930447, guid: c208a9288827797428a0f2b7adb56c8f, type: 3}
+    - {fileID: 1614633390, guid: c208a9288827797428a0f2b7adb56c8f, type: 3}
+    - {fileID: -1951928896, guid: c208a9288827797428a0f2b7adb56c8f, type: 3}
+    - {fileID: 1202557345, guid: c208a9288827797428a0f2b7adb56c8f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -64,7 +64,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

@@ -11,11 +11,13 @@ public class GuardBossYellowGun : MonoBehaviour
     [SerializeField] float fireRate = 0.1f;
     [SerializeField] int bulletCount = 4;
     [SerializeField] bool aimAtPlayer = false;
+    [SerializeField] Animator bossAnim;
     public BossGuardController boss;
     private float reloadCounter;
     private bool isExecuting;
     private int bulletsLeft;
     private Vector3 direction;
+    
 
     void Start()
     {
@@ -37,7 +39,8 @@ public class GuardBossYellowGun : MonoBehaviour
                 int height = 0;
                 if ( (bulletCount - bulletsLeft) % 2 == 1)
                     height = 1;
-                Shoot(height);
+                
+                //Shoot(height);
             }
         }
     }
@@ -74,6 +77,10 @@ public class GuardBossYellowGun : MonoBehaviour
             {
                 direction = (player.position - transform.position).normalized;
             }
+        }
+        if (bossAnim != null && isExecuting)
+        {
+            bossAnim.SetTrigger("YellowShoot");
         }
     }
 }

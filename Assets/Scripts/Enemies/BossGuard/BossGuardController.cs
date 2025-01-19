@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossGuardController : BaseBossController
 {
     [SerializeField] float timeBetweenActions;
+    [SerializeField] GuardBossShockWaveAttack shockWave;
     public GuardBossYellowGun multishot3;
     public GuardBossMultiShot multishot5;
     public GuardSpecialAttack specialAttack;
@@ -76,6 +77,10 @@ public class BossGuardController : BaseBossController
                 
                 if(randomNumber % 2 == 0)
                     Jump();
+            }
+            else if(randomNumber < 30)
+            {
+                shockWave.Step();
             }
             else
             {
