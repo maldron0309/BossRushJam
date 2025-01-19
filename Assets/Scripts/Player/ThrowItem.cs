@@ -22,7 +22,7 @@ public class ThrowItem : BaseAttack
     override public void Fire()
     {
         PlayerController player = GetComponentInParent<PlayerController>();
-        if (currentCharges > 0)
+        if (currentCharges > 0 && canShoot)
         {
             GameObject go = Instantiate(itemPrefab, transform.root.position, Quaternion.identity);
 

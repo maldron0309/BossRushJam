@@ -12,8 +12,12 @@ public class BossBugController : BaseBossController
     private float nextActionCounter;
 
     public BugJumpAttack jumpAttack;
+    public ThrowAcid acidAttack;
+    public SprayAttack sprayAttack;
+    public BugJumpMovement movement;
     
     private Rigidbody2D rb;
+    private bool jumpactivated;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +32,7 @@ public class BossBugController : BaseBossController
     void Update()
     {
         if (!isBattleStarted) return;
+        
 
         if (nextActionCounter > 0)
         {
@@ -43,16 +48,57 @@ public class BossBugController : BaseBossController
     }
     public void MakeRandomMove()
     {
-        
+        if (jumpactivated == false)
+        {
+            jumpactivated = true;
+            movement.enabled = true;
+        }
         int randomNumber = Random.Range(0, 100);
         {
-            StartCoroutine(jumpAttack.BeginAttack());
+            if(randomNumber <= 20)
+            {
+                StartCoroutine(DisableMovement(4.5f));
+                StartCoroutine(sprayAttack.BeginAttack());
+                nextActionCounter = 6f;
+            }
+            else if(randomNumber <= 80)
+            {
+                //StartCoroutine(DisableMovement(0.1f));
+                acidAttack.BeginAttack();
+                nextActionCounter = 2;
+                
+            }
+            else if (randomNumber > 80)
+            {
+                StartCoroutine(DisableMovement(3.5f));
+                StartCoroutine(delayedJumpAttack());
+                nextActionCounter = 5f;
+                
+            }
 
-            nextActionCounter = timeBetweenActions;
+
+            //StartCoroutine(jumpAttack.BeginAttack());
+
+
+            //nextActionCounter = timeBetweenActions;
         }
     }
     public void Jump()
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    public IEnumerator DisableMovement(float time)
+    {
+        movement.enabled = false;
+        yield return new WaitForSeconds(time);
+        movement.enabled = true;
+    }
+
+    IEnumerator delayedJumpAttack()
+    {
+        yield return new WaitForSeconds(0.75f);
+        rb.velocity = Vector2.zero;
+        StartCoroutine(jumpAttack.BeginAttack());
     }
 }

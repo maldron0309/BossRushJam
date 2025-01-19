@@ -6,6 +6,8 @@ public class BaseAttack : MonoBehaviour
 {
     public int maxCharges = 1;
     public int currentCharges;
+    public bool canShoot = true;
+
     void Start()
     {
         

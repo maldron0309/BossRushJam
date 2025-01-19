@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 5f;
     public Animator anim;
+    //private AnimatorStateInfo stateInfo;
+    public bool isInputEnabled = true;
 
     [Header("Jumping")]
     public float minJumpHeight = 2f;
@@ -22,6 +24,17 @@ public class PlayerController : MonoBehaviour
     public float wallJumpForce = 7f;
     public float wallJumpUpwardForce = 10f;
     public float wallSnapDistance = 0.5f;
+
+    [Header("Roll and Dash")]
+
+    public float dashSpeed = 15f;
+    public float rollSpeed = 10f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    public bool DashEnabled = false;
+    private bool isDashing = false;
+    private bool canDash = true;
+    private float dashTimer = 0f;
 
     [Header("Physics")]
     public LayerMask groundLayer;
@@ -42,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
+    private PlayerHealth health;
     public bool facingRight = true;
     private bool isGrounded;
     private bool isTouchingWallLeft;
@@ -62,6 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         originalSpeed = moveSpeed;
+        health = GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -75,16 +90,24 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (!isDashing)
+            Move();
 
-        if (isWallSliding)
+        if (wallJumpEnabled && !isDashing)
         {
-            rb.gravityScale = 0;
-            WallSlide();
+            if (isWallSliding)
+            {
+                rb.gravityScale = 0;
+                WallSlide();
+            }
+            else
+                rb.gravityScale = 1;
         }
-        else
-            rb.gravityScale = 1;
+        
         HandleJump();
+
+        if (dashTimer > 0)
+            dashTimer -= Time.deltaTime;
     }
     private void WallSlide()
     {
@@ -140,6 +163,21 @@ public class PlayerController : MonoBehaviour
         else if (!isPressed)
         {
             OnAttackReleased();
+        }
+    }
+    public void PerformDodge()
+    {
+        if(dashTimer <= 0)
+        {
+            if (DashEnabled)
+            {
+                StartCoroutine(Dash());
+            }
+            else
+            {
+                if (isGrounded)
+                    StartCoroutine(Roll());
+            }
         }
     }
     public void OnAttackPressed()
@@ -244,13 +282,28 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if((rb.velocity.x > 0 || rb.velocity.x < 0) && Mathf.Abs(moveInput.x) > 0.01f)
+        if (isGrounded)
         {
-            anim.Play("Move");
+            if ((rb.velocity.x > 0 || rb.velocity.x < 0) && Mathf.Abs(moveInput.x) > 0.01f)
+            {
+                anim.Play("Move");
+            }
+            else
+            {
+                anim.Play("Idle");
+            }
         }
         else
         {
-            anim.Play("Idle");
+            if ((rb.velocity.y > 0) )
+            {
+                if(!anim.GetCurrentAnimatorStateInfo(0).IsName("DoubleJump"))
+                    anim.Play("Jump");
+            }
+            else
+            {
+                anim.Play("Fall");
+            }
         }
     }
     private void Flip()
@@ -265,6 +318,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
+        if (isDashing)
+            return;
+
         if (jumpBufferCounter > 0 && (coyoteTimeCounter > 0 || canDoubleJump || isTouchingWallLeft || isTouchingWallRight))
         {
             if (coyoteTimeCounter > 0)
@@ -277,6 +333,7 @@ public class PlayerController : MonoBehaviour
             {
                 Jump(Vector2.up);
                 canDoubleJump = false;
+                anim.Play("DoubleJump");
             }
 
             jumpBufferCounter = 0;
@@ -347,5 +404,63 @@ public class PlayerController : MonoBehaviour
             externalVelocity = Vector2.zero;
             exRb = null;
         }
+    }
+
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        canDash = false;
+        anim.Play("Dash");
+        health.isInvincible = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0; // Temporarily disable gravity during dash
+
+        Vector2 dashDirection = facingRight ? Vector2.right : Vector2.left;
+        rb.velocity = dashDirection * dashSpeed;
+
+        yield return new WaitForSeconds(dashDuration);
+        anim.Play("Idle");
+
+        rb.gravityScale = originalGravity; // Restore gravity
+        isDashing = false;
+        health.isInvincible = false;
+        canDash = true;
+        dashTimer = dashCooldown;
+    }
+
+    private IEnumerator Roll()
+    {
+        isDashing = true;
+        canDash = false;
+
+        anim.Play("Roll");
+        health.isInvincible = true;
+        Vector2 dashDirection = facingRight ? Vector2.right : Vector2.left;
+        rb.velocity = dashDirection * rollSpeed;
+
+        yield return new WaitForSeconds(dashDuration);
+        anim.Play("Idle");
+        // fix weapon placement if wepaon switch happened mid roll
+        GetComponentInChildren<BaseAttack>().gameObject.transform.rotation = Quaternion.identity;
+
+        isDashing = false;
+        health.isInvincible = false;
+        canDash = true;
+        dashTimer = dashCooldown;
+    }
+
+    public bool IsDashing()
+    {
+        return isDashing;
+    }
+    
+    public void DisableInput()
+    {
+        isInputEnabled = false;
+    }
+
+    public void EnableInput()
+    {
+        isInputEnabled = true;
     }
 }

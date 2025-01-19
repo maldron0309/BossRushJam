@@ -10,6 +10,7 @@ public class BugJumpAttack : MonoBehaviour
     [SerializeField] float Ypos;
     private Vector3 basePos;
 
+    public GameObject Player;
     public GameObject DangerArea;
     private GameObject AttackSpot;
     
@@ -23,6 +24,7 @@ public class BugJumpAttack : MonoBehaviour
     void Start()
     {
         basePos = transform.position;
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -35,7 +37,8 @@ public class BugJumpAttack : MonoBehaviour
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-        float jumpPos = Random.Range(minX, maxX);
+        //float jumpPos = Random.Range(minX, maxX);
+        float jumpPos = Player.transform.position.x;
         Debug.Log("Jumping to " + jumpPos.ToString());
         yield return new WaitForSeconds(1);
 
@@ -44,9 +47,9 @@ public class BugJumpAttack : MonoBehaviour
         AttackSpot.transform.position = new Vector2(jumpPos, Ypos);
 
 
-        Debug.Log("JumpBackStart");
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(JumpBack());
+        //Debug.Log("JumpBackStart");
+        //yield return new WaitForSeconds(2f);
+        //StartCoroutine(JumpBack());
     }
 
     public IEnumerator JumpBack()
