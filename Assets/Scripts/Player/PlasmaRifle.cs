@@ -56,7 +56,7 @@ public class PlasmaRifle : BaseAttack
     }
     private void FireProjectile(GameObject projectilePrefab)
     {
-        if(currentCharges > 0)
+        if(currentCharges > 0 && canShoot)
         {
             player.PreventMovementFortime(attackCooldown);
 

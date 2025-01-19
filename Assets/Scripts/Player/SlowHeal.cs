@@ -22,7 +22,7 @@ public class SlowHeal : BaseAttack
     {
         if (healingStarted && !isFineshed)
         {
-            if(currentCharges > 0)
+            if(currentCharges > 0 && canShoot)
             {
                 if (nextHeal > 0)
                 {

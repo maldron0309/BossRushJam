@@ -24,7 +24,7 @@ public class InstantHeal : BaseAttack
     }
     override public void Fire()
     {
-        if(currentCharges > 0)
+        if(currentCharges > 0 && canShoot)
         {
             Instantiate(effectPrefab, transform.root.position, Quaternion.identity);
             playerHealth.Heal(amountHealed);
