@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float wallJumpForce = 7f;
     public float wallJumpUpwardForce = 10f;
     public float wallSnapDistance = 0.5f;
+    public bool jumpEnable = true;
 
     [Header("Roll and Dash")]
 
@@ -255,6 +256,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (rb.bodyType == RigidbodyType2D.Kinematic)
+            return;
         // Start with the external velocity (e.g., platform influence)
         if (exRb)
             externalVelocity = exRb.velocity;
@@ -317,7 +320,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
-        if (isDashing)
+        if (isDashing || !jumpEnable)
             return;
 
         if (jumpBufferCounter > 0 && (coyoteTimeCounter > 0 || canDoubleJump || isTouchingWallLeft || isTouchingWallRight))
@@ -411,7 +414,6 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         anim.Play("Dash");
         health.isInvincible = true;
-        float originalGravity = rb.gravityScale;
         rb.gravityScale = 0; // Temporarily disable gravity during dash
 
         Vector2 dashDirection = facingRight ? Vector2.right : Vector2.left;
@@ -420,7 +422,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         anim.Play("Idle");
 
-        rb.gravityScale = originalGravity; // Restore gravity
+        rb.gravityScale = 1; // Restore gravity
         isDashing = false;
         health.isInvincible = false;
         canDash = true;
@@ -444,5 +446,29 @@ public class PlayerController : MonoBehaviour
         health.isInvincible = false;
         canDash = true;
         dashTimer = dashCooldown;
+    }
+
+    public bool IsDashing()
+    {
+        return isDashing;
+    }
+    
+    public void DisableInput()
+    {
+        //isInputEnabled = false;
+    }
+
+    public void EnableInput()
+    {
+        //isInputEnabled = true;
+    }
+    public void Stop()
+    {
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.velocity = Vector2.zero;
+    }
+    public void Resume()
+    {
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }

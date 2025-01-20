@@ -27,8 +27,7 @@ public class BossHealth : MonoBehaviour
             Debug.Log("Boss is dead!");
 
             ActivateDoor();
-            Destroy(gameObject);
-            
+            Destroy(gameObject);            
         }
 
         bossHealthUI.SetHealth(currentHealth);
