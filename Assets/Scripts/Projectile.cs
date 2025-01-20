@@ -18,7 +18,6 @@ public class Projectile : MonoBehaviour
             if (bossHealth != null)
             {
                 bossHealth.TakeDamage(damage);
-                Debug.Log($"Hit boss for {damage} damage!");
             }
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);

@@ -51,7 +51,6 @@ public class BossLarvaSpit : MonoBehaviour
         Vector2 direction = (player.transform.position - transform.position).normalized;
 
         float angle =Mathf.Min(135,Mathf.Max(45, Vector2.Angle(Vector2.right, direction)));
-        Debug.Log(angle);
 
         Rigidbody2D bullet;
         bullet = Instantiate(bulletProjectile, transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<Rigidbody2D>();

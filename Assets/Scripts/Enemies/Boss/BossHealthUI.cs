@@ -3,13 +3,17 @@ using UnityEngine.UI;
 
 public class BossHealthUI : MonoBehaviour
 {
+    public static BossHealthUI instance;
     [SerializeField] Slider healthSlider;
     [SerializeField] Slider easeHealthSlider;
     [SerializeField] float lerpSpeed = 0.01f;
 
     float maxHealth;
     float currentHealth;
-    
+    private void Awake()
+    {
+        instance = this;
+    }
     void Update()
     {
         if (healthSlider.value != currentHealth)

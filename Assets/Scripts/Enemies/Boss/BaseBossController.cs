@@ -42,4 +42,8 @@ public class BaseBossController : MonoBehaviour
         }
 
     }
+    public virtual void OnDefeat()
+    {
+
+    }
 }

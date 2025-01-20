@@ -19,6 +19,7 @@ public class BossLarvaController : BaseBossController
     public float groundCheckRadius = 0.2f;
     public Transform groundCheck;
     public bool isPerformingAction = false;
+    public BossFlyerControll phase2;
 
     private bool hadMoved = false;
     private bool isGrounded;
@@ -72,6 +73,14 @@ public class BossLarvaController : BaseBossController
         //{
         //    anim.Play("Idle");
         //}
+    }
+    public override void OnDefeat()
+    {
+        phase2.health.Initialize(BossHealthUI.instance);
+        phase2.transform.position = transform.position;
+        phase2.StartBossBattle();
+        BackgroundMusicManager.Instance.PlayBossMusic(5);
+        Destroy(gameObject);   
     }
     public void MakeRandomMove()
     {
