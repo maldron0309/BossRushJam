@@ -7,6 +7,7 @@ public class Shockwave : MonoBehaviour
     [SerializeField] private Vector2 direction;
     [SerializeField] private float speed;
     [SerializeField] private float lifetime;
+    [SerializeField] private int damage;
 
     private Rigidbody2D rb;
 
@@ -26,13 +27,16 @@ public class Shockwave : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-
-            Debug.Log("Player has attacked");
-
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
+            
         }
     }
 }

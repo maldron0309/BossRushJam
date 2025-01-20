@@ -34,6 +34,10 @@ public class GuardBossShockWaveAttack : MonoBehaviour
         }
     }
 
+    public void Step()
+    {
+        bossAnim.SetTrigger("Step");
+    }
     
 
 }
