@@ -51,5 +51,10 @@ public class InputHandler : MonoBehaviour
         {
             playerController.PerformDodge(); // Regular attack
         }
+
+        if (!playerController.isInputEnabled)
+        {
+            return;
+        }
     }
 }

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public Animator anim;
     //private AnimatorStateInfo stateInfo;
+    public bool isInputEnabled = true;
 
     [Header("Jumping")]
     public float minJumpHeight = 2f;
@@ -441,6 +442,8 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
         anim.Play("Idle");
+        // fix weapon placement if wepaon switch happened mid roll
+        GetComponentInChildren<BaseAttack>().gameObject.transform.rotation = Quaternion.identity;
 
         isDashing = false;
         health.isInvincible = false;
@@ -455,12 +458,12 @@ public class PlayerController : MonoBehaviour
     
     public void DisableInput()
     {
-        //isInputEnabled = false;
+        isInputEnabled = false;
     }
 
     public void EnableInput()
     {
-        //isInputEnabled = true;
+        isInputEnabled = true;
     }
     public void Stop()
     {
@@ -470,5 +473,6 @@ public class PlayerController : MonoBehaviour
     public void Resume()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
+        isInputEnabled = true;
     }
 }

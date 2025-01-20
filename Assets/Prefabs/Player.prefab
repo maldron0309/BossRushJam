@@ -491,6 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   anim: {fileID: 7750455991985150919}
+  isInputEnabled: 1
   minJumpHeight: 5
   maxJumpHeight: 20
   jumpBufferTime: 0.2
@@ -502,7 +503,7 @@ MonoBehaviour:
   dashSpeed: 25
   rollSpeed: 18
   dashDuration: 0.25
-  dashCooldown: 0.2
+  dashCooldown: 0.6
   DashEnabled: 0
   groundLayer:
     serializedVersion: 2
