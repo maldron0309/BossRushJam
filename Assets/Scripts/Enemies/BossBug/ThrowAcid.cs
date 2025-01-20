@@ -9,6 +9,12 @@ public class ThrowAcid : MonoBehaviour
     public float minForce;
     public float maxForce;
     public float upwardsForce;
+
+    private BossBugController boss;
+    private void Awake()
+    {
+        boss = this.GetComponent<BossBugController>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +29,7 @@ public class ThrowAcid : MonoBehaviour
 
     public void BeginAttack()
     {
+        //boss.state = "spit";
         GameObject projectile = Instantiate(acidProjectile, transform.position, Quaternion.identity);
 
         float force = Random.Range(minForce, maxForce);

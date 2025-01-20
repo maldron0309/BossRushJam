@@ -19,27 +19,38 @@ public class BugJumpMovement : MonoBehaviour
 
     public LayerMask groundLayer;
 
+    private BossBugController boss;
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         lastJump = jumpDelayTime;
+        boss = this.GetComponent<BossBugController>();
+        anim = boss.anim;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        
+
+
         if (lastJump > 0)
         {
             lastJump -= Time.deltaTime;
         }
         else if (onGround)
         {
+            //anim.Play("Idle");
             Jump();
         }
         else if (onGround == false)
         {
             onGround = CheckGround();
+            //anim.Play("Spin");
         }
 
         
