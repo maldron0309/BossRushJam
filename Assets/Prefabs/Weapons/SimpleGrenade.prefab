@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCharges: 1
   currentCharges: 0
+  canShoot: 1
   itemPrefab: {fileID: 4517658556040149496, guid: 80ea1f4b0ffbbdb40b258f12cabce525, type: 3}
   verticalForce: 1200
   HorizontalForce: 600

@@ -781,8 +781,34 @@ MonoBehaviour:
   shockwavePrefab: {fileID: 6829905204442266943, guid: e49fd85fc0d7b784a90dd977dedf6b3a, type: 3}
   shockwaveSpawnPoint: {fileID: 848758232}
   shockwaveSpeed: 5
-  shockwaveLifetime: 0.05
+  shockwaveLifetime: 4
   bossAnim: {fileID: 266243813}
+--- !u!114 &266243818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266243811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b0a666911f9f54082bb8dd51bf064a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7092856427572795367, guid: 5ec2aafa1c511124c99975a331dd5a5c, type: 3}
+  firePointLow: {fileID: 1190279453}
+  firePointHigh: {fileID: 302571448}
+  projectileSpeed: 10
+  fireRate: 0.5
+  bulletCount: 4
+  aimAtPlayer: 0
+  bossAnim: {fileID: 266243813}
+  boss: {fileID: 1950523661}
+--- !u!4 &302571448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4207964661012347570, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+  m_PrefabInstance: {fileID: 989724384361948119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &323572938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,7 +3599,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167365765}
   m_CullTransparentMesh: 1
---- !u!1 &1224259707
+--- !u!4 &1190279453 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3160891519647827539, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+  m_PrefabInstance: {fileID: 989724384361948119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1242754553
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5258,7 +5290,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950523646}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01def710255f800489e06186190bde5e, type: 3}
   m_Name: 
@@ -5267,7 +5299,18 @@ MonoBehaviour:
   shockwaveSpawnPoint: {fileID: 848758232}
   shockwaveSpeed: 5
   shockwaveLifetime: 2
-  bossAnim: {fileID: 0}
+  bossAnim: {fileID: 266243813}
+--- !u!114 &1950523661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6672855341750763990, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+  m_PrefabInstance: {fileID: 989724384361948119}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950523646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98ebdfc2174da0449ccac682f54284f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1994563679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5946,6 +5989,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4207964661012347570, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.54
+      objectReference: {fileID: 0}
     - target: {fileID: 4317628555817398778, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 61.64
@@ -5990,6 +6037,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -883652326, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
+    - target: {fileID: 5691378538822951706, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+      propertyPath: bossAnim
+      value: 
+      objectReference: {fileID: 266243813}
+    - target: {fileID: 6672855341750763990, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+      propertyPath: shockWave
+      value: 
+      objectReference: {fileID: 1950523655}
+    - target: {fileID: 6757390130001827604, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+      propertyPath: bossAnim
+      value: 
+      objectReference: {fileID: 266243813}
     - target: {fileID: 9149386476408262433, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
       propertyPath: m_Name
       value: BossGuard
@@ -6010,6 +6069,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3810888569869657739, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 266243815}
+    - targetCorrespondingSourceObject: {fileID: 3810888569869657739, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 266243818}
   m_SourcePrefab: {fileID: 100100000, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
 --- !u!1001 &6956060456894191513
 PrefabInstance:
@@ -6300,7 +6362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000055051996
+      value: 0.000031145144
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y

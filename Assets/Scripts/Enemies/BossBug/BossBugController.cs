@@ -10,11 +10,14 @@ public class BossBugController : BaseBossController
     public float jumpForce = 50;
     private int normalAttacksPerformed = 0;
     private float nextActionCounter;
+    public Animator anim;
 
     public BugJumpAttack jumpAttack;
     public ThrowAcid acidAttack;
     public SprayAttack sprayAttack;
     public BugJumpMovement movement;
+
+    public string state;
     
     private Rigidbody2D rb;
     private bool jumpactivated;
@@ -60,12 +63,14 @@ public class BossBugController : BaseBossController
                 StartCoroutine(DisableMovement(4.5f));
                 StartCoroutine(sprayAttack.BeginAttack());
                 nextActionCounter = 6f;
+                
             }
             else if(randomNumber <= 80)
             {
                 //StartCoroutine(DisableMovement(0.1f));
                 acidAttack.BeginAttack();
                 nextActionCounter = 2;
+
                 
             }
             else if (randomNumber > 80)
