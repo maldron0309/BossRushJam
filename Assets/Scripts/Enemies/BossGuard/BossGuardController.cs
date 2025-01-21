@@ -74,9 +74,6 @@ public class BossGuardController : BaseBossController
                 normalAttacksPerformed++;
                 rapidStrikes++;
                 slowStrikes = 0;
-                
-                if(randomNumber % 2 == 0)
-                    Jump();
             }
             else if(randomNumber < 30)
             {
@@ -88,9 +85,6 @@ public class BossGuardController : BaseBossController
                 normalAttacksPerformed++;
                 slowStrikes++;
                 rapidStrikes = 0;
-
-                //if (randomNumber % 2 == 0)
-                //    Jump();
             }
             nextActionCounter = timeBetweenActions;
         }

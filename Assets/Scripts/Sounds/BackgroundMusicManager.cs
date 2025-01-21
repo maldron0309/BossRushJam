@@ -24,6 +24,7 @@ public class BackgroundMusicManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            Instance.StopBGM();
         }
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = true;
