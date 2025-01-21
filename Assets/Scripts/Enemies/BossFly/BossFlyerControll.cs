@@ -5,10 +5,13 @@ using UnityEngine;
 public class BossFlyerControll : BaseBossController
 {
     [SerializeField] float timeBetweenActions;
+    public float moveSpeed;
     public BossHealth health;
     public Animator anim;
     [Header("Attacks")]
     public BossFlyerMoveAround flyAround;
+    public BossFlyerSideAttack sideAttack;
+    public BossFlyerCenterAttack centerAttack;
 
     [Header("Start Event")]
     private int stage = 0;
@@ -25,10 +28,12 @@ public class BossFlyerControll : BaseBossController
     private bool hadMoved = false;
     private float nextActionCounter;
     private int rage = 0;
-    private int normalMoveCounter = 0;
+    private int moveCounter = 0;
+    private Rigidbody2D rb;
     void Start()
     {
-        
+        nextActionCounter = timeBetweenActions;
+        rb = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
@@ -70,17 +75,24 @@ public class BossFlyerControll : BaseBossController
     }
     public void MakeRandomMove()
     {
-        //if (groundMonitor.playerIsIn)
-        //{
-        //    meeleAttack.BeginAttack();
-        //}
-        //else
+        if (moveCounter < 4)
+        {
+            flyAround.BeginAttack();
+            moveCounter++;
+        }
+        else
         {
             int randomNumber = Random.Range(0, 100);
-            flyAround.BeginAttack();
+             centerAttack.BeginAttack();
+
+            moveCounter = 0;
             nextActionCounter = timeBetweenActions;
 
         }
         hadMoved = !hadMoved;
+    }
+    public void Move(Vector2 movedir)
+    {
+        rb.velocity = movedir * moveSpeed;
     }
 }

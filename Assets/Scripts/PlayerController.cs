@@ -70,8 +70,8 @@ public class PlayerController : MonoBehaviour
     private bool isWallSliding;
     private bool isWallStickAllowed;
     private float originalSpeed;
-    private Vector2 externalVelocity;
-    private Rigidbody2D exRb;
+    public Vector2 externalVelocity;
+    public Rigidbody2D exRb;
 
     private void Start()
     {
@@ -393,7 +393,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Patform"))
+        if (collision.collider.CompareTag("Patform") && isGrounded)
         {
             exRb = collision.collider.GetComponent<Rigidbody2D>();
             if (exRb)

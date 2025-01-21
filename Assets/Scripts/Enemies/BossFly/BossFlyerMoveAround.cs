@@ -30,11 +30,11 @@ public class BossFlyerMoveAround : MonoBehaviour
         if (!isStarted)
             return;
 
-        movedir = (targetPost.position - transform.position).normalized;
+        movedir = (targetPost.position - transform.position);
 
         if (movedir.magnitude > 0.5f)
         {
-            Move();
+            boss.Move(movedir.normalized);
 
             if (attackCooldown > 0)
                 attackCooldown -= Time.deltaTime;
@@ -58,9 +58,5 @@ public class BossFlyerMoveAround : MonoBehaviour
         isFInishing = false;
         isStarted = true;
         boss.isPerformingAction = true;
-    }
-    public void Move()
-    {
-        rb.velocity = movedir * moveSpeed;
     }
 }

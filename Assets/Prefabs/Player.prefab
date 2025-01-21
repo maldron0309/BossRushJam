@@ -508,7 +508,7 @@ MonoBehaviour:
   DashEnabled: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 8384
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -524,6 +524,8 @@ MonoBehaviour:
   weaponPlacement: {fileID: 8994691294248240770}
   ammoText: {fileID: 7957081886496948394}
   facingRight: 1
+  externalVelocity: {x: 0, y: 0}
+  exRb: {fileID: 0}
 --- !u!50 &6585513471692129227
 Rigidbody2D:
   serializedVersion: 4

@@ -19,6 +19,12 @@ public class OneWayPlatform : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             solidPlatform.enabled = false;
+            PlayerController p = FindAnyObjectByType<PlayerController>();
+            if (p.exRb == solidPlatform.GetComponent<Rigidbody2D>())
+            {
+                p.externalVelocity = Vector2.zero;
+                p.exRb = null;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
