@@ -41,6 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8263010094770073266}
   - component: {fileID: 4722843679258396361}
+  - component: {fileID: 3096531667888115479}
+  - component: {fileID: 991188028466080440}
+  - component: {fileID: 4932920883139423814}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -104,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 935324712d2780b44aa2ae804d33d159, type: 3}
+  m_Sprite: {fileID: -883652326, guid: 85a1f1f0b6ddae446a7e0a6004cdce94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,6 +118,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3096531667888115479
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810888569869657739}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26ff39365800cc64ba62223fd00197f3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &991188028466080440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810888569869657739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01def710255f800489e06186190bde5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shockwavePrefab: {fileID: 6829905204442266943, guid: e49fd85fc0d7b784a90dd977dedf6b3a, type: 3}
+  shockwaveSpawnPoint: {fileID: 4363061835395010220}
+  shockwaveSpeed: 5
+  shockwaveLifetime: 4
+  bossAnim: {fileID: 3096531667888115479}
+--- !u!114 &4932920883139423814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810888569869657739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b0a666911f9f54082bb8dd51bf064a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7092856427572795367, guid: 5ec2aafa1c511124c99975a331dd5a5c, type: 3}
+  firePointLow: {fileID: 3160891519647827539}
+  firePointHigh: {fileID: 4207964661012347570}
+  projectileSpeed: 10
+  fireRate: 0.5
+  bulletCount: 4
+  aimAtPlayer: 0
+  bossAnim: {fileID: 3096531667888115479}
+  boss: {fileID: 6672855341750763990}
 --- !u!1 &5787975390025605874
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +320,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4317628555817398778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7130570471781550687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4363061835395010220}
+  m_Layer: 0
+  m_Name: FirePoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4363061835395010220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130570471781550687}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.83, y: -3.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4317628555817398778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7260602998368641478
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 7260602998368641478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.71, y: 0.88, z: 0}
+  m_LocalPosition: {x: -3.71, y: -0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -335,6 +428,7 @@ GameObject:
   - component: {fileID: 6757390130001827604}
   - component: {fileID: 9018799265343160393}
   - component: {fileID: 5428835552221765483}
+  - component: {fileID: 6525373283403002649}
   - component: {fileID: 7979094333769805218}
   m_Layer: 0
   m_Name: BossGuard
@@ -358,6 +452,7 @@ Transform:
   m_Children:
   - {fileID: 2983846790758497066}
   - {fileID: 3160891519647827539}
+  - {fileID: 4363061835395010220}
   - {fileID: 4207964661012347570}
   - {fileID: 8263010094770073266}
   - {fileID: 9059101604766424475}
@@ -394,6 +489,7 @@ MonoBehaviour:
   isBattleStarted: 0
   model: {fileID: 0}
   timeBetweenActions: 2.5
+  shockWave: {fileID: 6525373283403002649}
   multishot3: {fileID: 6757390130001827604}
   multishot5: {fileID: 5691378538822951706}
   specialAttack: {fileID: 9018799265343160393}
@@ -419,6 +515,7 @@ MonoBehaviour:
   fireRate: 0.075
   bulletCount: 9
   aimAtPlayer: 1
+  bossAnim: {fileID: 3096531667888115479}
   boss: {fileID: 6672855341750763990}
 --- !u!114 &6757390130001827604
 MonoBehaviour:
@@ -439,6 +536,7 @@ MonoBehaviour:
   fireRate: 0.5
   bulletCount: 4
   aimAtPlayer: 0
+  bossAnim: {fileID: 3096531667888115479}
   boss: {fileID: 6672855341750763990}
 --- !u!114 &9018799265343160393
 MonoBehaviour:
@@ -500,6 +598,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.5, y: 6.3}
   m_EdgeRadius: 0
+--- !u!114 &6525373283403002649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149386476408262433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01def710255f800489e06186190bde5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shockwavePrefab: {fileID: 6829905204442266943, guid: e49fd85fc0d7b784a90dd977dedf6b3a, type: 3}
+  shockwaveSpawnPoint: {fileID: 4363061835395010220}
+  shockwaveSpeed: 5
+  shockwaveLifetime: 2
+  bossAnim: {fileID: 3096531667888115479}
 --- !u!50 &7979094333769805218
 Rigidbody2D:
   serializedVersion: 4

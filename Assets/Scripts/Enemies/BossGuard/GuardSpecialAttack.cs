@@ -7,6 +7,7 @@ public class GuardSpecialAttack : MonoBehaviour
     public Transform attackDestenation;
     public Transform startPoint;
     public GameObject attackProjectile;
+    [SerializeField] Animator bossAnim;
     void Start()
     {
         attackDestenation.transform.SetParent(null);
@@ -18,6 +19,10 @@ public class GuardSpecialAttack : MonoBehaviour
         
     }
     public void BeginAttack()
+    {
+        bossAnim.SetTrigger("GreenShoot");
+    }
+    public void SpecialAttack()
     {
         GuardSpecialBullet bullet = Instantiate(attackProjectile, startPoint.position, Quaternion.identity).GetComponent<GuardSpecialBullet>();
         bullet.destenation = attackDestenation;

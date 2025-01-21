@@ -16,11 +16,7 @@ public class GuardBossShockWaveAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            bossAnim.SetTrigger("Step");
-            Debug.Log("ShockWave");
-        }
+        
     }
     public void TriggerShockwave()
     {
