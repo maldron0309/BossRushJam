@@ -74,7 +74,6 @@ public class BossFlyerCenterAttack : MonoBehaviour
         {
             boss.isPerformingAction = false;
             isStarted = false;
-            //boss.FacePlayer();
         }
     }
     public void Fire()

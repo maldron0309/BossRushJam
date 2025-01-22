@@ -40,6 +40,7 @@ public class BossFlyerMoveAround : MonoBehaviour
                 attackCooldown -= Time.deltaTime;
             else
             {
+                Fire();
                 attackCooldown = attackRate;
             }
         }
@@ -49,6 +50,21 @@ public class BossFlyerMoveAround : MonoBehaviour
             isStarted = false;
             //boss.FacePlayer();
         }
+    }
+    public void Fire()
+    {
+        Rigidbody2D bullet;
+        bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<Rigidbody2D>();
+        bullet.velocity = Vector2.up * (bulletSpeed + Random.Range(0.0f, 5.0f));
+        bullet.GetComponent<BossBullet>().damage = damage;
+
+        bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<Rigidbody2D>();
+        bullet.velocity = (Vector2.up + Vector2.right) * (bulletSpeed + Random.Range(0.0f, 5.0f));
+        bullet.GetComponent<BossBullet>().damage = damage;
+
+        bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<Rigidbody2D>();
+        bullet.velocity = (Vector2.up + Vector2.left) * (bulletSpeed + Random.Range(0.0f, 5.0f));
+        bullet.GetComponent<BossBullet>().damage = damage;
     }
     public void BeginAttack()
     {

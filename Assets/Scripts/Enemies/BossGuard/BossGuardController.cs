@@ -27,8 +27,10 @@ public class BossGuardController : BaseBossController
     {
         nextActionCounter = timeBetweenActions;
     }
-
-    // Update is called once per frame
+    public override void OnDefeat()
+    {
+        Destroy(gameObject);
+    }
     void Update()
     {
         if (!isBattleStarted) return;

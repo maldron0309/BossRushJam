@@ -83,13 +83,24 @@ public class BossFlyerControll : BaseBossController
         else
         {
             int randomNumber = Random.Range(0, 100);
-             centerAttack.BeginAttack();
+            if(randomNumber > 50)
+            {
+                sideAttack.BeginAttack();
+            }
+            else
+            {
+                centerAttack.BeginAttack();
+            }
 
             moveCounter = 0;
             nextActionCounter = timeBetweenActions;
 
         }
         hadMoved = !hadMoved;
+    }
+    public override void OnDefeat()
+    {
+        Destroy(gameObject);
     }
     public void Move(Vector2 movedir)
     {

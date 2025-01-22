@@ -11,7 +11,7 @@ public class TemportalPush : MonoBehaviour
     {
         Destroy(this, 0.25f);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.velocity = new Vector2(0, 0);
         life = 0.25f;
         GetComponent<PlayerController>().jumpEnable = false;
     }
