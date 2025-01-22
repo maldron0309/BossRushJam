@@ -27,6 +27,10 @@ public class RoomCamera : MonoBehaviour
 
     void Start()
     {
+        leftBound += transform.position.x;
+        rightBound += transform.position.x;
+        topBound += transform.position.y;
+        bottomBound += transform.position.y;
         mainCamera = Camera.main;
         CalculateCameraBounds();
         PositionCamera();

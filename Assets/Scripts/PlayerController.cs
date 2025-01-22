@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float wallJumpForce = 7f;
     public float wallJumpUpwardForce = 10f;
     public float wallSnapDistance = 0.5f;
+    public bool jumpEnable = true;
 
     [Header("Roll and Dash")]
 
@@ -69,8 +70,8 @@ public class PlayerController : MonoBehaviour
     private bool isWallSliding;
     private bool isWallStickAllowed;
     private float originalSpeed;
-    private Vector2 externalVelocity;
-    private Rigidbody2D exRb;
+    public Vector2 externalVelocity;
+    public Rigidbody2D exRb;
 
     private void Start()
     {
@@ -256,6 +257,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (rb.bodyType == RigidbodyType2D.Kinematic)
+            return;
         // Start with the external velocity (e.g., platform influence)
         if (exRb)
             externalVelocity = exRb.velocity;
@@ -318,7 +321,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
-        if (isDashing)
+        if (isDashing || !jumpEnable)
             return;
 
         if (jumpBufferCounter > 0 && (coyoteTimeCounter > 0 || canDoubleJump || isTouchingWallLeft || isTouchingWallRight))
@@ -390,7 +393,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Patform"))
+        if (collision.collider.CompareTag("Patform") && isGrounded)
         {
             exRb = collision.collider.GetComponent<Rigidbody2D>();
             if (exRb)
@@ -412,7 +415,6 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         anim.Play("Dash");
         health.isInvincible = true;
-        float originalGravity = rb.gravityScale;
         rb.gravityScale = 0; // Temporarily disable gravity during dash
 
         Vector2 dashDirection = facingRight ? Vector2.right : Vector2.left;
@@ -421,7 +423,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         anim.Play("Idle");
 
-        rb.gravityScale = originalGravity; // Restore gravity
+        rb.gravityScale = 1; // Restore gravity
         isDashing = false;
         health.isInvincible = false;
         canDash = true;
@@ -461,6 +463,16 @@ public class PlayerController : MonoBehaviour
 
     public void EnableInput()
     {
+        isInputEnabled = true;
+    }
+    public void Stop()
+    {
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.velocity = Vector2.zero;
+    }
+    public void Resume()
+    {
+        rb.bodyType = RigidbodyType2D.Dynamic;
         isInputEnabled = true;
     }
 }

@@ -24,11 +24,9 @@ public class BossHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            Debug.Log("Boss is dead!");
 
             ActivateDoor();
-            Destroy(gameObject);
-            
+            GetComponent<BaseBossController>().OnDefeat();
         }
 
         bossHealthUI.SetHealth(currentHealth);
