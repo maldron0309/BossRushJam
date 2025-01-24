@@ -49,6 +49,10 @@ public class BossBugController : BaseBossController
         if (health.PercentageHealth() == 0)
             isBattleStarted = false;
     }
+    public override void OnDefeat()
+    {
+        Destroy(gameObject);
+    }
     public void MakeRandomMove()
     {
         if (jumpactivated == false)

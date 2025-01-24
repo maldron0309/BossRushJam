@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -54,9 +55,16 @@ public class PlayerController : MonoBehaviour
     public GameObject weaponPlacement;
     public TextMeshPro ammoText;
 
+    [Header("Sound Effects")]
+    public AudioClip jumpSound;
+    public AudioClip doubleJumpSound;
+    public AudioClip rollSound;
+    public AudioClip dashSound;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private PlayerHealth health;
+    private bool isAlive = true;
     public bool facingRight = true;
     private bool isGrounded;
     private bool isTouchingWallLeft;
@@ -285,6 +293,9 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
+        if (!isAlive)
+            return;
+
         if (isGrounded)
         {
             if ((rb.velocity.x > 0 || rb.velocity.x < 0) && Mathf.Abs(moveInput.x) > 0.01f)
@@ -321,7 +332,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
-        if (isDashing || !jumpEnable)
+        if (isDashing || !jumpEnable || !isAlive)
             return;
 
         if (jumpBufferCounter > 0 && (coyoteTimeCounter > 0 || canDoubleJump || isTouchingWallLeft || isTouchingWallRight))
@@ -331,12 +342,14 @@ public class PlayerController : MonoBehaviour
                 isWallStickAllowed = !(isTouchingWallLeft || isTouchingWallRight);
                 Jump(Vector2.up);
                 coyoteTimeCounter = 0;
+                SoundEffectsManager.Instance.PlaySound(jumpSound);
             }
             else if (canDoubleJump)
             {
                 Jump(Vector2.up);
                 canDoubleJump = false;
                 anim.Play("DoubleJump");
+                SoundEffectsManager.Instance.PlaySound(doubleJumpSound);
             }
 
             jumpBufferCounter = 0;
@@ -474,5 +487,21 @@ public class PlayerController : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         isInputEnabled = true;
+    }
+    public IEnumerator PlayeDeath()
+    {
+        isInputEnabled = false;
+        isAlive = false;
+        rb.velocity = Vector2.zero;
+        moveInput = Vector2.zero;
+        weaponPlacement.SetActive(false);
+
+        anim.Play("DeathFall");
+        health.isInvincible = true;
+
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 }

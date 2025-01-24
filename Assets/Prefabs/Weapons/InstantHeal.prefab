@@ -102,3 +102,4 @@ MonoBehaviour:
   canShoot: 1
   amountHealed: 5
   effectPrefab: {fileID: 8538422803324167097, guid: b74e8d82d31404a4a8853ca2047770f5, type: 3}
+  attackSound: {fileID: 8300000, guid: 060aea04b83c4cb4cafb87df9b5e1539, type: 3}

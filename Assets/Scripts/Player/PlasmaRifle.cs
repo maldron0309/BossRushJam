@@ -10,6 +10,7 @@ public class PlasmaRifle : BaseAttack
     public float attackCooldown = 0.1f; // Cooldown between regular attacks
     public float chargeTime = 1.0f; // Time required to charge an attack
     public float projectileSpeed = 10f;
+    public AudioClip attackSound;
 
     private float nextAttackCounter; // Time of the last attack
     private bool isCharging; // Whether the player is charging an attack
@@ -71,6 +72,7 @@ public class PlasmaRifle : BaseAttack
                 WeaponsInventory.instance.GiveNextWeapon(player);
 
             OnPressed();
+            SoundEffectsManager.Instance.PlaySound(attackSound);
         }
     }
 

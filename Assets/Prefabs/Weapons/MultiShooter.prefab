@@ -108,3 +108,4 @@ MonoBehaviour:
   angleStep: 10
   numProjectiles: 5
   damage: 4
+  attackSound: {fileID: 8300000, guid: 6a5b4eed02414f3468c8da42925078e2, type: 3}
