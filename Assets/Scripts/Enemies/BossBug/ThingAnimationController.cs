@@ -12,6 +12,8 @@ public class ThingAnimationController : MonoBehaviour
     private BossBugController boss;
     private Animator anim;
 
+    bool resetting;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,8 @@ public class ThingAnimationController : MonoBehaviour
             if (boss.state.Equals("smash")) { anim.Play("Smash"); StartCoroutine(resetState(1f)); }
             else if (boss.state.Equals("launch")) { anim.Play("LaunchUp");}
             else if (boss.state.Equals("spit")) { anim.Play("Spitting"); StartCoroutine(resetState(0.3f)); }
-
+            else if (boss.state.Equals("onwall")) { anim.Play("WallLanding"); transform.rotation = Quaternion.Euler(0f, 0f, 90f); }
+            else if (boss.state.Equals("wallspit")) { Debug.Log("EEE"); anim.Play("WallSpit"); StartCoroutine(resetState(3f)); }
 
 
         }
@@ -42,7 +45,16 @@ public class ThingAnimationController : MonoBehaviour
 
     IEnumerator resetState(float time)
     {
-        yield return new WaitForSeconds(time);
-        boss.state = "";
+        if(resetting == false)
+        {
+            resetting = true;
+            Debug.Log(time); 
+            yield return new WaitForSeconds(time);
+            boss.state = "";
+            transform.rotation = Quaternion.identity;
+            resetting = false;
+        }
+        
+        
     }
 }

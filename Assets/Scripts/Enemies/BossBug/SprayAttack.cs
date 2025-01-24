@@ -14,7 +14,15 @@ public class SprayAttack : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D cl;
     private bool attacking;
+    private BossBugController boss;
+    private bool stuck;
 
+    [SerializeField] GameObject firePos;
+
+    private void Awake()
+    {
+        boss = this.GetComponent<BossBugController>();
+    }
     void Start()
     {
         // Get the Rigidbody2D component
@@ -25,11 +33,13 @@ public class SprayAttack : MonoBehaviour
     void Update()
     {
         // Check if the object has reached the maximum height
-        if (attacking && transform.position.y >= maxHeight)
+        if (attacking && transform.position.y >= maxHeight && stuck == false)
         {
+            boss.state = "onwall";
             rb.velocity = new Vector2(0, 0);
             rb.simulated = false;
             cl.enabled = false;
+            stuck = true;
         }
     }
 
@@ -42,17 +52,19 @@ public class SprayAttack : MonoBehaviour
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
-
+        
         for(int i = 0; i < 10; i++)
         {
-            GameObject b = Instantiate(projectile, transform.position, Quaternion.identity);
+            boss.state = "wallspit";
+            GameObject b = Instantiate(projectile, firePos.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.3f);
         }
 
         rb.simulated = true;
         cl.enabled = true;
         attacking = false;
+        stuck = false;
     }
 }

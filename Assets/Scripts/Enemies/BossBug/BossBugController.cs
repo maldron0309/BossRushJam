@@ -60,9 +60,9 @@ public class BossBugController : BaseBossController
         {
             if(randomNumber <= 20)
             {
-                StartCoroutine(DisableMovement(4.5f));
+                StartCoroutine(DisableMovement(5f));
                 StartCoroutine(sprayAttack.BeginAttack());
-                nextActionCounter = 6f;
+                nextActionCounter = 6.5f;
                 
             }
             else if(randomNumber <= 80)
