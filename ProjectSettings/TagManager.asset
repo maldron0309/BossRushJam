@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - PlayerProjectile
   - door
+  - Interactable
   layers:
   - Default
   - TransparentFX

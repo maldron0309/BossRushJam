@@ -10,7 +10,19 @@ public class WeaponsInventory : MonoBehaviour
     private int currentIdx;
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            WeaponSelectController.instance.inv = instance;
+            instance.WeaponWheel = WeaponWheel;
+            WeaponWheel.inv = instance;
+            WeaponWheel.updateWheel();
+        }
         currentIdx = 0;
     }
     void Start()

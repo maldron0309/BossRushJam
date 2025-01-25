@@ -12,6 +12,7 @@ public class MultiShooter : BaseAttack
     public float angleStep = 7.5f;
     public int numProjectiles = 5;
     public int damage = 4;
+    public AudioClip attackSound;
 
     private float nextAttackCounter;
     private bool isAttackBuffered;
@@ -59,6 +60,7 @@ public class MultiShooter : BaseAttack
             if (currentCharges <= 0)
                 WeaponsInventory.instance.GiveNextWeapon(player);
 
+            SoundEffectsManager.Instance.PlaySound(attackSound);
             OnPressed();
         }
     }

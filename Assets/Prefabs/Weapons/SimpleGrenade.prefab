@@ -103,3 +103,4 @@ MonoBehaviour:
   itemPrefab: {fileID: 4517658556040149496, guid: 80ea1f4b0ffbbdb40b258f12cabce525, type: 3}
   verticalForce: 1200
   HorizontalForce: 600
+  attackSound: {fileID: 8300000, guid: 949620f19dfadd14f99a4811e4af3559, type: 3}

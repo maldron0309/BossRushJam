@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Settings settings;
     public void Play()
     {
-        SceneManager.LoadScene("Boss 1");
+        SceneManager.LoadScene("MainHall");
     }
 
     public void Setting()

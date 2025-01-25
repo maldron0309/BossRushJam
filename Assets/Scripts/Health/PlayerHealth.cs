@@ -43,11 +43,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Respawn()
     {
-        currentHealth = maxHealth;
-        healthUI.SetHealth(currentHealth);
+        StartCoroutine(GetComponent<PlayerController>().PlayeDeath());
+        //currentHealth = maxHealth;
+        //healthUI.SetHealth(currentHealth);
 
-        transform.position = initialPosition;
+        //transform.position = initialPosition;
 
-        Debug.Log("Player has respawned");
+        //Debug.Log("Player has respawned");
     }
 }
