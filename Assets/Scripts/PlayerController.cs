@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
     public bool DashEnabled = false;
+    public ProgressBar evadeProgress;
     private bool isDashing = false;
     private bool canDash = true;
     private float dashTimer = 0f;
@@ -116,7 +117,12 @@ public class PlayerController : MonoBehaviour
         HandleJump();
 
         if (dashTimer > 0)
+        {
             dashTimer -= Time.deltaTime;
+            evadeProgress.UpdateProgress(1 - (dashTimer / dashCooldown));
+            if(dashTimer <= 0 && evadeProgress.gameObject.activeInHierarchy)
+                evadeProgress.gameObject.SetActive(false);
+        }
     }
     private void WallSlide()
     {
@@ -424,6 +430,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        SoundEffectsManager.Instance.PlaySound(dashSound);
         isDashing = true;
         canDash = false;
         anim.Play("Dash");
@@ -441,10 +448,12 @@ public class PlayerController : MonoBehaviour
         health.isInvincible = false;
         canDash = true;
         dashTimer = dashCooldown;
+        evadeProgress.gameObject.SetActive(true);
     }
 
     private IEnumerator Roll()
     {
+        SoundEffectsManager.Instance.PlaySound(rollSound);
         isDashing = true;
         canDash = false;
 
@@ -462,6 +471,7 @@ public class PlayerController : MonoBehaviour
         health.isInvincible = false;
         canDash = true;
         dashTimer = dashCooldown;
+        evadeProgress.gameObject.SetActive(true);
     }
 
     public bool IsDashing()
