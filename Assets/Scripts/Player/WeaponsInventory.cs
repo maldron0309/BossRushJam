@@ -22,6 +22,9 @@ public class WeaponsInventory : MonoBehaviour
             instance.WeaponWheel = WeaponWheel;
             WeaponWheel.inv = instance;
             WeaponWheel.updateWheel();
+            PlayerController player = FindAnyObjectByType<PlayerController>();
+            if (player)
+                instance.GiveWeapon(player);
         }
         currentIdx = 0;
     }
@@ -49,12 +52,12 @@ public class WeaponsInventory : MonoBehaviour
 
         player.weapon = newWeapon.GetComponent<BaseAttack>();
         Destroy(oldWeapon);
+        StartCoroutine(WeaponWheel.RotateWheel((currentIdx) * 45f));
     }
     public IEnumerator GiveWeaponWithDelay(PlayerController player)
     {
         yield return new WaitForSeconds(1);
         GiveWeapon(player);
-        StartCoroutine(WeaponWheel.RotateWheel((currentIdx) * 45f));
         
     }
 }

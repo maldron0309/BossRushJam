@@ -69,5 +69,6 @@ MonoBehaviour:
   boss5Trak: {fileID: 0}
   boss6Trak: {fileID: 0}
   menuTrack: {fileID: 0}
+  normalTrack: {fileID: 8300000, guid: 1a9634c5d70933444a2ddc67d30783ab, type: 3}
   endingTrack1: {fileID: 0}
   gameSettings: {fileID: 11400000, guid: 239d522c20936f94592ad10a6575ffdd, type: 2}

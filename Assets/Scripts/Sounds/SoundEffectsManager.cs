@@ -18,16 +18,16 @@ public class SoundEffectsManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            Debug.Log($"sound volume: {gameSettings.soundVolume}");
+            Debug.Log($"music volume: {gameSettings.musicVolume}");
         }
         else
         {
             Destroy(gameObject);
         }
 
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        Debug.Log($"sound volume: {gameSettings.soundVolume}");
-        Debug.Log($"music volume: {gameSettings.musicVolume}");
     }
     private void Start()
     {

@@ -51,6 +51,10 @@ public class WeaponWheelController : MonoBehaviour
         {
             gameObject.transform.Rotate(0f, 0f, -(targetDeg+startingDeg)/20);
             yield return new WaitForSeconds(0.01f);
+            foreach (var item in slots)
+            {
+                item.transform.rotation = Quaternion.identity;
+            }
         }
         //Debug.Log(targetDeg);
         //Debug.Log(startingDeg);

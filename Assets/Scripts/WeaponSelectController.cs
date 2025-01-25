@@ -54,6 +54,7 @@ public class WeaponSelectController : MonoBehaviour
             weaponWheel.gameObject.SetActive(true);
             weaponWheel.updateWheel();
             inv.GiveWeapon(player);
+            player.isInputEnabled = true;
         }
         
     }

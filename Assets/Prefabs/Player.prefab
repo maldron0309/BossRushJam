@@ -887,7 +887,7 @@ MonoBehaviour:
   weapon: {fileID: 4288671284239564866}
   weaponPlacement: {fileID: 8994691294248240770}
   ammoText: {fileID: 7957081886496948394}
-  jumpSound: {fileID: 8300000, guid: ad78e59f16541634fb51e60281b7e705, type: 3}
+  jumpSound: {fileID: 8300000, guid: fb379994a7c66ac449b817bcdbba8ed2, type: 3}
   doubleJumpSound: {fileID: 8300000, guid: 6197f2ff6fd6b654c80b506175366ec3, type: 3}
   rollSound: {fileID: 8300000, guid: e2eadef63d57e2b44acd39a7c03025b7, type: 3}
   dashSound: {fileID: 8300000, guid: 5c42b8b1869bca84699545610730de42, type: 3}

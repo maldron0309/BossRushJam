@@ -91,7 +91,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        UpdateGroundAndWallChecks();
         UpdateCoyoteAndJumpBuffer();
 
         if (weapon)
@@ -100,6 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateGroundAndWallChecks();
         if (!isDashing)
             Move();
 
@@ -315,7 +315,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if ((rb.velocity.y > 0) )
+            if ((rb.velocity.y >= 0) )
             {
                 if(!anim.GetCurrentAnimatorStateInfo(0).IsName("DoubleJump"))
                     anim.Play("Jump");

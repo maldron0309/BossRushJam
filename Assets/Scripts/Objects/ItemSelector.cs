@@ -10,6 +10,7 @@ public class ItemSelector : MonoBehaviour, IInteractable
     public void Interact(PlayerController player)
     {
         WeaponSelectController.instance.gameObject.SetActive(true);
+        player.isInputEnabled = false;
     }
 
     // Start is called before the first frame update
