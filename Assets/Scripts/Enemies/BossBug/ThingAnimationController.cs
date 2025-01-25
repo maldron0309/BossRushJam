@@ -30,7 +30,8 @@ public class ThingAnimationController : MonoBehaviour
             else if (boss.state.Equals("launch")) { anim.Play("LaunchUp");}
             else if (boss.state.Equals("spit")) { anim.Play("Spitting"); StartCoroutine(resetState(0.3f)); }
             else if (boss.state.Equals("onwall")) { anim.Play("WallLanding"); transform.rotation = Quaternion.Euler(0f, 0f, 90f); }
-            else if (boss.state.Equals("wallspit")) { Debug.Log("EEE"); anim.Play("WallSpit"); StartCoroutine(resetState(3f)); }
+            else if (boss.state.Equals("wallspit")) { anim.Play("WallSpit"); StartCoroutine(resetState(3f)); }
+            else if (boss.state.Equals("death")) { anim.Play("Death"); StartCoroutine(resetState(3f)); }
 
 
         }

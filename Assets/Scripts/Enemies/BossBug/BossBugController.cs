@@ -31,6 +31,12 @@ public class BossBugController : BaseBossController
         basePos = transform.position;
     }
 
+    public override void OnDefeat()
+    {
+        state = "death";
+        Destroy(gameObject, 2);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -49,10 +55,7 @@ public class BossBugController : BaseBossController
         if (health.PercentageHealth() == 0)
             isBattleStarted = false;
     }
-    public override void OnDefeat()
-    {
-        Destroy(gameObject);
-    }
+    
     public void MakeRandomMove()
     {
         if (jumpactivated == false)
