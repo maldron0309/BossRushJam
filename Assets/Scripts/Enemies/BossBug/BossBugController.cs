@@ -33,6 +33,11 @@ public class BossBugController : BaseBossController
 
     public override void OnDefeat()
     {
+        jumpAttack.enabled = false;
+        acidAttack.enabled = false;
+        sprayAttack.enabled = false;
+        movement.enabled = false;
+        rb.gravityScale = 100f;
         state = "death";
         Destroy(gameObject, 2);
     }
