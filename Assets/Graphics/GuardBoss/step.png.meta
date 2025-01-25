@@ -139,10 +139,10 @@ TextureImporter:
       name: step_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 30
-        width: 137
-        height: 118
+        x: 0
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: step_1
       rect:
         serializedVersion: 2
-        x: 239
-        y: 30
-        width: 136
-        height: 118
+        x: 208
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: step_2
       rect:
         serializedVersion: 2
-        x: 445
-        y: 30
-        width: 135
-        height: 121
+        x: 416
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: step_3
       rect:
         serializedVersion: 2
-        x: 651
-        y: 30
-        width: 137
-        height: 122
+        x: 624
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: step_4
       rect:
         serializedVersion: 2
-        x: 858
-        y: 30
-        width: 137
-        height: 121
+        x: 832
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: step_5
       rect:
         serializedVersion: 2
-        x: 1059
-        y: 30
-        width: 137
-        height: 116
+        x: 1040
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,10 +265,10 @@ TextureImporter:
       name: step_6
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 30
-        width: 135
-        height: 115
+        x: 1248
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +286,10 @@ TextureImporter:
       name: step_7
       rect:
         serializedVersion: 2
-        x: 1475
-        y: 30
-        width: 137
-        height: 115
+        x: 1456
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +307,10 @@ TextureImporter:
       name: step_8
       rect:
         serializedVersion: 2
-        x: 1683
-        y: 30
-        width: 136
-        height: 116
+        x: 1664
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: step_9
       rect:
         serializedVersion: 2
-        x: 1891
-        y: 30
-        width: 137
-        height: 116
+        x: 1872
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +349,10 @@ TextureImporter:
       name: step_10
       rect:
         serializedVersion: 2
-        x: 2099
-        y: 30
-        width: 136
-        height: 116
+        x: 2080
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,10 +370,10 @@ TextureImporter:
       name: step_11
       rect:
         serializedVersion: 2
-        x: 2314
-        y: 30
-        width: 136
-        height: 121
+        x: 2288
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,10 +391,10 @@ TextureImporter:
       name: step_12
       rect:
         serializedVersion: 2
-        x: 2523
-        y: 30
-        width: 135
-        height: 122
+        x: 2496
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +412,10 @@ TextureImporter:
       name: step_13
       rect:
         serializedVersion: 2
-        x: 2733
-        y: 30
-        width: 136
-        height: 121
+        x: 2704
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,10 +433,10 @@ TextureImporter:
       name: step_14
       rect:
         serializedVersion: 2
-        x: 2943
-        y: 30
-        width: 136
-        height: 118
+        x: 2912
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

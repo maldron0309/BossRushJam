@@ -139,10 +139,10 @@ TextureImporter:
       name: green_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 137
-        height: 115
+        x: 0
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: green_1
       rect:
         serializedVersion: 2
-        x: 233
-        y: 32
-        width: 144
-        height: 115
+        x: 208
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: green_2
       rect:
         serializedVersion: 2
-        x: 451
-        y: 32
-        width: 134
-        height: 115
+        x: 416
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: green_3
       rect:
         serializedVersion: 2
-        x: 658
-        y: 32
-        width: 135
-        height: 115
+        x: 624
+        y: 0
+        width: 208
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
