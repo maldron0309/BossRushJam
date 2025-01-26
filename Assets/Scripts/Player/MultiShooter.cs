@@ -68,7 +68,6 @@ public class MultiShooter : BaseAttack
     {
         if (nextAttackCounter <= 0)
         {
-            Debug.Log("Attack action called!");
             FireProjectiles(regularProjectilePrefab);
         }
         else

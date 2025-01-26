@@ -39,6 +39,7 @@ public class BossBugController : BaseBossController
         movement.enabled = false;
         rb.gravityScale = 100f;
         state = "death";
+        GameProgressManager.instance.bossDefeated[2] = true;
         Destroy(gameObject, 2);
     }
 

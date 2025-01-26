@@ -55,6 +55,7 @@ public class BossRedGirlController : BaseBossController
     public override void OnDefeat()
     {
         Destroy(gameObject);
+        GameProgressManager.instance.bossDefeated[1] = true;
     }
     void Update()
     {

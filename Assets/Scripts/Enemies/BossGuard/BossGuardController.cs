@@ -31,6 +31,7 @@ public class BossGuardController : BaseBossController
     public override void OnDefeat()
     {
         Destroy(gameObject);
+        GameProgressManager.instance.bossDefeated[0] = true;
     }
     void Update()
     {

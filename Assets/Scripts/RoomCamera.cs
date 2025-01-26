@@ -99,6 +99,7 @@ public class RoomCamera : MonoBehaviour
                                        leftBound + cameraBounds.x,
                                        rightBound - cameraBounds.x);
         transform.position = new Vector3(currentPosition.x, (topBound + bottomBound) / 2, transform.position.z) + (Vector3)cameraOffset;
+        cameraRelativePosition = (player.position.x) / (rightBound - cameraBounds.x);
     }
 
     private void FollowPlayerVertical()

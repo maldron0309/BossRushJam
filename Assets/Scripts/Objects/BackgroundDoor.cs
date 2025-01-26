@@ -13,12 +13,16 @@ public class BackgroundDoor : MonoBehaviour, IInteractable
     public string sceneName;
     public Animator anim;
     public Transform markLocation;
+    public bool isOpen = true;
+    public int mainHallPosition = 0;
+    public SpriteRenderer doorSprite;
 
     public Transform MarkLocation => markLocation;
 
     void Start()
     {
-        anim.Play("Opening");
+        if(isOpen)
+            anim.Play("Opening");
     }
 
     // Update is called once per frame
@@ -26,15 +30,27 @@ public class BackgroundDoor : MonoBehaviour, IInteractable
     {
         
     }
+    public void Close()
+    {
+        anim.Play("Close");
+        doorSprite.sortingOrder = 1;
+        isOpen = false;
+    }
     public void Interact(PlayerController player)
     {
-        anim.Play("Closing");
-        player.enabled = false;
-        StartCoroutine(LoadLevel());
+        if (isOpen)
+        {
+            anim.Play("Closing");
+            player.enabled = false;
+            if (mainHallPosition > 0)
+                GameProgressManager.instance.spawnPosition = mainHallPosition;
+            StartCoroutine(LoadLevel());
+        }
     }
     private IEnumerator LoadLevel()
     {
-        yield return new WaitForSeconds(.5f);
+        BlackScreen.instance.Hide();
+        yield return new WaitForSeconds(.75f);
         SceneManager.LoadScene(sceneName);
     }
 }

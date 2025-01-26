@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 2657911484827766317}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,6 +241,8 @@ MonoBehaviour:
   sceneName: 
   anim: {fileID: 6851252621293405741}
   markLocation: {fileID: 415918841542833717}
+  isOpen: 1
+  doorSprite: {fileID: 409693687467480770}
 --- !u!61 &2700464659749155425
 BoxCollider2D:
   m_ObjectHideFlags: 0
