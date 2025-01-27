@@ -104,7 +104,7 @@ public class BossGuardController : BaseBossController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6) 
+        if (collision.CompareTag("Ground")) 
         {
             isGround = true;
         }
@@ -112,7 +112,7 @@ public class BossGuardController : BaseBossController
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6) 
+        if (collision.CompareTag("Ground")) 
         {
             isGround = false;
         }
