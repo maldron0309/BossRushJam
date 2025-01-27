@@ -15537,6 +15537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   isInvincible: 0
+  gameOver: {fileID: 0}
 --- !u!114 &1465114531 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7226776785713105089, guid: 1801de48c4519d24dad2a6c84494371e, type: 3}
@@ -30568,7 +30569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00030976217
+      value: 2.8142335
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y
