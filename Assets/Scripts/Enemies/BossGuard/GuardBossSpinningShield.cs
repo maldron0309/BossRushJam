@@ -33,22 +33,47 @@ public class GuardBossSpinningShield : MonoBehaviour
         {
             foreach (var orb in orbs)
             {
-                orb.gameObject.SetActive(ShieldsLevel1.Contains(orb));
+                if(orb.gameObject != null)
+                    orb.gameObject.SetActive(ShieldsLevel1.Contains(orb));
             }
         }
         else if (idx == 2)
         {
             foreach (var orb in orbs)
             {
-                orb.gameObject.SetActive(ShieldsLevel2.Contains(orb));
+                if (orb.gameObject != null)
+                    orb.gameObject.SetActive(ShieldsLevel2.Contains(orb));
             }
         }
-        else if(idx == 3)
+        else if (idx == 3)
         {
             foreach (var orb in orbs)
             {
-                orb.gameObject.SetActive(ShieldsLevel3.Contains(orb));
+                if (orb.gameObject != null)
+                    orb.gameObject.SetActive(ShieldsLevel3.Contains(orb));
             }
         }
+    }
+    public void DestroyAllShields()
+    {
+        foreach (GameObject shield in ShieldsLevel1)
+        {
+            Destroy(shield);
+        }
+        ShieldsLevel1.Clear();
+
+
+        foreach (GameObject shield in ShieldsLevel2)
+        {
+            Destroy(shield);
+        }
+        ShieldsLevel2.Clear();
+
+
+        foreach (GameObject shield in ShieldsLevel3)
+        {
+            Destroy(shield);
+        }
+        ShieldsLevel3.Clear();
     }
 }

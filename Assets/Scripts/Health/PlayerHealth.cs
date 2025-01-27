@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     private float currentHealth;
     private HealthUI healthUI;
     private Vector3 initialPosition;
+    [SerializeField] private GameOver gameOver;
 
     void Start()
     {
@@ -29,9 +30,13 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            if(gameOver != null)
+            {
+                gameOver.IsGameOver();
+            }
             currentHealth = 0;
             Debug.Log("Player is dead!");
-            Respawn();
+            
         }
     }
 
