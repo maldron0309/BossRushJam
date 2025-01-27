@@ -20,6 +20,7 @@ public class BossGuardController : BaseBossController
     private int rapidStrikes = 0;
     private int slowStrikes = 0;
     private Rigidbody2D rb;
+    [SerializeField] private bool isGround;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -96,4 +97,23 @@ public class BossGuardController : BaseBossController
     {        
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground")) 
+        {
+            isGround = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("")) 
+        {
+            isGround = false;
+        }
+    }
+
+
 }
