@@ -112,7 +112,7 @@ public class BossGuardController : BaseBossController
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground")) 
+        if (collision.CompareTag("")) 
         {
             isGround = false;
         }
