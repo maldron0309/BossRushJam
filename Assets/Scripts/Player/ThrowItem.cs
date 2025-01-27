@@ -7,6 +7,7 @@ public class ThrowItem : BaseAttack
     public GameObject itemPrefab;
     public float verticalForce;
     public float HorizontalForce;
+    public AudioClip attackSound;
     void Start()
     {
         currentCharges = maxCharges;
@@ -31,6 +32,7 @@ public class ThrowItem : BaseAttack
             currentCharges--;
             if (currentCharges <= 0)
                 WeaponsInventory.instance.GiveNextWeapon(player);
+            SoundEffectsManager.Instance.PlaySound(attackSound);
         }
     }
 }

@@ -63,11 +63,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss1Trak: {fileID: 8300000, guid: a83eec77ef3d8034f9a4529bfe807191, type: 3}
-  boss2Trak: {fileID: 8300000, guid: 67c25ecc477b9fe49a251c3495ab7643, type: 3}
-  boss3Trak: {fileID: 0}
+  boss2Trak: {fileID: 8300000, guid: 11bf4ef319541ad4faf4446fb6a36def, type: 3}
+  boss3Trak: {fileID: 8300000, guid: c5bcd0162026de44fa402c150c292b92, type: 3}
   boss4Trak: {fileID: 0}
   boss5Trak: {fileID: 0}
   boss6Trak: {fileID: 0}
   menuTrack: {fileID: 0}
+  normalTrack: {fileID: 8300000, guid: 1a9634c5d70933444a2ddc67d30783ab, type: 3}
   endingTrack1: {fileID: 0}
   gameSettings: {fileID: 11400000, guid: 239d522c20936f94592ad10a6575ffdd, type: 2}

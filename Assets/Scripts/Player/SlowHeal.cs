@@ -11,6 +11,7 @@ public class SlowHeal : BaseAttack
     private PlayerHealth playerHealth;
     private float nextHeal;
     public GameObject effectPrefab;
+    public AudioClip attackSound;
     void Start()
     {
         playerHealth = GetComponentInParent<PlayerHealth>();
@@ -36,6 +37,7 @@ public class SlowHeal : BaseAttack
                     currentCharges--;
                     if(currentCharges <= 0)
                         WeaponsInventory.instance.GiveNextWeapon(GetComponentInParent<PlayerController>());
+                    SoundEffectsManager.Instance.PlaySound(attackSound);
                 }
             }
         }

@@ -29,8 +29,11 @@ public class BossGuardController : BaseBossController
     {
         nextActionCounter = timeBetweenActions;
     }
-
-    // Update is called once per frame
+    public override void OnDefeat()
+    {
+        Destroy(gameObject);
+        GameProgressManager.instance.bossDefeated[0] = true;
+    }
     void Update()
     {
         if (!isBattleStarted) return;
@@ -75,9 +78,6 @@ public class BossGuardController : BaseBossController
                 normalAttacksPerformed++;
                 rapidStrikes++;
                 slowStrikes = 0;
-                
-                if(randomNumber % 2 == 0)
-                    Jump();
             }
             else if(randomNumber < 30)
             {
@@ -89,9 +89,6 @@ public class BossGuardController : BaseBossController
                 normalAttacksPerformed++;
                 slowStrikes++;
                 rapidStrikes = 0;
-
-                //if (randomNumber % 2 == 0)
-                //    Jump();
             }
             nextActionCounter = timeBetweenActions;
         }

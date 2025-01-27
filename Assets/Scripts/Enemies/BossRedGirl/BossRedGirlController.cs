@@ -52,7 +52,11 @@ public class BossRedGirlController : BaseBossController
             //airDash.BeginAttack();
         }
     }
-    // Update is called once per frame
+    public override void OnDefeat()
+    {
+        Destroy(gameObject);
+        GameProgressManager.instance.bossDefeated[1] = true;
+    }
     void Update()
     {
         wasGrounded = isGrounded;

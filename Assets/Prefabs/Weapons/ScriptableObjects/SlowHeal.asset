@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SlowHeal
   m_EditorClassIdentifier: 
   weaponName: SlowHeal
-  weaponDescription: Hold fire button to heel up to 10 HP in 2 seconds
+  weaponDescription: Hold fire button to heal up to 10 HP in 2 seconds
   weaponPrefab: {fileID: 7858170756528366886, guid: 264d96995ed3b2e4eb8b725e171160bd, type: 3}
   weaponImage: {fileID: 21300000, guid: 8533034d8aefaa941b6b0e9fa389c137, type: 3}

@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - PlayerProjectile
   - door
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - BossSolid
   - BossTrigger
   - BossProjectile
-  - 
+  - PatformWall
   - 
   - 
   - 

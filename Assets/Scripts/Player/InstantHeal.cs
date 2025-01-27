@@ -7,6 +7,7 @@ public class InstantHeal : BaseAttack
     public int amountHealed = 5;
     private PlayerHealth playerHealth;
     public GameObject effectPrefab;
+    public AudioClip attackSound;
     void Start()
     {
         playerHealth = GetComponentInParent<PlayerHealth>();
@@ -31,6 +32,7 @@ public class InstantHeal : BaseAttack
             currentCharges--;
             if (currentCharges <= 0)
                 WeaponsInventory.instance.GiveNextWeapon(GetComponentInParent<PlayerController>());
+            SoundEffectsManager.Instance.PlaySound(attackSound);
         }
     }
 }

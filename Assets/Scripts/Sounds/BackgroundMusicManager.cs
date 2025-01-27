@@ -10,8 +10,10 @@ public class BackgroundMusicManager : MonoBehaviour
     public AudioClip boss5Trak;
     public AudioClip boss6Trak;
     public AudioClip menuTrack;
+    public AudioClip normalTrack;
     public AudioClip endingTrack1;
     private AudioSource audioSource;
+    private int currentIdx = -1;
     public GameSettings gameSettings;
 
     void Awake()
@@ -20,15 +22,16 @@ public class BackgroundMusicManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.loop = true;
+            audioSource.volume = 0.5f;
+            audioSource.playOnAwake = false;
         }
         else
         {
             Destroy(gameObject);
+            //Instance.StopBGM();
         }
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.loop = true;
-        audioSource.volume = 0.5f;
-        audioSource.playOnAwake = false;
     }
 
     void Start()
@@ -60,7 +63,9 @@ public class BackgroundMusicManager : MonoBehaviour
     }
     public void PlayBossMusic(int bossIdx)
     {
-        if(bossIdx == 1)
+        if(bossIdx == 0)
+            audioSource.clip = normalTrack;
+        else if(bossIdx == 1)
             audioSource.clip = boss1Trak;
         else if (bossIdx == 2)
             audioSource.clip = boss2Trak;
@@ -73,7 +78,9 @@ public class BackgroundMusicManager : MonoBehaviour
         else if (bossIdx == 6)
             audioSource.clip = boss6Trak;
 
-        audioSource.Play();
+        if(currentIdx != bossIdx)
+            audioSource.Play();
+        currentIdx = bossIdx;
     }
     public void StopBGM()
     {

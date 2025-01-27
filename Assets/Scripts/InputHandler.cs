@@ -9,7 +9,10 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        // Handle movement input
+        if (!playerController.isInputEnabled)
+        {
+            return;
+        }
         float moveInput = Input.GetAxis("Horizontal"); // Supports keyboard and gamepad
         if (Mathf.Abs(moveInput) > joystickDeadZone)
         {
@@ -52,9 +55,5 @@ public class InputHandler : MonoBehaviour
             playerController.PerformDodge(); // Regular attack
         }
 
-        if (!playerController.isInputEnabled)
-        {
-            return;
-        }
     }
 }

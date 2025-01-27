@@ -4,7 +4,7 @@ public class BossBullet : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float lifeTime = 5f; 
-    [SerializeField] private float damage = 10f; 
+    [SerializeField] public float damage = 10f; 
     [SerializeField] public bool isLocking = true; 
 
     private Transform player;

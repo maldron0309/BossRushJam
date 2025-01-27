@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RoomTransition : MonoBehaviour
@@ -25,7 +26,7 @@ public class RoomTransition : MonoBehaviour
                 {
                     roomCamera.cameraRelativePosition = cameraRelativePosition;
                     roomCamera.SetRoomBounds(boxCollider, newRoomType);
-                
+                    StartCoroutine( HoldPlayer(collision.GetComponent<PlayerController>()));
                 }
                 else
                 {
@@ -48,5 +49,11 @@ public class RoomTransition : MonoBehaviour
         {
             Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.bounds.size);
         }
+    }
+    private IEnumerator HoldPlayer(PlayerController player)
+    {
+        player.Stop();
+        yield return new WaitForSeconds(1);
+        player.Resume();
     }
 }

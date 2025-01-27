@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -627852296, guid: ef8473f0d5623494eb7e3cd187faf53d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,3 +108,4 @@ MonoBehaviour:
   angleStep: 10
   numProjectiles: 5
   damage: 4
+  attackSound: {fileID: 8300000, guid: 6a5b4eed02414f3468c8da42925078e2, type: 3}

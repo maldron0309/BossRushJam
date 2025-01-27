@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public int damage = 10;
     public GameObject hitEffect;
+    public AudioClip hitClip;
     private Rigidbody2D rb;
     private void Awake()
     {
@@ -18,14 +19,17 @@ public class Projectile : MonoBehaviour
             if (bossHealth != null)
             {
                 bossHealth.TakeDamage(damage);
-                Debug.Log($"Hit boss for {damage} damage!");
             }
             Instantiate(hitEffect, transform.position, Quaternion.identity);
+            if (hitClip)
+                SoundEffectsManager.Instance.PlaySound(hitClip);
             Destroy(gameObject);
         }
         else
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
+            if (hitClip)
+                SoundEffectsManager.Instance.PlaySound(hitClip);
             Destroy(gameObject);
         }
     }

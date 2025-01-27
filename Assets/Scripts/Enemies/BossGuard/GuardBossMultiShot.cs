@@ -56,6 +56,12 @@ public class GuardBossMultiShot : MonoBehaviour
     public void BeginSequence()
     {
         bossAnim.SetTrigger("RedShoot");
+        StartCoroutine(delayedShooting());
+    }
+
+    IEnumerator delayedShooting()
+    {
+        yield return new WaitForSeconds(0.05f);
         isExecuting = true;
         bulletsLeft = bulletCount;
         reloadCounter = 0;

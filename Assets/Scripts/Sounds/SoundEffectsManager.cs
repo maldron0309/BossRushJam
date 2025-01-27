@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundEffectsManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class SoundEffectsManager : MonoBehaviour
     public GameSettings gameSettings;
 
     private AudioSource audioSource;
+    private List<AudioClip> soundsBuffer = new List<AudioClip>();
 
     void Awake()
     {
@@ -18,16 +20,20 @@ public class SoundEffectsManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            Debug.Log($"sound volume: {gameSettings.soundVolume}");
+            Debug.Log($"music volume: {gameSettings.musicVolume}");
         }
         else
         {
             Destroy(gameObject);
         }
 
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        Debug.Log($"sound volume: {gameSettings.soundVolume}");
-        Debug.Log($"music volume: {gameSettings.musicVolume}");
+    }
+    private void FixedUpdate()
+    {
+        soundsBuffer.Clear();
     }
     private void Start()
     {
@@ -36,7 +42,11 @@ public class SoundEffectsManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         // play any sound. just pass audio clip
-        audioSource.PlayOneShot(clip);
+        if (!soundsBuffer.Contains(clip))
+        {
+            soundsBuffer.Add(clip);
+            audioSource.PlayOneShot(clip);
+        }
     }
     public void PlayButtonPressSound()
     {

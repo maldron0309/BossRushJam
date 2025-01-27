@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public float wallJumpForce = 7f;
     public float wallJumpUpwardForce = 10f;
     public float wallSnapDistance = 0.5f;
+    public bool jumpEnable = true;
 
     [Header("Roll and Dash")]
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
     public bool DashEnabled = false;
+    public ProgressBar evadeProgress;
     private bool isDashing = false;
     private bool canDash = true;
     private float dashTimer = 0f;
@@ -53,9 +56,16 @@ public class PlayerController : MonoBehaviour
     public GameObject weaponPlacement;
     public TextMeshPro ammoText;
 
+    [Header("Sound Effects")]
+    public AudioClip jumpSound;
+    public AudioClip doubleJumpSound;
+    public AudioClip rollSound;
+    public AudioClip dashSound;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private PlayerHealth health;
+    private bool isAlive = true;
     public bool facingRight = true;
     private bool isGrounded;
     private bool isTouchingWallLeft;
@@ -69,8 +79,8 @@ public class PlayerController : MonoBehaviour
     private bool isWallSliding;
     private bool isWallStickAllowed;
     private float originalSpeed;
-    private Vector2 externalVelocity;
-    private Rigidbody2D exRb;
+    public Vector2 externalVelocity;
+    public Rigidbody2D exRb;
 
     private void Start()
     {
@@ -81,7 +91,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        UpdateGroundAndWallChecks();
         UpdateCoyoteAndJumpBuffer();
 
         if (weapon)
@@ -90,6 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateGroundAndWallChecks();
         if (!isDashing)
             Move();
 
@@ -107,7 +117,12 @@ public class PlayerController : MonoBehaviour
         HandleJump();
 
         if (dashTimer > 0)
+        {
             dashTimer -= Time.deltaTime;
+            evadeProgress.UpdateProgress(1 - (dashTimer / dashCooldown));
+            if(dashTimer <= 0 && evadeProgress.gameObject.activeInHierarchy)
+                evadeProgress.gameObject.SetActive(false);
+        }
     }
     private void WallSlide()
     {
@@ -256,6 +271,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (rb.bodyType == RigidbodyType2D.Kinematic)
+            return;
         // Start with the external velocity (e.g., platform influence)
         if (exRb)
             externalVelocity = exRb.velocity;
@@ -282,6 +299,9 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
+        if (!isAlive)
+            return;
+
         if (isGrounded)
         {
             if ((rb.velocity.x > 0 || rb.velocity.x < 0) && Mathf.Abs(moveInput.x) > 0.01f)
@@ -295,7 +315,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if ((rb.velocity.y > 0) )
+            if ((rb.velocity.y >= 0) )
             {
                 if(!anim.GetCurrentAnimatorStateInfo(0).IsName("DoubleJump"))
                     anim.Play("Jump");
@@ -318,7 +338,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
-        if (isDashing)
+        if (isDashing || !jumpEnable || !isAlive)
             return;
 
         if (jumpBufferCounter > 0 && (coyoteTimeCounter > 0 || canDoubleJump || isTouchingWallLeft || isTouchingWallRight))
@@ -328,12 +348,14 @@ public class PlayerController : MonoBehaviour
                 isWallStickAllowed = !(isTouchingWallLeft || isTouchingWallRight);
                 Jump(Vector2.up);
                 coyoteTimeCounter = 0;
+                SoundEffectsManager.Instance.PlaySound(jumpSound);
             }
             else if (canDoubleJump)
             {
                 Jump(Vector2.up);
                 canDoubleJump = false;
                 anim.Play("DoubleJump");
+                SoundEffectsManager.Instance.PlaySound(doubleJumpSound);
             }
 
             jumpBufferCounter = 0;
@@ -390,7 +412,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Patform"))
+        if (collision.collider.CompareTag("Patform") && isGrounded)
         {
             exRb = collision.collider.GetComponent<Rigidbody2D>();
             if (exRb)
@@ -408,11 +430,11 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        SoundEffectsManager.Instance.PlaySound(dashSound);
         isDashing = true;
         canDash = false;
         anim.Play("Dash");
         health.isInvincible = true;
-        float originalGravity = rb.gravityScale;
         rb.gravityScale = 0; // Temporarily disable gravity during dash
 
         Vector2 dashDirection = facingRight ? Vector2.right : Vector2.left;
@@ -421,15 +443,17 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         anim.Play("Idle");
 
-        rb.gravityScale = originalGravity; // Restore gravity
+        rb.gravityScale = 1; // Restore gravity
         isDashing = false;
         health.isInvincible = false;
         canDash = true;
         dashTimer = dashCooldown;
+        evadeProgress.gameObject.SetActive(true);
     }
 
     private IEnumerator Roll()
     {
+        SoundEffectsManager.Instance.PlaySound(rollSound);
         isDashing = true;
         canDash = false;
 
@@ -447,6 +471,7 @@ public class PlayerController : MonoBehaviour
         health.isInvincible = false;
         canDash = true;
         dashTimer = dashCooldown;
+        evadeProgress.gameObject.SetActive(true);
     }
 
     public bool IsDashing()
@@ -462,5 +487,31 @@ public class PlayerController : MonoBehaviour
     public void EnableInput()
     {
         isInputEnabled = true;
+    }
+    public void Stop()
+    {
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.velocity = Vector2.zero;
+    }
+    public void Resume()
+    {
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        isInputEnabled = true;
+    }
+    public IEnumerator PlayeDeath()
+    {
+        isInputEnabled = false;
+        isAlive = false;
+        rb.velocity = Vector2.zero;
+        moveInput = Vector2.zero;
+        weaponPlacement.SetActive(false);
+
+        anim.Play("DeathFall");
+        health.isInvincible = true;
+
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 }
