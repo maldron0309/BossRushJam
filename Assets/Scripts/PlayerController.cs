@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public delegate void PlayerAttacAction(PlayerController player);
-
+    public static PlayerController instance;
     public event PlayerAttacAction OnPlayerAttack;
     [Header("Movement")]
     public float moveSpeed = 5f;
@@ -81,6 +81,10 @@ public class PlayerController : MonoBehaviour
     private float originalSpeed;
     public Vector2 externalVelocity;
     public Rigidbody2D exRb;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -511,7 +515,10 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (GameOver.instance)
+        {
+            GameOver.instance.IsGameOver();
+        }
 
     }
 }

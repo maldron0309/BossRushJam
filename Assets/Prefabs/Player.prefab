@@ -889,7 +889,7 @@ MonoBehaviour:
   ammoText: {fileID: 7957081886496948394}
   jumpSound: {fileID: 8300000, guid: fb379994a7c66ac449b817bcdbba8ed2, type: 3}
   doubleJumpSound: {fileID: 8300000, guid: 6197f2ff6fd6b654c80b506175366ec3, type: 3}
-  rollSound: {fileID: 8300000, guid: e2eadef63d57e2b44acd39a7c03025b7, type: 3}
+  rollSound: {fileID: 8300000, guid: 4a9e7595f158a704e9fbf4be1beddce5, type: 3}
   dashSound: {fileID: 8300000, guid: 5c42b8b1869bca84699545610730de42, type: 3}
   facingRight: 1
   externalVelocity: {x: 0, y: 0}

@@ -6,10 +6,6 @@ public class BossHealth : MonoBehaviour
     [SerializeField] float maxHealth = 500f;
     [SerializeField] private GameObject door;
     [SerializeField] private Animator bossAnim;
-    [SerializeField] private float deathTime;
-    [SerializeField] private GuardBossSpinningShield shields;
-    [SerializeField] private Collider2D bossCol;
-    [SerializeField] private Rigidbody2D bossRb;
     [SerializeField] private SpriteRenderer bossSprite;
 
     private Color originalColor;
@@ -37,14 +33,8 @@ public class BossHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            Debug.Log("Boss is dead!");
-            shields.DestroyAllShields();
-            bossAnim.SetTrigger("Death");
             ActivateDoor();
-            bossRb.constraints = RigidbodyConstraints2D.FreezePositionY;
-            bossCol.enabled = false;
-            //Destroy(gameObject, deathTime);
-
+            GetComponent<BaseBossController>().OnDefeat();
         }
 
         bossHealthUI.SetHealth(currentHealth);

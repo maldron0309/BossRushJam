@@ -182,6 +182,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   door: {fileID: 0}
+  bossAnim: {fileID: 0}
+  deathTime: 0
+  shields: {fileID: 0}
+  bossCol: {fileID: 0}
+  bossRb: {fileID: 0}
+  bossSprite: {fileID: 691459834839593460}
 --- !u!114 &2417299555140087058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +276,10 @@ MonoBehaviour:
   targetPost: {fileID: 0}
   idleSpinTime: 1
   bigJump: 3500
+  bulletPrefab: {fileID: 0}
+  numberOfJumps: 2
+  minTimeBetweenAttacks: 0
+  maxTimeBetweenAttacks: 0
 --- !u!1 &3583980124243370172
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    public static GameOver instance;
     [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private string levelName;
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
 
     }
-
-    // Update is called once per frame
     void Update()
     {
 
@@ -21,16 +22,13 @@ public class GameOver : MonoBehaviour
     public void IsGameOver()
     {
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
     }
     public void RestartGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void BackToMenu()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("MainHall");
     }
 }

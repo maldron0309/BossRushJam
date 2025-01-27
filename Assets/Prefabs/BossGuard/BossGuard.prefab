@@ -473,6 +473,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   door: {fileID: 0}
+  bossAnim: {fileID: 0}
+  deathTime: 0
+  shields: {fileID: 0}
+  bossCol: {fileID: 0}
+  bossRb: {fileID: 0}
+  bossSprite: {fileID: 4722843679258396361}
 --- !u!114 &6672855341750763990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,6 +503,7 @@ MonoBehaviour:
   shields: {fileID: 1618453754453771950}
   jumpForce: 2000
   isPerformingAction: 0
+  isGround: 0
 --- !u!114 &5691378538822951706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +560,7 @@ MonoBehaviour:
   attackDestenation: {fileID: 7361401758336444120}
   startPoint: {fileID: 2983846790758497066}
   attackProjectile: {fileID: 7092856427572795367, guid: 57971889c85d3934b9d51d4f61c6228d, type: 3}
+  bossAnim: {fileID: 0}
 --- !u!61 &5428835552221765483
 BoxCollider2D:
   m_ObjectHideFlags: 0

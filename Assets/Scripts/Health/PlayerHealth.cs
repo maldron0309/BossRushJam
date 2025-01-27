@@ -8,7 +8,6 @@ public class PlayerHealth : MonoBehaviour
     private float currentHealth;
     private HealthUI healthUI;
     private Vector3 initialPosition;
-    [SerializeField] private GameOver gameOver;
 
     void Start()
     {
@@ -30,13 +29,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            if(gameOver != null)
-            {
-                gameOver.IsGameOver();
-            }
             currentHealth = 0;
-            Debug.Log("Player is dead!");
-            
+            StartCoroutine(PlayerController.instance.PlayeDeath());
         }
     }
 
@@ -49,11 +43,5 @@ public class PlayerHealth : MonoBehaviour
     void Respawn()
     {
         StartCoroutine(GetComponent<PlayerController>().PlayeDeath());
-        //currentHealth = maxHealth;
-        //healthUI.SetHealth(currentHealth);
-
-        //transform.position = initialPosition;
-
-        //Debug.Log("Player has respawned");
     }
 }

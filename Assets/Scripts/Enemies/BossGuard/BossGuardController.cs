@@ -15,6 +15,7 @@ public class BossGuardController : BaseBossController
     private int normalAttacksPerformed = 0;
     private float nextActionCounter;
     public bool isPerformingAction = false;
+    [SerializeField] private Animator bossAnim;
 
     // count repeates of same attack. used to restain long repeats
     private int rapidStrikes = 0;
@@ -31,8 +32,11 @@ public class BossGuardController : BaseBossController
     }
     public override void OnDefeat()
     {
-        Destroy(gameObject);
         GameProgressManager.instance.bossDefeated[0] = true;
+        bossAnim.SetTrigger("Death");
+        shields.DestroyAllShields();
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        //bossCol.enabled = false;
     }
     void Update()
     {
@@ -101,18 +105,18 @@ public class BossGuardController : BaseBossController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground")) 
-        {
-            isGround = true;
-        }
+        //if (collision.CompareTag("Ground")) 
+        //{
+        //    isGround = true;
+        //}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("")) 
-        {
-            isGround = false;
-        }
+        //if (collision.CompareTag("")) 
+        //{
+        //    isGround = false;
+        //}
     }
 
 
