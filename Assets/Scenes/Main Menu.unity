@@ -2385,6 +2385,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Settings
       objectReference: {fileID: 0}
+    - target: {fileID: 892933487399960999, guid: 26c5ad53f5acdda4dbc8a6214feeeaeb, type: 3}
+      propertyPath: m_text
+      value: Credits
+      objectReference: {fileID: 0}
     - target: {fileID: 2251083423984961288, guid: 26c5ad53f5acdda4dbc8a6214feeeaeb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
