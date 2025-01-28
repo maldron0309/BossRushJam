@@ -36,7 +36,7 @@ public class BossGuardController : BaseBossController
         bossAnim.SetTrigger("Death");
         shields.DestroyAllShields();
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-        //bossCol.enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
     void Update()
     {

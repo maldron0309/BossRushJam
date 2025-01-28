@@ -496,11 +496,13 @@ public class PlayerController : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.velocity = Vector2.zero;
+        PlayerController.instance.isInputEnabled = false;
     }
     public void Resume()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         isInputEnabled = true;
+        PlayerController.instance.isInputEnabled = true;
     }
     public IEnumerator PlayeDeath()
     {

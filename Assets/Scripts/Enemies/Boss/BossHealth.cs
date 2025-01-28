@@ -48,7 +48,7 @@ public class BossHealth : MonoBehaviour
     {
         if (door != null)
         {
-            door.SetActive(true);
+            door.SetActive(false);
             Debug.Log("Door is active");
         }
     }

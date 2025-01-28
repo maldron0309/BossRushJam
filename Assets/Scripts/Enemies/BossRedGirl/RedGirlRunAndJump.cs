@@ -23,6 +23,10 @@ public class RedGirlRunAndJump : MonoBehaviour
         boss = GetComponent<BossRedGirlController>();
         FindAnyObjectByType<PlayerController>().OnPlayerAttack += JumpOver;
     }
+    private void OnDestroy()
+    {
+        FindAnyObjectByType<PlayerController>().OnPlayerAttack -= JumpOver;
+    }
     private void Update()
     {
         if (!isStarted)

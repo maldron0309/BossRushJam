@@ -11,6 +11,7 @@ public class InputHandler : MonoBehaviour
     {
         if (!playerController.isInputEnabled)
         {
+            HandleUIInputs();
             return;
         }
         float moveInput = Input.GetAxis("Horizontal"); // Supports keyboard and gamepad
@@ -41,7 +42,8 @@ public class InputHandler : MonoBehaviour
         // Handle attack input
         if (Input.GetButtonDown("Fire1"))
         {
-            playerController.OnAttack1(true); // Regular attack
+            if (playerController.isInputEnabled)
+                playerController.OnAttack1(true); // Regular attack
         }
 
         // Handle charge attack (if you want to support it)
@@ -55,5 +57,13 @@ public class InputHandler : MonoBehaviour
             playerController.PerformDodge(); // Regular attack
         }
 
+    }
+    public void HandleUIInputs()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (DialogScreen.instance.root.activeInHierarchy)
+                DialogScreen.instance.Progess();
+        }
     }
 }
