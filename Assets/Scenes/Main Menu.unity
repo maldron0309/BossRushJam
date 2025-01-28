@@ -2474,6 +2474,10 @@ PrefabInstance:
       value: UI Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8383373322452501932, guid: 26c5ad53f5acdda4dbc8a6214feeeaeb, type: 3}
+      propertyPath: FadeOut
+      value: 
+      objectReference: {fileID: 6144450115568818707, guid: 6a2fc84d7849eeb4bb56ca73bfa21152, type: 3}
+    - target: {fileID: 8383373322452501932, guid: 26c5ad53f5acdda4dbc8a6214feeeaeb, type: 3}
       propertyPath: credits
       value: 
       objectReference: {fileID: 1350248467}

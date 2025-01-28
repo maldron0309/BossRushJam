@@ -7,9 +7,12 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private Credits credits;
     [SerializeField] private Settings settings;
+
+    [SerializeField] GameObject FadeOut;
+
     public void Play()
     {
-        SceneManager.LoadScene("MainHall");
+        Instantiate(FadeOut, this.transform.parent.transform);
     }
 
     public void Setting()
