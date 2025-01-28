@@ -1655,6 +1655,7 @@ MonoBehaviour:
   boss5Trak: {fileID: 0}
   boss6Trak: {fileID: 0}
   menuTrack: {fileID: 0}
+  normalTrack: {fileID: 0}
   endingTrack1: {fileID: 0}
   gameSettings: {fileID: 11400000, guid: 8a23d22ad217f194cb8cfdc706e61fbe, type: 2}
 --- !u!1 &1615183575
@@ -2121,7 +2122,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Setting
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
