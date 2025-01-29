@@ -34178,7 +34178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0006834163
+      value: 0.000030696407
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y
@@ -34253,17 +34253,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossHealth UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7192897966019822048, guid: 36c0dac49f7cb784abef9feca7e3393b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7200171112874864919, guid: 36c0dac49f7cb784abef9feca7e3393b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8864166259273291249, guid: 36c0dac49f7cb784abef9feca7e3393b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8864166259273291249, guid: 36c0dac49f7cb784abef9feca7e3393b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6112,17 +6112,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossHealth UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7192897966019822048, guid: 36c0dac49f7cb784abef9feca7e3393b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7200171112874864919, guid: 36c0dac49f7cb784abef9feca7e3393b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8864166259273291249, guid: 36c0dac49f7cb784abef9feca7e3393b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8864166259273291249, guid: 36c0dac49f7cb784abef9feca7e3393b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
