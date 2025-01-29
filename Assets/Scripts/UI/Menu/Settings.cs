@@ -10,12 +10,8 @@ public class Settings : MonoBehaviour
 
     void Awake()
     {
-        gameSettings.LoadSettings();
-    }
-
-    private void Start()
-    {
         InitializeUI();
+        gameSettings.LoadSettings();
         CloseSettings();
     }
 

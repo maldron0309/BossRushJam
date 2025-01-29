@@ -7,7 +7,7 @@ public class WeaponsInventory : MonoBehaviour
     public static WeaponsInventory instance;
     public WeaponSlot[] weapons;
     public WeaponWheelController WeaponWheel;
-    private int currentIdx;
+    public int currentIdx;
     private void Awake()
     {
         if (instance == null)
