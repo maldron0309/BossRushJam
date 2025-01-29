@@ -497,6 +497,8 @@ public class PlayerController : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.velocity = Vector2.zero;
         PlayerController.instance.isInputEnabled = false;
+        if (isGrounded)
+            anim.Play("Idle");
     }
     public void Resume()
     {

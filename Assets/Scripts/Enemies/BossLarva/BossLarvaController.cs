@@ -8,10 +8,12 @@ public class BossLarvaController : BaseBossController
     public BossHealth health;
     public Animator anim;
     [Header("Attacks")]
+    public GameObject hitZone;
     public BossLarvaAttackMeele meeleAttack;
     public BossLarvaSpit spitAttack;
     public PlayerMonitor groundMonitor;
     public BossLarvaRunning running;
+    public BossLarvaJump bossJump;
 
     [Header("Other")]
     public LayerMask groundLayer;
@@ -25,8 +27,7 @@ public class BossLarvaController : BaseBossController
     private bool isGrounded;
     private bool wasGrounded;
     private float nextActionCounter;
-    private int rage = 0;
-    private int normalMoveCounter = 0;
+    private bool isDead = false;
 
     private Rigidbody2D rb;
     private void Awake()
@@ -48,6 +49,9 @@ public class BossLarvaController : BaseBossController
 
     void Update()
     {
+        if (isDead)
+            return;
+
         wasGrounded = isGrounded;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (!isBattleStarted || isPerformingAction) 
@@ -68,19 +72,21 @@ public class BossLarvaController : BaseBossController
     {
         if (isPerformingAction)
             return;
-
-        //if (isGrounded)
-        //{
-        //    anim.Play("Idle");
-        //}
     }
     public override void OnDefeat()
     {
-        phase2.health.Initialize(BossHealthUI.instance);
-        phase2.transform.position = transform.position;
-        phase2.StartBossBattle();
-        BackgroundMusicManager.Instance.PlayBossMusic(5);
-        Destroy(gameObject);   
+        isDead = true;
+        hitZone.SetActive(false);
+        rb.velocity = Vector2.zero;
+        isPerformingAction = false;
+        spitAttack.enabled = false;
+        bossJump.enabled = false;
+        running.enabled = false;
+        meeleAttack.enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("Props");
+        BackgroundMusicManager.Instance.StopBGM();
+        anim.Play("Death");
+        StartCoroutine(StartPhase2());
     }
     public void MakeRandomMove()
     {
@@ -91,14 +97,25 @@ public class BossLarvaController : BaseBossController
         else
         {
             int randomNumber = Random.Range(0, 100);
-            if(randomNumber > 50)
+            if (randomNumber > 66)
                 spitAttack.BeginAttack();
-            else
+            else if(randomNumber > 33)
                 running.BeginAttack();
+            else
+                bossJump.BeginAttack();
 
             nextActionCounter = timeBetweenActions;
 
         }
         hadMoved = !hadMoved;
+    }
+    private IEnumerator StartPhase2()
+    {
+        yield return new WaitForSeconds(1);
+
+        phase2.health.Initialize(BossHealthUI.instance);
+        phase2.transform.position = transform.position;
+        phase2.StartBossBattle();
+        BackgroundMusicManager.Instance.PlayBossMusic(5);
     }
 }

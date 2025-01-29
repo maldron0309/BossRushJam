@@ -822,90 +822,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 460597929}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &390684206
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 390684208}
-  - component: {fileID: 390684207}
-  m_Layer: 0
-  m_Name: boss2 background (1)(1)_1 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &390684207
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390684206}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1527392897, guid: 21f58f31b7baeae4690062d1cd8417ad, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.1875, y: 1.34375}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &390684208
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390684206}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.47, y: -1.57, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &406942785
 GameObject:
   m_ObjectHideFlags: 0
@@ -17881,7 +17797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8290462937564964807, guid: e0a9779506a83b24a9d18aff3e798d52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3362362
+      value: -1.56
       objectReference: {fileID: 0}
     - target: {fileID: 8290462937564964807, guid: e0a9779506a83b24a9d18aff3e798d52, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19514,6 +19430,82 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.874}
+--- !u!1001 &1302025245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[0]
+      value: 'Jeremy Fitcher Report:
+
+        August 17th, 2138
+
+        Collectively,
+        we decided to try to catch one of these green creatures for future experiments. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[1]
+      value: 'Cunningham was the one who originally proposed the idea, but for some
+        reason he looked annoyed and evasive when everyone finally agreed with his
+        suggestion. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[2]
+      value: Anyway, we managed to catch one of the creatures and study it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987997178655518923, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_Name
+      value: PC (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
 --- !u!1 &1327774199
 GameObject:
   m_ObjectHideFlags: 0
@@ -37520,13 +37512,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[0]
+      value: 'The Diary of Walter Cunningham
+
+        August 20, 2138
+
+        They''re
+        all dead... It is ok... I killed them all! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[1]
+      value: "That thing made me do it!... They were going to hurt me... It inspires
+        me with thoughts that I don't like!.. \r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[2]
+      value: "It wants to help... It killed them all! ... I killed them myself...
+        I'm completely alone in an empty station with some kind of creature brainwashing
+        me and eating me from the inside out!.. \r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[3]
+      value: 'I will become a new stage of evolution... Shut up! Leave me alone!...
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[4]
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[5]
+      value: 'There''s no point in fighting anymore... It''s true... I would have
+        shot myself if I wasn''t such a coward... You shouldn''t do that... It''s
+        all my fault... That''s not so... '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[6]
+      value: My selfishness has ruined us all!.. I was just defending myself...
+      objectReference: {fileID: 0}
     - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.43
+      value: 76.95
       objectReference: {fileID: 0}
     - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.01
+      value: -1.96
       objectReference: {fileID: 0}
     - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39039,7 +39075,6 @@ SceneRoots:
   - {fileID: 1541829125}
   - {fileID: 1013569353}
   - {fileID: 2018304235}
-  - {fileID: 390684208}
   - {fileID: 569954821}
   - {fileID: 825141760}
   - {fileID: 131929850}
@@ -39067,4 +39102,5 @@ SceneRoots:
   - {fileID: 406942788}
   - {fileID: 859008865}
   - {fileID: 1902081936}
+  - {fileID: 1302025245}
   - {fileID: 1327774201}

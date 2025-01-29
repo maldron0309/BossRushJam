@@ -10,6 +10,7 @@ public class BossLarvaRunning : MonoBehaviour
     public Transform[] posts;
     public float attackRate = 1;
     private float attackCooldown;
+    private Animator anim;
 
     public float moveSpeed;
     private bool isFInishing = false;
@@ -24,6 +25,7 @@ public class BossLarvaRunning : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boss = GetComponent<BossLarvaController>();
         attackCooldown = attackRate;
+        anim = boss.anim;
     }
     void FixedUpdate()
     {
@@ -35,6 +37,11 @@ public class BossLarvaRunning : MonoBehaviour
             movedir = 1;
         else
             movedir = -1;
+
+        if ((movedir > 0 && !boss.facingRight) || (movedir < 0 && boss.facingRight))
+        {
+            boss.Flip();
+        }
 
         if (Mathf.Abs(dist) > 0.5f)
         {
@@ -53,12 +60,13 @@ public class BossLarvaRunning : MonoBehaviour
             boss.isPerformingAction = false;
             isStarted = false;
             boss.FacePlayer();
+            anim.Play("Idle");
         }
     }
     public void BeginAttack()
     {
         targetPost = posts[Random.Range(0, posts.Length)];
-
+        anim.Play("Move");
         boss.FacePlayer();
         isFInishing = false;
         isStarted = true;

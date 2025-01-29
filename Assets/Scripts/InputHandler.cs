@@ -62,7 +62,7 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if (DialogScreen.instance.root.activeInHierarchy)
+            if (DialogScreen.instance && DialogScreen.instance.root.activeInHierarchy)
                 DialogScreen.instance.Progess();
         }
     }

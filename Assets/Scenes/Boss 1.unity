@@ -29110,6 +29110,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a9779506a83b24a9d18aff3e798d52, type: 3}
+--- !u!1001 &1786587743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[0]
+      value: "    The Diary of Walter Cunningham \r\n    July 26, 2138\r\n\"Why is
+        this happening to me? Why was our station attacked out of all the stations\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[1]
+      value: '"10 years of studying at the higher school of neuroscience, 6 years
+        of space training and 3 years of applying for approval to go into space in
+        order to be attacked by some green and slimy creatures a couple of years
+        later?"
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[2]
+      value: '"I can''t die without finishing my research!"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987997178655518923, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_Name
+      value: PC (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
 --- !u!1 &1798050713
 GameObject:
   m_ObjectHideFlags: 0
@@ -34178,7 +34253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0006834163
+      value: 0.0007645944
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y
@@ -34278,9 +34353,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[0]
+      value: 'Complaint from Department 3601
+
+        September 11th, 2137
+
+        Jeremy
+        Fitcher:
+
+        "Captain, please tell Professor Cunningham off already."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[1]
+      value: '"His arrogant and abusive behavior spoils the entire mood of the department.
+        He constantly takes other people''s food, listens loudly to music, rudely
+        ridicules newcomers suggestions,..."
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[2]
+      value: '"... uses report files for research like his diary, which makes me
+        have to edit documents once again, and he also slurping terribly loud!"
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[3]
+      value: '"I recognize his merits as a scientist, he really brought a lot of
+        benefits to our research, but his behavior is unbearable!"
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[4]
+      value: '"If you ignore my complaint again, it can provoke a conflict that can
+        end in an unpleasant incident. Our patience is not unlimited!"'
+      objectReference: {fileID: 0}
     - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.43
+      value: 76.3
       objectReference: {fileID: 0}
     - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -34356,5 +34473,6 @@ SceneRoots:
   - {fileID: 1826530433}
   - {fileID: 1780372691}
   - {fileID: 8284597253500184091}
+  - {fileID: 1786587743}
   - {fileID: 2017475677}
   - {fileID: 250672336}

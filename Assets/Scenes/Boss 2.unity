@@ -299,11 +299,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8290462937564964807, guid: e0a9779506a83b24a9d18aff3e798d52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.64
+      value: 17.09
       objectReference: {fileID: 0}
     - target: {fileID: 8290462937564964807, guid: e0a9779506a83b24a9d18aff3e798d52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3362362
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 8290462937564964807, guid: e0a9779506a83b24a9d18aff3e798d52, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1167,6 +1167,108 @@ Transform:
   - {fileID: 509241409}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &491401745
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[0]
+      value: "The Diary of Walter Cunningham\r\nAugust 15th, 2138\r\n\u201CI was
+        able to catch one of these slimy critters in a dumpster. What a genius I
+        am!\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[1]
+      value: '"The stupid creature didn''t even realize what had happened! Other
+        scientists say that it is dangerous to keep this creature and you need to
+        get rid of it. Fools!"
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[2]
+      value: '"How can they not understand? We''ve stumbled upon a new kind of cosmic
+        creature! This is a huge scope for research!"
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[3]
+      value: '"Only I and only I understand this! Naturally, I told them that I got
+        rid of the green thing and there was no reason to worry. And while they''re
+        not watching, I''ll do my research!"
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[4]
+      value: 'August 16th, 2138
+
+        "That thing got in my mouth! It''s inside
+        me! I can feel it moving through my stomach, intestines, and even my lungs."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[5]
+      value: "\"It's like this creature is settling into its new home. No one can
+        find out about this!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 76.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987997178655518923, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: m_Name
+      value: PC (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
 --- !u!1 &509241408
 GameObject:
   m_ObjectHideFlags: 0
@@ -11933,9 +12035,44 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[0]
+      value: 'Jeremy Fitcher Report:
+
+        July 28, 2138
+
+        "It''s been
+        4 days since the aliens attacked us."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[1]
+      value: '"They appeared from small spirals that suddenly appeared in the cargo
+        hold of the station. We managed to take cover and barricade ourselves in
+        the medical department."
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[2]
+      value: '"There are about 86 survivors. The creatures can''t get in here, but
+        we can''t get out either. We could try to get to the control room and send
+        an SOS signal, but it''s too dangerous to get out."
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
+      propertyPath: messages.Array.data[3]
+      value: '"The best option would be to stay here and wait for the government
+        to send soldiers to us. They will have to do this if we don''t get in touch
+        for a long time. I think there will be enough food and water for 4-5 months."'
+      objectReference: {fileID: 0}
     - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.43
+      value: 32.43
       objectReference: {fileID: 0}
     - target: {fileID: 8637788943470971225, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13796,7 +13933,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -45220,12 +45357,16 @@ PrefabInstance:
       objectReference: {fileID: -955378774, guid: 5760a0b0a5d5e9a41a69cb34de87f628, type: 3}
     - target: {fileID: 1938344324534029602, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
       propertyPath: facingRight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2417299555140087058, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
       propertyPath: fallHeight
       value: 
       objectReference: {fileID: 293432853}
+    - target: {fileID: 2694447477708340100, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2694447477708340100, guid: a8ff6d53031ac79479eedd8514ca0772, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.182
@@ -45635,6 +45776,7 @@ SceneRoots:
   - {fileID: 84558779}
   - {fileID: 1891581154}
   - {fileID: 1013308552}
+  - {fileID: 491401745}
   - {fileID: 752880709}
   - {fileID: 1109709006}
   - {fileID: 878767674}

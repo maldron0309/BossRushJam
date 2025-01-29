@@ -12,6 +12,7 @@ public class BossFlyerControll : BaseBossController
     public BossFlyerMoveAround flyAround;
     public BossFlyerSideAttack sideAttack;
     public BossFlyerCenterAttack centerAttack;
+    public BossFlyerCharge flyerCharge;
 
     [Header("Start Event")]
     private int stage = 0;
@@ -83,14 +84,12 @@ public class BossFlyerControll : BaseBossController
         else
         {
             int randomNumber = Random.Range(0, 100);
-            if(randomNumber > 50)
-            {
+            if (randomNumber > 66)
                 sideAttack.BeginAttack();
-            }
-            else
-            {
+            else if (randomNumber > 33)
                 centerAttack.BeginAttack();
-            }
+            else
+                flyerCharge.BeginAttack();
 
             moveCounter = 0;
             nextActionCounter = timeBetweenActions;
@@ -106,5 +105,10 @@ public class BossFlyerControll : BaseBossController
     public void Move(Vector2 movedir)
     {
         rb.velocity = movedir * moveSpeed;
+
+        if ((movedir.x > 0 && !facingRight) || (movedir.x < 0 && facingRight))
+        {
+            Flip();
+        }
     }
 }

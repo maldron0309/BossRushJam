@@ -34,7 +34,7 @@ public class BossFlyerMoveAround : MonoBehaviour
 
         if (movedir.magnitude > 0.5f)
         {
-            boss.Move(movedir.normalized);
+            boss.Move(movedir.normalized);  
 
             if (attackCooldown > 0)
                 attackCooldown -= Time.deltaTime;

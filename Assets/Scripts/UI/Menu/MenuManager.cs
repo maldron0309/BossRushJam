@@ -9,6 +9,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Settings settings;
 
     [SerializeField] GameObject FadeOut;
+    private void Start()
+    {
+        BackgroundMusicManager.Instance.PlayMenuTrack();
+    }
 
     public void Play()
     {

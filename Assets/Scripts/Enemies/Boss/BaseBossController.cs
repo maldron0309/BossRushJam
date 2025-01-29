@@ -24,7 +24,7 @@ public class BaseBossController : MonoBehaviour
     {
         return facingRight;
     }
-    private void Flip()
+    public void Flip()
     {
         facingRight = !facingRight;
 

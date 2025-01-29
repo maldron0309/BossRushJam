@@ -11,6 +11,7 @@ public class BossLarvaAttackMeele : MonoBehaviour
 
     public float waitTime;
     private float waitCounter;
+    private Animator anim;
 
     public bool isStarted = false;
     private Rigidbody2D rb;
@@ -22,6 +23,7 @@ public class BossLarvaAttackMeele : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = FindAnyObjectByType<PlayerController>();
         boss = GetComponent<BossLarvaController>();
+        anim = boss.anim;
     }
     void Update()
     {
@@ -38,6 +40,12 @@ public class BossLarvaAttackMeele : MonoBehaviour
             if (moveSpeed < maxMoveSpeed)
                 moveSpeed += moveAcceleration * Time.deltaTime;
             Move();
+
+            if ((movedir > 0 && !boss.facingRight) || (movedir < 0 && boss.facingRight))
+            {
+                boss.Flip();
+            }
+
         }
         else
         {
@@ -47,6 +55,7 @@ public class BossLarvaAttackMeele : MonoBehaviour
             {
                 isStarted = false;
                 boss.isPerformingAction = false;
+                anim.Play("Idle");
             }
         }
     }
@@ -56,6 +65,7 @@ public class BossLarvaAttackMeele : MonoBehaviour
         boss.isPerformingAction = true;
         moveSpeed = minMoveSpeed;
         waitCounter = waitTime;
+        anim.Play("Move");
     }
     public void Move()
     {

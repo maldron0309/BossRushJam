@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class OpeningCutscene : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class OpeningCutscene : MonoBehaviour
     bool changing = false;
     int curFrame;
     Image img;
+    public TextMeshProUGUI sceneText;
+    [TextArea(4,10)]
+    public string[] text;
+    private int textIdx = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +40,7 @@ public class OpeningCutscene : MonoBehaviour
     IEnumerator ChangeFrames(int numF)
     {
         changing = true;
+        sceneText.text = "";
 
         for (int i = 1; i < numF; i++)
         {
@@ -45,6 +51,8 @@ public class OpeningCutscene : MonoBehaviour
         }
         curFrame++;
         img.sprite = frames[curFrame];
+        sceneText.text = text[textIdx];
+        textIdx++;
 
         changing = false;
     }
