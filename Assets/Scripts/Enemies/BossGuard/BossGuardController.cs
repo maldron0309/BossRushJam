@@ -37,6 +37,7 @@ public class BossGuardController : BaseBossController
         shields.DestroyAllShields();
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         GetComponent<BoxCollider2D>().enabled = false;
+        RoomCamera.instance.Shake(4.1f, .4f);
     }
     void Update()
     {

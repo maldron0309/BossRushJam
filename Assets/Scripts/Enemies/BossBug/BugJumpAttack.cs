@@ -65,6 +65,7 @@ public class BugJumpAttack : MonoBehaviour
         
 
         yield return new WaitForSeconds(1);
+        RoomCamera.instance.Shake(.4f, .3f);
 
         transform.position = new Vector2(basePos.x, transform.position.y);
     }

@@ -22,8 +22,7 @@ public class SoundEffectsManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
-            Debug.Log($"sound volume: {gameSettings.soundVolume}");
-            Debug.Log($"music volume: {gameSettings.musicVolume}");
+            Debug.Log($"sound manager set");
         }
         else
         {
@@ -62,7 +61,7 @@ public class SoundEffectsManager : MonoBehaviour
     }
     public void UpdateSoundEffectsVolume(float volume)
     {
-        audioSource.volume = volume;
+        //audioSource.volume = volume;
     }
     public void StopSound()
     {

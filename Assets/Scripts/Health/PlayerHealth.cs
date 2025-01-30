@@ -26,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= damage;
         healthUI.SetHealth(currentHealth);
+        RoomCamera.instance.Shake(0.1f, .15f);
 
         if (currentHealth <= 0)
         {

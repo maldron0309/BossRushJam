@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3096531667888115479}
   - component: {fileID: 991188028466080440}
   - component: {fileID: 4932920883139423814}
+  - component: {fileID: 3923183486404576893}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -177,6 +178,18 @@ MonoBehaviour:
   aimAtPlayer: 0
   bossAnim: {fileID: 3096531667888115479}
   boss: {fileID: 6672855341750763990}
+--- !u!114 &3923183486404576893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810888569869657739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83cfa4e1bf5c6b40adfa850a5fa8845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5787975390025605874
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,10 +487,6 @@ MonoBehaviour:
   maxHealth: 500
   door: {fileID: 0}
   bossAnim: {fileID: 0}
-  deathTime: 0
-  shields: {fileID: 0}
-  bossCol: {fileID: 0}
-  bossRb: {fileID: 0}
   bossSprite: {fileID: 4722843679258396361}
 --- !u!114 &6672855341750763990
 MonoBehaviour:
@@ -503,6 +512,7 @@ MonoBehaviour:
   shields: {fileID: 1618453754453771950}
   jumpForce: 2000
   isPerformingAction: 0
+  bossAnim: {fileID: 0}
   isGround: 0
 --- !u!114 &5691378538822951706
 MonoBehaviour:

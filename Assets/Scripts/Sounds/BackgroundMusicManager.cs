@@ -12,7 +12,7 @@ public class BackgroundMusicManager : MonoBehaviour
     public AudioClip menuTrack;
     public AudioClip normalTrack;
     public AudioClip endingTrack1;
-    private AudioSource audioSource;
+    public AudioSource adSrc;
     private int currentIdx = -1;
     public GameSettings gameSettings;
 
@@ -22,13 +22,15 @@ public class BackgroundMusicManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.loop = true;
-            audioSource.volume = 0.5f;
-            audioSource.playOnAwake = false;
+            Debug.Log($"music manager set");
+            //audioSource = gameObject.AddComponent<AudioSource>();
+            //audioSource.loop = true;
+            //audioSource.volume = 0.5f;
+            //audioSource.playOnAwake = false;
         }
         else
         {
+            Debug.Log($"music manager destroy");
             Destroy(gameObject);
             //Instance.StopBGM();
         }
@@ -36,7 +38,12 @@ public class BackgroundMusicManager : MonoBehaviour
 
     void Start()
     {
-        audioSource.volume = 0.25f;
+        if (adSrc)
+            Debug.Log("has audio source");
+        else
+            Debug.Log("music source missing");
+        Debug.Log($"set volume");
+        adSrc.volume = 0.25f;
     }
 
     void Update()
@@ -45,45 +52,45 @@ public class BackgroundMusicManager : MonoBehaviour
     }
     public void UpdateMusicVolume(float volume)
     {
-        audioSource.volume = volume;
+        //audioSource.volume = volume;
     }
     public float GetVolume()
     {
-        return audioSource.volume;
+        return adSrc.volume;
     }
     public void PlayMenuTrack()
     {
-        audioSource.clip = menuTrack;
-        audioSource.Play();
+        adSrc.clip = menuTrack;
+        adSrc.Play();
     }
     public void PlayEndingTrack1()
     {
-        audioSource.clip = endingTrack1;
-        audioSource.Play();
+        adSrc.clip = endingTrack1;
+        adSrc.Play();
     }
     public void PlayBossMusic(int bossIdx)
     {
         if(bossIdx == 0)
-            audioSource.clip = normalTrack;
+            adSrc.clip = normalTrack;
         else if(bossIdx == 1)
-            audioSource.clip = boss1Trak;
+            adSrc.clip = boss1Trak;
         else if (bossIdx == 2)
-            audioSource.clip = boss2Trak;
+            adSrc.clip = boss2Trak;
         else if (bossIdx == 3)
-            audioSource.clip = boss3Trak;
+            adSrc.clip = boss3Trak;
         else if (bossIdx == 4)
-            audioSource.clip = boss4Trak;
+            adSrc.clip = boss4Trak;
         else if (bossIdx == 5)
-            audioSource.clip = boss5Trak;
+            adSrc.clip = boss5Trak;
         else if (bossIdx == 6)
-            audioSource.clip = boss6Trak;
+            adSrc.clip = boss6Trak;
 
         if(currentIdx != bossIdx)
-            audioSource.Play();
+            adSrc.Play();
         currentIdx = bossIdx;
     }
     public void StopBGM()
     {
-        audioSource.Stop();
+        adSrc.Stop();
     }
 }

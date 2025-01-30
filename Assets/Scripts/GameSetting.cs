@@ -16,16 +16,16 @@ public class GameSettings : ScriptableObject
 
     public void LoadSettings()
     {
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            JsonUtility.FromJsonOverwrite(json, this);
-        }
+        //if (File.Exists(filePath))
+        //{
+        //    string json = File.ReadAllText(filePath);
+        //    JsonUtility.FromJsonOverwrite(json, this);
+        //}
     }
 
     public void SaveSettings()
     {
-        string json = JsonUtility.ToJson(this, true);
-        File.WriteAllText(filePath, json);
+        //string json = JsonUtility.ToJson(this, true);
+        //File.WriteAllText(filePath, json);
     }
 }

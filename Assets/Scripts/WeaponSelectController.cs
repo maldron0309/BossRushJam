@@ -15,7 +15,6 @@ public class WeaponSelectController : MonoBehaviour
     public WeaponsInventory inv;
     public TMP_Text description;
     public InventorySlotUI[] weaponbuttons;
-    public WeaponWheelController weaponWheel;
     public PlayerController player;
 
     private void Awake()
@@ -51,11 +50,16 @@ public class WeaponSelectController : MonoBehaviour
         good = true;
         if (good)
         {
-            gameObject.SetActive(false);
-            weaponWheel.gameObject.SetActive(true);
-            weaponWheel.updateWheel();
-            inv.GiveWeapon(player);
+            Debug.Log("resume player");
             player.Resume();
+            Debug.Log("give weapon");
+            inv.GiveWeapon(player);
+            Debug.Log("hide screen");
+            gameObject.SetActive(false);
+            Debug.Log("show wheel");
+            WeaponWheelController.instance.gameObject.SetActive(true);
+            Debug.Log("update wheel");
+            WeaponWheelController.instance.updateWheel();
         }
         
     }
