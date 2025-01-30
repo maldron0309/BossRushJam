@@ -17,19 +17,20 @@ public class WeaponsInventory : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
-            WeaponSelectController.instance.inv = instance;
-            instance.WeaponWheel = WeaponWheel;
-            WeaponWheel.inv = instance;
-            WeaponWheel.updateWheel();
-            PlayerController player = FindAnyObjectByType<PlayerController>();
-            if (player)
-                instance.GiveWeapon(player);
         }
         currentIdx = 0;
     }
     void Start()
     {
+        if(instance != this)
+        {
+            Destroy(gameObject);
+            WeaponSelectController.instance.inv = instance;
+            instance.WeaponWheel = WeaponWheel;
+            WeaponWheel.inv = instance;
+            WeaponWheel.updateWheel();
+            instance.GiveWeapon(PlayerController.instance);
+        }
         PlayerController player = FindAnyObjectByType<PlayerController>();
         if(player)
             GiveWeapon(player);
@@ -44,15 +45,18 @@ public class WeaponsInventory : MonoBehaviour
     {
         GameObject oldWeapon = player.weapon.gameObject;
 
+        Debug.Log("make new weapon");
         GameObject newWeapon = Instantiate(weapons[currentIdx].weaponPrefab);
         newWeapon.transform.position = player.weaponPlacement.transform.position;
         newWeapon.transform.SetParent(player.weaponPlacement.transform);
         if (!player.facingRight)
             newWeapon.transform.localScale = new Vector3(-newWeapon.transform.localScale.x, newWeapon.transform.localScale.y, newWeapon.transform.localScale.z);
 
+        Debug.Log("destroy old weapon");
         player.weapon = newWeapon.GetComponent<BaseAttack>();
         Destroy(oldWeapon);
-        StartCoroutine(WeaponWheel.RotateWheel((currentIdx) * 45f));
+        Debug.Log("rotate wheel");
+        StartCoroutine(WeaponWheelController.instance.RotateWheel((currentIdx) * 45f));
     }
     public IEnumerator GiveWeaponWithDelay(PlayerController player)
     {

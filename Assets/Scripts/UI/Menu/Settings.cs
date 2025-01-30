@@ -43,13 +43,13 @@ public class Settings : MonoBehaviour
 
     private void HandleMusicVolumeChange(float value)
     {
-        gameSettings.musicVolume = value;
-        BackgroundMusicManager.Instance?.UpdateMusicVolume(value);
+        //gameSettings.musicVolume = value;
+        //BackgroundMusicManager.Instance?.UpdateMusicVolume(value);
     }
 
     public void HandleBackButton()
     {
-        SoundEffectsManager.Instance?.PlayButtonPressSound();
-        CloseSettings();
+        //SoundEffectsManager.Instance?.PlayButtonPressSound();
+        //CloseSettings();
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -8,7 +9,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject FadeOut;
     private void Start()
     {
-        BackgroundMusicManager.Instance.PlayMenuTrack();
+        // didn't play music in web build. might need delayed start?
+        StartCoroutine(DelayedPlay());
     }
 
     public void Play()
@@ -25,9 +27,15 @@ public class MenuManager : MonoBehaviour
     {
         credits.OpenCredits();
     }
-    
+
     public void QuitGame()
     {
         Application.Quit();
+    }
+    private IEnumerator DelayedPlay()
+    {
+        yield return new WaitForSeconds(1);
+        //BackgroundMusicManager.Instance.PlayMenuTrack();
+        Debug.Log($" music volume ={BackgroundMusicManager.Instance.adSrc.volume}");
     }
 }

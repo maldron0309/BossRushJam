@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class WeaponWheelController : MonoBehaviour
 {
+    public static WeaponWheelController instance;
     public WeaponsInventory inv;
     public Image[] slots;
-    
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         updateWheel();

@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class RoomCamera : MonoBehaviour
 {
+    public static RoomCamera instance;
     public enum RoomType { Horizontal, Vertical, SingleScreen }
 
     [Header("Room Settings")]
@@ -24,6 +26,11 @@ public class RoomCamera : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 targetPosition;
     private float transitionCounter;
+    private bool isShaking = false;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -38,6 +45,9 @@ public class RoomCamera : MonoBehaviour
 
     void LateUpdate()
     {
+        if (isShaking)
+            return;
+
         if (isTransitioning)
         {
             SmoothTransition();
@@ -156,6 +166,9 @@ public class RoomCamera : MonoBehaviour
 
     private void SmoothTransition()
     {
+        if (isShaking)
+            return;
+
         transitionCounter += Time.deltaTime;
         transform.position = Vector3.Lerp(startPosition, targetPosition + (Vector3)cameraOffset, transitionCounter / transitionDuration);
 
@@ -173,5 +186,33 @@ public class RoomCamera : MonoBehaviour
         Gizmos.DrawLine(new Vector3(rightBound, topBound, 0), new Vector3(rightBound, bottomBound, 0));
         Gizmos.DrawLine(new Vector3(rightBound, bottomBound, 0), new Vector3(leftBound, bottomBound, 0));
         Gizmos.DrawLine(new Vector3(leftBound, bottomBound, 0), new Vector3(leftBound, topBound, 0));
+    }
+
+    public void Shake(float duration, float intensity)
+    {
+        if (!isShaking);
+            StartCoroutine(ShakeCoroutine(duration, intensity));
+    }
+    private IEnumerator ShakeCoroutine(float duration, float intensity)
+    {
+        float elapsed = 0f;
+        Vector3 originalPosition = transform.position;
+        isShaking = true;
+
+        while (elapsed < duration)
+        {
+            // Random offset in X and Y
+            float offsetX = Random.Range(-1f, 1f) * intensity;
+            float offsetY = Random.Range(-1f, 1f) * intensity;
+
+            transform.position = originalPosition + new Vector3(offsetX, offsetY, 0);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Reset camera position
+        transform.position = originalPosition;
+        isShaking = false;
     }
 }
