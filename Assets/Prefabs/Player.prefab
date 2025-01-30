@@ -984,6 +984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   isInvincible: 0
+  bossSprite: {fileID: 7972013589791210242}
 --- !u!70 &1323877419522141771
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

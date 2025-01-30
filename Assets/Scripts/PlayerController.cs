@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public delegate void PlayerAttacAction(PlayerController player);
     public static PlayerController instance;
     public event PlayerAttacAction OnPlayerAttack;
+
     [Header("Movement")]
     public float moveSpeed = 5f;
     public Animator anim;
