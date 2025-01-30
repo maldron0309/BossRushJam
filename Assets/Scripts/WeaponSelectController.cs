@@ -9,7 +9,7 @@ public class WeaponSelectController : MonoBehaviour
 {
     public static WeaponSelectController instance;
     int currentslot;
-    WeaponSlot currentweapon;
+    public WeaponSlot currentweapon;
     bool[] filled;
     public Image[] slots;
     public WeaponsInventory inv;
@@ -48,6 +48,7 @@ public class WeaponSelectController : MonoBehaviour
                 break;
             }
         }
+        good = true;
         if (good)
         {
             gameObject.SetActive(false);

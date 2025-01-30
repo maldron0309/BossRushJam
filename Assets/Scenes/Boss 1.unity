@@ -1755,6 +1755,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d6f455a6b9ce5494484fe1868c3e9922, type: 2}
   - {fileID: 11400000, guid: 9342c20e3d84d7b4c8c77516a4f78735, type: 2}
   WeaponWheel: {fileID: 1689876749}
+  currentIdx: 0
 --- !u!4 &731928595
 Transform:
   m_ObjectHideFlags: 0
@@ -34067,6 +34068,10 @@ PrefabInstance:
       propertyPath: weaponWheel
       value: 
       objectReference: {fileID: 1689876749}
+    - target: {fileID: 1450149282753111914, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
+      propertyPath: currentweapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d80f18ae8ec8fc4189f8aca1ec4746d, type: 2}
     - target: {fileID: 2275962340031322194, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -34151,6 +34156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponSelectMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4110385470357504990, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5276511625314180125, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -34161,7 +34170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0007645944
+      value: 0.00010633114
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y
