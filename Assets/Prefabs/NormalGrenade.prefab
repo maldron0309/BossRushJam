@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   hitEffect: {fileID: 897346932854119341, guid: fbc065c18c40eb840a78508de6b733e4, type: 3}
+  hitClip: {fileID: 8300000, guid: b20c02902092b9244b61741a062ea2df, type: 3}
 --- !u!50 &249211797432754898
 Rigidbody2D:
   serializedVersion: 4

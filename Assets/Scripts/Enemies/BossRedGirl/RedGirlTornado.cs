@@ -23,7 +23,8 @@ public class RedGirlTornado : MonoBehaviour
     private BossRedGirlController boss;
     private Animator anim;
     private int movedir;
-    private int stage = 0; 
+    private int stage = 0;
+    public AudioClip soundEffect;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -123,6 +124,7 @@ public class RedGirlTornado : MonoBehaviour
         bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<Rigidbody2D>();
         bullet.transform.localScale = new Vector3(-1, 1, 1);
         bullet.velocity = new(-10, 0);
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
     }
     public void BeginAttack()
     {

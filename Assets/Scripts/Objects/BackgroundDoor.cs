@@ -16,6 +16,7 @@ public class BackgroundDoor : MonoBehaviour, IInteractable
     public bool isOpen = true;
     public int mainHallPosition = 0;
     public SpriteRenderer doorSprite;
+    public AudioClip soundEffect;
 
     public Transform MarkLocation => markLocation;
 
@@ -45,6 +46,7 @@ public class BackgroundDoor : MonoBehaviour, IInteractable
             if (mainHallPosition > 0)
                 GameProgressManager.instance.spawnPosition = mainHallPosition;
             StartCoroutine(LoadLevel());
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
         }
     }
     private IEnumerator LoadLevel()

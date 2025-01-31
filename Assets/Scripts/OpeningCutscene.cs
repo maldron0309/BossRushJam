@@ -19,6 +19,7 @@ public class OpeningCutscene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BackgroundMusicManager.Instance.PlayOpenningTrack();
         img = this.GetComponent<Image>();
         curFrame = -1;
         StartCoroutine(ChangeFrames(4));

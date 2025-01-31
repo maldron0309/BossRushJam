@@ -318,6 +318,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &795649354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795649355}
+  m_Layer: 0
+  m_Name: dest
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795649355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795649354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.398, y: -0.092, z: -0.01210073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1350248464 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5974607575054771931, guid: 81c8bcb84a4d1d14ba76bd9f419ed1bd, type: 3}
@@ -344,6 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1388974394}
   - component: {fileID: 1388974393}
+  - component: {fileID: 1388974395}
   m_Layer: 0
   m_Name: spaceship
   m_TagString: Untagged
@@ -418,6 +450,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1388974395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388974392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac8e19616fadd848b84c4efc4554033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 0
 --- !u!1 &1549363507
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +1010,7 @@ PrefabInstance:
     - target: {fileID: 2914897208659033488, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 6f926f27a045560498079f4bf7bbb309, type: 3}
+      objectReference: {fileID: 8300000, guid: d2f0bf078030302449b6d0c67cc5de01, type: 3}
     - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.16
@@ -1434,3 +1480,4 @@ SceneRoots:
   - {fileID: 1681159243}
   - {fileID: 1682447761}
   - {fileID: 1851266679}
+  - {fileID: 795649355}

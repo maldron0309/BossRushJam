@@ -157,6 +157,7 @@ MonoBehaviour:
   shockwaveSpeed: 5
   shockwaveLifetime: 4
   bossAnim: {fileID: 3096531667888115479}
+  soundEffect: {fileID: 8300000, guid: 78ef375ec07b624489ead4f92e5414c7, type: 3}
 --- !u!114 &4932920883139423814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
   aimAtPlayer: 0
   bossAnim: {fileID: 3096531667888115479}
   boss: {fileID: 6672855341750763990}
+  soundEffect: {fileID: 8300000, guid: 95c6eeb7ce7f0104b8993c6e7ed17891, type: 3}
 --- !u!114 &3923183486404576893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83cfa4e1bf5c6b40adfa850a5fa8845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 8300000, guid: b20c02902092b9244b61741a062ea2df, type: 3}
 --- !u!1 &5787975390025605874
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +537,7 @@ MonoBehaviour:
   aimAtPlayer: 1
   bossAnim: {fileID: 3096531667888115479}
   boss: {fileID: 6672855341750763990}
+  soundEffect: {fileID: 8300000, guid: 0a106d55f3c542b46a494bffaff769b6, type: 3}
 --- !u!114 &6757390130001827604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +559,7 @@ MonoBehaviour:
   aimAtPlayer: 0
   bossAnim: {fileID: 3096531667888115479}
   boss: {fileID: 6672855341750763990}
+  soundEffect: {fileID: 8300000, guid: 95c6eeb7ce7f0104b8993c6e7ed17891, type: 3}
 --- !u!114 &9018799265343160393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,6 +638,7 @@ MonoBehaviour:
   shockwaveSpeed: 5
   shockwaveLifetime: 2
   bossAnim: {fileID: 3096531667888115479}
+  soundEffect: {fileID: 8300000, guid: 78ef375ec07b624489ead4f92e5414c7, type: 3}
 --- !u!50 &7979094333769805218
 Rigidbody2D:
   serializedVersion: 4

@@ -183,10 +183,6 @@ MonoBehaviour:
   maxHealth: 500
   door: {fileID: 0}
   bossAnim: {fileID: 0}
-  deathTime: 0
-  shields: {fileID: 0}
-  bossCol: {fileID: 0}
-  bossRb: {fileID: 0}
   bossSprite: {fileID: 691459834839593460}
 --- !u!114 &2417299555140087058
 MonoBehaviour:
@@ -206,6 +202,7 @@ MonoBehaviour:
   fallTriggerSpeed: 2
   fallHeight: {fileID: 0}
   bulletPrefab: {fileID: 7092856427572795367, guid: 1ce4f2f64e042f44eb3e4bf94f537459, type: 3}
+  soundEffect: {fileID: 8300000, guid: d125d558bce9b194684b7dc7d24015c4, type: 3}
 --- !u!114 &7003259762340996234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +221,7 @@ MonoBehaviour:
   fallTriggerSpeed: 2
   fallHeight: {fileID: 0}
   bulletPrefab: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: d125d558bce9b194684b7dc7d24015c4, type: 3}
 --- !u!114 &2517843806499478584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +239,7 @@ MonoBehaviour:
   dashSpeed: 30
   dashDuration: 0.8
   numberOfAattacks: 4
+  soundEffect: {fileID: 8300000, guid: d125d558bce9b194684b7dc7d24015c4, type: 3}
 --- !u!114 &5820198666545609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +258,7 @@ MonoBehaviour:
   post2: {fileID: 0}
   moveSpeed: 12
   isStarted: 0
+  soundEffect: {fileID: 0}
 --- !u!114 &3797035683750802971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +280,7 @@ MonoBehaviour:
   numberOfJumps: 2
   minTimeBetweenAttacks: 0
   maxTimeBetweenAttacks: 0
+  soundEffect: {fileID: 8300000, guid: d125d558bce9b194684b7dc7d24015c4, type: 3}
 --- !u!1 &3583980124243370172
 GameObject:
   m_ObjectHideFlags: 0

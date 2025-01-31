@@ -11,6 +11,7 @@ public class BackgroundMusicManager : MonoBehaviour
     public AudioClip boss6Trak;
     public AudioClip menuTrack;
     public AudioClip normalTrack;
+    public AudioClip openningTrack;
     public AudioClip endingTrack1;
     public AudioSource adSrc;
     private int currentIdx = -1;
@@ -66,6 +67,11 @@ public class BackgroundMusicManager : MonoBehaviour
     public void PlayEndingTrack1()
     {
         adSrc.clip = endingTrack1;
+        adSrc.Play();
+    }
+    public void PlayOpenningTrack()
+    {
+        adSrc.clip = openningTrack;
         adSrc.Play();
     }
     public void PlayBossMusic(int bossIdx)

@@ -20,6 +20,7 @@ public class BossGuardController : BaseBossController
     // count repeates of same attack. used to restain long repeats
     private int rapidStrikes = 0;
     private int slowStrikes = 0;
+    private int stops = 0;
     private Rigidbody2D rb;
     [SerializeField] private bool isGround;
     private void Awake()
@@ -84,9 +85,11 @@ public class BossGuardController : BaseBossController
                 rapidStrikes++;
                 slowStrikes = 0;
             }
-            else if(randomNumber < 30)
+            else if(randomNumber < 30 && stops <= 2)
             {
                 shockWave.Step();
+                normalAttacksPerformed++;
+                stops++;
             }
             else
             {
@@ -94,6 +97,7 @@ public class BossGuardController : BaseBossController
                 normalAttacksPerformed++;
                 slowStrikes++;
                 rapidStrikes = 0;
+                stops = 0;
             }
             nextActionCounter = timeBetweenActions;
         }

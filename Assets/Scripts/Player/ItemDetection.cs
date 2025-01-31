@@ -37,7 +37,7 @@ public class ItemDetection : MonoBehaviour
     }
     private void Update()
     {
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        if (canInteract && Input.GetButtonDown("Interact"))
         {
             if (selectedObj != null)
             {

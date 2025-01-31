@@ -20,6 +20,7 @@ public class RedGirlAirDash : MonoBehaviour
     private Rigidbody2D rb;
     private BossRedGirlController boss;
     private Animator anim;
+    public AudioClip soundEffect;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -82,6 +83,7 @@ public class RedGirlAirDash : MonoBehaviour
             bullet.velocity = new(0, -dashSpeed);
             yield return new WaitForSeconds(dashDuration / numberOfAattacks);
             anim.Play("DashAttack");
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
         }
 
         rb.gravityScale = originalGravity; // Restore gravity

@@ -16335,7 +16335,7 @@ PrefabInstance:
     - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: messages.Array.data[0]
       value: "Shoot = [left mouse] or [z]\nJump = [Space] or [x]\nRoll = [Shift]
-        or [c] \nMost action can be done on a controller"
+        or [c] \nInteract = [E]\nMost action can be done on a controller"
       objectReference: {fileID: 0}
     - target: {fileID: 5692996954410729112, guid: c3365bf64d66a764492a93da1a4b0efb, type: 3}
       propertyPath: messages.Array.data[1]
@@ -31987,7 +31987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00019389024
+      value: 0.0008303512
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y

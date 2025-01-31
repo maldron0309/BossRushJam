@@ -9,6 +9,7 @@ public class GuardBossShockWaveAttack : MonoBehaviour
     [SerializeField] private float shockwaveSpeed = 5f; 
     [SerializeField] private float shockwaveLifetime = 2f;
     [SerializeField] private Animator bossAnim;
+    public AudioClip soundEffect;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class GuardBossShockWaveAttack : MonoBehaviour
         if (shockwaveScript != null)
         {
             shockwaveScript.Initialize(Vector2.left, shockwaveSpeed, shockwaveLifetime);
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
         }
     }
 

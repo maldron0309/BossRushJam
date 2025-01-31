@@ -242,7 +242,9 @@ MonoBehaviour:
   anim: {fileID: 6851252621293405741}
   markLocation: {fileID: 415918841542833717}
   isOpen: 1
+  mainHallPosition: 0
   doorSprite: {fileID: 409693687467480770}
+  soundEffect: {fileID: 8300000, guid: fe3ab02fecf90124fa8c187831262513, type: 3}
 --- !u!61 &2700464659749155425
 BoxCollider2D:
   m_ObjectHideFlags: 0

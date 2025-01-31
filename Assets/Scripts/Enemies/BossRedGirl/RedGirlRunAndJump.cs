@@ -17,6 +17,7 @@ public class RedGirlRunAndJump : MonoBehaviour
     private Rigidbody2D rb;
     private BossRedGirlController boss;
     private int movedir;
+    public AudioClip soundEffect;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -87,6 +88,7 @@ public class RedGirlRunAndJump : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
     }
     public void Move()
     {

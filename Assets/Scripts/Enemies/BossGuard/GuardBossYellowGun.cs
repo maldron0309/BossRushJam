@@ -13,6 +13,7 @@ public class GuardBossYellowGun : MonoBehaviour
     [SerializeField] bool aimAtPlayer = false;
     [SerializeField] Animator bossAnim;
     public BossGuardController boss;
+    public AudioClip soundEffect;
     private float reloadCounter;
     private bool isExecuting;
     private int bulletsLeft;
@@ -51,7 +52,7 @@ public class GuardBossYellowGun : MonoBehaviour
             projectile = Instantiate(bulletPrefab, firePointLow.position, Quaternion.identity);
         else if (height == 1)
             projectile = Instantiate(bulletPrefab, firePointHigh.position, Quaternion.identity);
-
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
         if (projectile)
         {
             Vector2 lineDir = new Vector2(boss.facingRight ? 1 : -1, 0);

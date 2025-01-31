@@ -103,6 +103,8 @@ MonoBehaviour:
   lifeTime: 5
   damage: 6
   isLocking: 1
+  spawnSound: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!58 &-4962685926273293145
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class RedGirlAirSlash : MonoBehaviour
     private Rigidbody2D rb;
     private BossRedGirlController boss;
     private Animator anim;
+    public AudioClip soundEffect;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +40,7 @@ public class RedGirlAirSlash : MonoBehaviour
             airBounceCounter++;
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             anim.Play("SpinVertical");
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
         }
 
         if (boss.IsGrounded() && airBounceCounter == airBounces)

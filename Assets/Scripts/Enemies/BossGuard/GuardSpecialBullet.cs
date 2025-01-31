@@ -11,6 +11,8 @@ public class GuardSpecialBullet : MonoBehaviour
     public GameObject clusterPrefab;
     public int numberOfProjectiles = 8;
     public float initialRadius = 1f;
+    public AudioClip soundEffect;
+    public AudioClip spawnSound;
 
     private float detomationCounter;
     private Rigidbody2D rb;
@@ -22,6 +24,7 @@ public class GuardSpecialBullet : MonoBehaviour
         rb.velocity = direction * speed;
 
         detomationCounter = detonationTime;
+        SoundEffectsManager.Instance.PlaySound(spawnSound);
     }
     private void Update()
     {
@@ -70,6 +73,7 @@ public class GuardSpecialBullet : MonoBehaviour
                 spinningProjectile.transform.position = (Vector2)destenation.position + offset;
             }
         }
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
 
         Destroy(gameObject);
     }

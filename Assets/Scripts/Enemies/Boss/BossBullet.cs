@@ -9,6 +9,8 @@ public class BossBullet : MonoBehaviour
 
     private Transform player;
     private Rigidbody2D rb;
+    public AudioClip spawnSound;
+    public AudioClip hitSound;
 
     void Start()
     {
@@ -28,6 +30,8 @@ public class BossBullet : MonoBehaviour
 
         }
         Destroy(gameObject, lifeTime);
+        if(spawnSound)
+            SoundEffectsManager.Instance.PlaySound(spawnSound);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -39,6 +43,8 @@ public class BossBullet : MonoBehaviour
             {
                 playerHealth.TakeDamage(damage);
                 Destroy(gameObject);
+                if (hitSound)
+                    SoundEffectsManager.Instance.PlaySound(hitSound);
             }
         }
     }

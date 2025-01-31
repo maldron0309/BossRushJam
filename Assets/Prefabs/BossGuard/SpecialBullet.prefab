@@ -107,6 +107,8 @@ MonoBehaviour:
   clusterPrefab: {fileID: 7092856427572795367, guid: e4d51345f757efc488e61b814adb66ea, type: 3}
   numberOfProjectiles: 4
   initialRadius: 0.5
+  soundEffect: {fileID: 8300000, guid: b20c02902092b9244b61741a062ea2df, type: 3}
+  spawnSound: {fileID: 8300000, guid: 2656f64170fb933438fa96fc0486138f, type: 3}
 --- !u!58 &-4962685926273293145
 CircleCollider2D:
   m_ObjectHideFlags: 0

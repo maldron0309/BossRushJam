@@ -15,8 +15,9 @@ public class GuardBossMultiShot : MonoBehaviour
     private float reloadCounter;
     private bool isExecuting;
     private int bulletsLeft;
+    public AudioClip soundEffect;
     private Vector3 direction;
-    
+
 
     void Start()
     {
@@ -48,6 +49,7 @@ public class GuardBossMultiShot : MonoBehaviour
             projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
         else    
             projectile.GetComponent<Rigidbody2D>().velocity = lineDir * projectileSpeed;
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
 
         reloadCounter = fireRate;
         bulletsLeft--;
