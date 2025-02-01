@@ -202,13 +202,14 @@ GameObject:
   - component: {fileID: 741781645}
   - component: {fileID: 741781644}
   - component: {fileID: 741781646}
+  - component: {fileID: 741781647}
   m_Layer: 5
   m_Name: Scene2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &741781642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -225,8 +226,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 0.0015945}
-  m_SizeDelta: {x: 1280, y: 610.8}
+  m_AnchoredPosition: {x: -0.000030518, y: 87}
+  m_SizeDelta: {x: 1099, y: 610.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741781644
 MonoBehaviour:
@@ -250,7 +251,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -5231554362890327026, guid: b003f18338d278c44a8310821683c18a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -287,6 +288,77 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &741781647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741781641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98345165123945b4fb4b537132df04d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObj: {fileID: 2024000426}
+  skipBtn: {fileID: 1569346772}
+--- !u!1001 &747151670
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 249418874672312027, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_Name
+      value: AudioManagerMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.023534775
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853360754568409095, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 726de03344d0ab04aa4e613e60491547, type: 3}
 --- !u!1 &899727472
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &899727473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -358,17 +430,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7097d569857c0564e932f24b051d519a, type: 3}
   - {fileID: 21300000, guid: 6546de56b187f614a9a1aa66894c1010, type: 3}
   sceneText: {fileID: 2024000428}
-  text:
-  - 'October 14th, 2138
-
-    Research station Delta, sponsored by the state of the
-    Hammer Empire, was investigating the anomalies occurring in the area. The station
-    has stopped communicating for the last 3 months. A giant spiral-shaped anomaly
-    was also discovered, gradually pulling the station into itself.'
-  - You are a soldier of the Hammer Empire. Your task is to arrive at the Delta station,
-    inform the situation about its condition, and also obtain data from the research
-    reports that took place at the station.
-  - Good luck, soldier!
+  text: []
 --- !u!114 &899727475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +566,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090815039}
   m_CullTransparentMesh: 1
+--- !u!1001 &1185119179
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.023534775
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171296357210835920, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602766945963509837, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
+      propertyPath: m_Name
+      value: AudioManagerSounds
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f982be76fb4739b49941b4c44731f54b, type: 3}
 --- !u!1 &1228716140
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,9 +680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Skip
-
-'
+  m_text: End
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77f80a4153ba13f4da237bd7308ee67e, type: 2}
   m_sharedMaterial: {fileID: 7983500270613091192, guid: 77f80a4153ba13f4da237bd7308ee67e, type: 2}
@@ -819,13 +936,14 @@ GameObject:
   - component: {fileID: 1569346776}
   - component: {fileID: 1569346775}
   - component: {fileID: 1569346774}
+  - component: {fileID: 1569346777}
   m_Layer: 5
   m_Name: Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1569346773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -843,7 +961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 579.8, y: -341.3}
+  m_AnchoredPosition: {x: 587, y: -338}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569346774
@@ -890,16 +1008,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 899727474}
-        m_TargetAssemblyTypeName: OpeningCutscene, Assembly-CSharp
-        m_MethodName: Skip
-        m_Mode: 1
+      - m_Target: {fileID: 1569346777}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Main Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1569346775
@@ -940,6 +1058,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569346772}
   m_CullTransparentMesh: 1
+--- !u!114 &1569346777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569346772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2236e462413b2d419462dd6d32b91a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1587242850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2024000427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1082,8 +1212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -234.7}
-  m_SizeDelta: {x: 1200, y: 128}
+  m_AnchoredPosition: {x: 0, y: -238}
+  m_SizeDelta: {x: 1193, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2024000428
 MonoBehaviour:
@@ -1105,12 +1235,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'October 14th, 2138
-
-    Research station Delta, sponsored by the state
-    of the Hammer Empire, was investigating the anomalies occurring in the area.
-    The station has stopped communicating for the last 3 months. A giant spiral-shaped
-    anomaly was also discovered, gradually pulling the station into itself.'
+  m_text: "The incident at Delta Station was a great tragedy for the people of the
+    Empire. \nOctober 14, 2138, was declared a day of mourning for those who died
+    at the station. Despite this, the Empire managed to obtain the results of the
+    research conducted at the station. These studies shocked the intergalactic community.
+    Now everyone knows that somewhere out there in space there are unknown parasites
+    capable of controlling consciousness."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77f80a4153ba13f4da237bd7308ee67e, type: 2}
   m_sharedMaterial: {fileID: 7983500270613091192, guid: 77f80a4153ba13f4da237bd7308ee67e, type: 2}
@@ -1221,7 +1351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 212.6, y: -341.7}
+  m_AnchoredPosition: {x: 212.6, y: -425}
   m_SizeDelta: {x: 600, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068601125
@@ -1326,5 +1456,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1492728629}
+  - {fileID: 747151670}
+  - {fileID: 1185119179}
   - {fileID: 1587242854}
   - {fileID: 641912718}

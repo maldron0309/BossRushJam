@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ed1ed3322826247955e17ee92b05ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossDefeated: 00000000
+  bossDefeated: 01010101
   bossDoor:
   - {fileID: 1781525921}
   - {fileID: 491565987}
@@ -16661,6 +16661,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9d1f38e6c490a47a843a6295a3c997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1467201556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467201559}
+  - component: {fileID: 1467201558}
+  - component: {fileID: 1467201557}
+  m_Layer: 0
+  m_Name: EndSceneTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1467201557
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467201556}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 4}
+  m_EdgeRadius: 0
+--- !u!114 &1467201558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467201556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f815543b2a2c442957b42b9b44cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allBossesBeaten: 0
+  shakeDuration: 0.15
+  shakeIntencity: 0.2
+  shakeRate: 0.5
+  soundEffect: {fileID: 8300000, guid: b20c02902092b9244b61741a062ea2df, type: 3}
+--- !u!4 &1467201559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467201556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.93, y: -0.99, z: 8.418272}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473128062
 GameObject:
   m_ObjectHideFlags: 0
@@ -31987,7 +32082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0008303512
+      value: 0.000023078173
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y
@@ -32050,3 +32145,4 @@ SceneRoots:
   - {fileID: 1443793925}
   - {fileID: 2102213823}
   - {fileID: 1411756022}
+  - {fileID: 1467201559}

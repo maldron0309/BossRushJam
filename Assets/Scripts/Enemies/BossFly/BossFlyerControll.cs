@@ -100,7 +100,7 @@ public class BossFlyerControll : BaseBossController
     public override void OnDefeat()
     {
         Destroy(gameObject);
-        GameProgressManager.instance.bossDefeated[4] = true;
+        GameProgressManager.instance.bossDefeated[3] = true;
     }
     public void Move(Vector2 movedir)
     {

@@ -17525,6 +17525,7 @@ GameObject:
   - component: {fileID: 596680464}
   - component: {fileID: 596680466}
   - component: {fileID: 596680465}
+  - component: {fileID: 596680467}
   m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
@@ -17620,6 +17621,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &596680467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596680463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83819cdcb330c3944afce8a111c1cfbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &685465764
 GameObject:
   m_ObjectHideFlags: 0
@@ -38492,7 +38505,7 @@ MonoBehaviour:
   minForce: -1000
   maxForce: 200
   upwardsForce: 1500
-  soundEffect: {fileID: 8300000, guid: e2eadef63d57e2b44acd39a7c03025b7, type: 3}
+  soundEffect: {fileID: 8300000, guid: 0a106d55f3c542b46a494bffaff769b6, type: 3}
 --- !u!4 &3635364685608889154
 Transform:
   m_ObjectHideFlags: 0
@@ -38970,7 +38983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000060547132
+      value: 0.00084181345
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y

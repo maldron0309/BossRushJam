@@ -230,23 +230,23 @@ InputManager:
     axis: 10
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Axis 12
+    m_Name: Interact
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: e
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: joystick button 3
     gravity: 0
     dead: 0
     sensitivity: 1
     snap: 0
     invert: 0
-    type: 2
+    type: 0
     axis: 11
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Axis 13
+    m_Name: Interact
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

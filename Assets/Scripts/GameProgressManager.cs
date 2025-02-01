@@ -37,5 +37,21 @@ public class GameProgressManager : MonoBehaviour
                 bossDoor[i].Close();
             }
         }
+        bool allBossDefeated = true;
+        foreach (var item in bossDefeated)
+        {
+            allBossDefeated = allBossDefeated && item;
+        }
+        if (allBossDefeated)
+        {
+            StartCoroutine(TriggerEnding());
+        }
+    }
+    public IEnumerator TriggerEnding()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log("end game");
+        FindAnyObjectByType<EndOfTheGame>().allBossesBeaten = true;
+        BackgroundMusicManager.Instance.PlayEndingTrack1();
     }
 }
