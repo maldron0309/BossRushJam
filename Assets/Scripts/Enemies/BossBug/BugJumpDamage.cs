@@ -6,6 +6,7 @@ public class BugJumpDamage : MonoBehaviour
 {
     GameObject player;
     public float damage;
+    public AudioClip soundEffect;
 
     [SerializeField] GameObject shockwave;
 
@@ -33,7 +34,8 @@ public class BugJumpDamage : MonoBehaviour
             Instantiate(shockwave, transform.position, Quaternion.identity);
             GameObject opp = Instantiate(shockwave, transform.position, Quaternion.identity);
             opp.GetComponent<Shock>().speed *= -1;
-
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
+            RoomCamera.instance.Shake(0.1f, .15f);
             Destroy(gameObject); 
         }
         if (collision.gameObject.CompareTag("Player"))

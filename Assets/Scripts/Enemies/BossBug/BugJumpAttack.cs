@@ -15,6 +15,7 @@ public class BugJumpAttack : MonoBehaviour
     private GameObject AttackSpot;
     
     private Rigidbody2D rb;
+    public AudioClip soundEffect;
 
     private BossBugController boss;
     private void Awake()
@@ -39,6 +40,7 @@ public class BugJumpAttack : MonoBehaviour
 
     public IEnumerator BeginAttack()
     {
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         boss.state = "launch";
         //float jumpPos = Random.Range(minX, maxX);

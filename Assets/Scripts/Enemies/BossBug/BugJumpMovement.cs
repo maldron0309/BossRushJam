@@ -21,6 +21,7 @@ public class BugJumpMovement : MonoBehaviour
 
     private BossBugController boss;
     private Animator anim;
+    public AudioClip soundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +82,7 @@ public class BugJumpMovement : MonoBehaviour
 
         //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         rb.AddForce(new Vector2(force, jumpForce), ForceMode2D.Impulse);
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
     }
 
     

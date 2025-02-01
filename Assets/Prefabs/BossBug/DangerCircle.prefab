@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  soundEffect: {fileID: 8300000, guid: 2656f64170fb933438fa96fc0486138f, type: 3}
   shockwave: {fileID: 6507135072995248710, guid: 874742dfef2f7574cbcdaea4302a337b, type: 3}
 --- !u!58 &5746407039066969111
 CircleCollider2D:

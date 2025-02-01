@@ -9,7 +9,7 @@ public class ThrowAcid : MonoBehaviour
     public float minForce;
     public float maxForce;
     public float upwardsForce;
-
+    public AudioClip soundEffect;
     private BossBugController boss;
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class ThrowAcid : MonoBehaviour
     {
         //boss.state = "spit";
         GameObject projectile = Instantiate(acidProjectile, transform.position, Quaternion.identity);
-
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
         float force = Random.Range(minForce, maxForce);
         projectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(force, upwardsForce));
 

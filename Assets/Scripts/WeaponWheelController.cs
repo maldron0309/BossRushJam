@@ -51,7 +51,9 @@ public class WeaponWheelController : MonoBehaviour
             
             targetDeg = 360;
         }
-        for(int i = 0; i < 20; i++)
+        yield return new WaitForSeconds(0.01f);
+
+        for (int i = 0; i < 20; i++)
         {
             gameObject.transform.Rotate(0f, 0f, -(targetDeg+startingDeg)/20);
             yield return new WaitForSeconds(0.01f);
@@ -59,9 +61,11 @@ public class WeaponWheelController : MonoBehaviour
             {
                 item.transform.rotation = Quaternion.identity;
             }
+            Debug.Log(gameObject.transform.rotation.eulerAngles.z);
         }
         //Debug.Log(targetDeg);
         //Debug.Log(startingDeg);
+
 
     }
 }

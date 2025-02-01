@@ -16,6 +16,8 @@ public class SprayAttack : MonoBehaviour
     private bool attacking;
     private BossBugController boss;
     private bool stuck;
+    public AudioClip soundEffect;
+    public AudioClip jump;
 
     [SerializeField] GameObject firePos;
 
@@ -50,7 +52,7 @@ public class SprayAttack : MonoBehaviour
 
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        
+        SoundEffectsManager.Instance.PlaySound(jump);
 
         yield return new WaitForSeconds(1f);
 
@@ -59,6 +61,7 @@ public class SprayAttack : MonoBehaviour
         {
             boss.state = "wallspit";
             GameObject b = Instantiate(projectile, firePos.transform.position, Quaternion.identity);
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
             yield return new WaitForSeconds(0.3f);
         }
 
