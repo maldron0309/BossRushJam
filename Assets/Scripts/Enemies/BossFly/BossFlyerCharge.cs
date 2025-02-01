@@ -9,6 +9,8 @@ public class BossFlyerCharge : MonoBehaviour
     private float originalMoveSpeed;
     private bool isFInishing = false;
     private Transform targetPost;
+    public AudioClip soundEffect;
+    private bool EffecetPlayed;
 
     public float chargeDelay;
     private float delayCounter;
@@ -35,6 +37,11 @@ public class BossFlyerCharge : MonoBehaviour
         }
         else
         {
+            if (!EffecetPlayed)
+            {
+                EffecetPlayed = true;
+                SoundEffectsManager.Instance.PlaySound(soundEffect);
+            }
             if (chargeCounter > 0)
             {
                 chargeCounter -= Time.deltaTime;
@@ -64,5 +71,6 @@ public class BossFlyerCharge : MonoBehaviour
         delayCounter = chargeDelay;
         movedir = (PlayerController.instance.transform.position - transform.position).normalized;
         boss.Move(Vector2.zero);
+        EffecetPlayed = false;
     }
 }

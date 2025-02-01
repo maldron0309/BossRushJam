@@ -11,6 +11,7 @@ public class BossLarvaSpit : MonoBehaviour
     public float fireRate;
     public float spreadAngle = 45f;
     private float fireCooldown;
+    public AudioClip soundEffect;
 
     private Rigidbody2D rb;
     private BossLarvaController boss;
@@ -67,5 +68,6 @@ public class BossLarvaSpit : MonoBehaviour
         direction = Quaternion.AngleAxis(angle + spreadAngle, Vector3.forward) * Vector2.right;
         bullet.velocity = direction * (speed + Random.Range(0.0f, 5.0f));
         bullet.GetComponent<BossBullet>().damage = damage;
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
     }
 }

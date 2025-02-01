@@ -16,6 +16,7 @@ public class BossLarvaRunning : MonoBehaviour
     private bool isFInishing = false;
     private Transform targetPost;
 
+    public AudioClip soundEffect;
     public bool isStarted = false;
     private Rigidbody2D rb;
     private BossLarvaController boss;
@@ -78,6 +79,7 @@ public class BossLarvaRunning : MonoBehaviour
         bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<Rigidbody2D>();
         bullet.velocity = Vector2.up * (bulletSpeed + Random.Range(0.0f, 5.0f));
         bullet.GetComponent<BossBullet>().damage = damage;
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
     }
     public void Move()
     {

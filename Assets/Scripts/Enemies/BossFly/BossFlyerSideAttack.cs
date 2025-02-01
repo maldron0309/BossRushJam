@@ -15,6 +15,7 @@ public class BossFlyerSideAttack : MonoBehaviour
     public bool isStarted = false;
     public float fireRate;
     public int numberOfProjectiles;
+    public AudioClip soundEffect;
 
     private float fireCounter;
     private Vector2 projectileDir;
@@ -100,6 +101,7 @@ public class BossFlyerSideAttack : MonoBehaviour
 
             Rigidbody2D rb = Instantiate(projectilePrefab, transform.position + (Vector3)offset, Quaternion.identity).GetComponent<Rigidbody2D>();
             rb.velocity = projectileDir * 5;
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
         }
     }
     public void BeginAttack()

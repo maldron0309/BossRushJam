@@ -12,6 +12,7 @@ public class BossFlyerCenterAttack : MonoBehaviour
     public float fireAngleInc = 3;
     public int numberOfProjectiles;
     public float initialRadius = 1f;
+    public AudioClip soundEffect;
 
     private float angleIncrement;
     private int VolliesCounter;
@@ -91,6 +92,7 @@ public class BossFlyerCenterAttack : MonoBehaviour
             Rigidbody2D rb = Instantiate(projectilePrefab, transform.position + (Vector3)offset, Quaternion.identity).GetComponent<Rigidbody2D>();
             rb.velocity = offset * 5;
         }
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
     }
     public void BeginAttack()
     {

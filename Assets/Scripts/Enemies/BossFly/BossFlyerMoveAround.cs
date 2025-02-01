@@ -10,6 +10,7 @@ public class BossFlyerMoveAround : MonoBehaviour
     public Transform[] posts;
     public float attackRate = 1;
     private float attackCooldown;
+    public AudioClip soundEffect;
 
     public float moveSpeed;
     private bool isFInishing = false;
@@ -65,6 +66,7 @@ public class BossFlyerMoveAround : MonoBehaviour
         bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<Rigidbody2D>();
         bullet.velocity = (Vector2.up + Vector2.left) * (bulletSpeed + Random.Range(0.0f, 5.0f));
         bullet.GetComponent<BossBullet>().damage = damage;
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
     }
     public void BeginAttack()
     {

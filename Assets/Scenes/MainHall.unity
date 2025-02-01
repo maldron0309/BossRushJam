@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ed1ed3322826247955e17ee92b05ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossDefeated: 01010101
+  bossDefeated: 00000000
   bossDoor:
   - {fileID: 1781525921}
   - {fileID: 491565987}
@@ -32082,7 +32082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000023078173
+      value: -0.0000076276356
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y

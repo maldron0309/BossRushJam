@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01bbdf166c9b69f43878ec95977ab484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 400
+  maxHealth: 350
   door: {fileID: 778137832}
   bossAnim: {fileID: 0}
   bossSprite: {fileID: 2104913089}
@@ -636,6 +636,7 @@ MonoBehaviour:
   - {fileID: 1316103477}
   - {fileID: 1676808475}
   attackRate: 1.75
+  soundEffect: {fileID: 8300000, guid: 0a106d55f3c542b46a494bffaff769b6, type: 3}
   moveSpeed: 8
   isStarted: 0
 --- !u!114 &87514342
@@ -660,6 +661,7 @@ MonoBehaviour:
   isStarted: 0
   fireRate: 0.125
   numberOfProjectiles: 1
+  soundEffect: {fileID: 8300000, guid: 0a106d55f3c542b46a494bffaff769b6, type: 3}
 --- !u!114 &87514343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,6 +682,7 @@ MonoBehaviour:
   fireAngleInc: -15
   numberOfProjectiles: 10
   initialRadius: 1
+  soundEffect: {fileID: 8300000, guid: d125d558bce9b194684b7dc7d24015c4, type: 3}
 --- !u!114 &87514344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeSpeed: 25
+  soundEffect: {fileID: 8300000, guid: 8662c5449e121e64ca1c71788f69939a, type: 3}
   chargeDelay: 0.33
   chargeTime: 0.5
   isStarted: 0
@@ -6531,6 +6535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   upForce: 10
+  attackSound: {fileID: 8300000, guid: 4179f253e9e7d5244bced1c65d481a4c, type: 3}
 --- !u!70 &1472918873
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -137833,6 +137838,7 @@ MonoBehaviour:
   damage: 2
   fireRate: 1
   spreadAngle: 30
+  soundEffect: {fileID: 8300000, guid: 0a106d55f3c542b46a494bffaff769b6, type: 3}
 --- !u!114 &1936619280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137856,6 +137862,7 @@ MonoBehaviour:
   - {fileID: 2019513831}
   attackRate: 0.5
   moveSpeed: 6
+  soundEffect: {fileID: 0}
   isStarted: 0
 --- !u!114 &1936619281
 MonoBehaviour:
@@ -137872,6 +137879,7 @@ MonoBehaviour:
   jumpHeight: 2000
   moveSpeed: 8
   isStarted: 0
+  jumpSound: {fileID: 8300000, guid: 7f93b64633decb54f8c9ec5066e0ffa4, type: 3}
 --- !u!1 &1946162958
 GameObject:
   m_ObjectHideFlags: 0
@@ -138904,7 +138912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00000640882
+      value: 0.00019728411
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

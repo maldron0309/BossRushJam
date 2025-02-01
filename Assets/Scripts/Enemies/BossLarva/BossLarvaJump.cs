@@ -10,6 +10,7 @@ public class BossLarvaJump : MonoBehaviour
     public float moveSpeed;
 
     public bool isStarted = false;
+    public AudioClip jumpSound;
     private Rigidbody2D rb;
     private BossLarvaController boss;
     private int movedir;
@@ -55,5 +56,6 @@ public class BossLarvaJump : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, 0); // Reset vertical velocity for consistent jump height
         rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+        SoundEffectsManager.Instance.PlaySound(jumpSound);
     }
 }
