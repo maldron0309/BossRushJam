@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3f36acd6707fa438bad3a0190f69f6, type: 3}
   m_Name: InstantHeal
   m_EditorClassIdentifier: 
-  weaponName: InstantHeal
+  weaponName: Instant Heal
   weaponDescription: Instantly restore 5 HP
   weaponPrefab: {fileID: 7858170756528366886, guid: 93415c387dfa29b43a2d669ebca81134, type: 3}
   weaponImage: {fileID: 21300000, guid: 696c95a567e0ecc41b03bb91e35c69d2, type: 3}

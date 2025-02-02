@@ -185,6 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: {fileID: 5472048207702884727}
   root: {fileID: 7594203969784690367}
+  soundEffect: {fileID: 8300000, guid: 7211d6ae55e682d41b03a81504c13489, type: 3}
+  closeSoundEffect: {fileID: 8300000, guid: bd69df056f7f2a346b3dba4b057704e8, type: 3}
 --- !u!1 &2470350208144626044
 GameObject:
   m_ObjectHideFlags: 0

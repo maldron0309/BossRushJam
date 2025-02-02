@@ -176,3 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markLocation: {fileID: 2172918669516586788}
+  soundEffect: {fileID: 8300000, guid: 00225734a710dc04e8b3ba28064c2a3e, type: 3}

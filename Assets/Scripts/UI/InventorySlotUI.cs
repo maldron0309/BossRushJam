@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventorySlotUI : MonoBehaviour
 {
     public WeaponSlot weapon;
+    public AudioClip soundEffect;
     void Start()
     {
         
@@ -20,6 +21,6 @@ public class InventorySlotUI : MonoBehaviour
     {
         WeaponSelectController.instance.setWeapon(weapon);
         GetComponent<Button>().interactable = false;
-
+        SoundEffectsManager.Instance.PlaySound(soundEffect);
     }
 }

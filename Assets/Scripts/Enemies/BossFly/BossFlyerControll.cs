@@ -13,6 +13,7 @@ public class BossFlyerControll : BaseBossController
     public BossFlyerSideAttack sideAttack;
     public BossFlyerCenterAttack centerAttack;
     public BossFlyerCharge flyerCharge;
+    public GameObject hitZone;
 
     [Header("Start Event")]
     private int stage = 0;
@@ -31,6 +32,7 @@ public class BossFlyerControll : BaseBossController
     private int rage = 0;
     private int moveCounter = 0;
     private Rigidbody2D rb;
+    private bool isDead = false;
     void Start()
     {
         nextActionCounter = timeBetweenActions;
@@ -38,6 +40,8 @@ public class BossFlyerControll : BaseBossController
     }
     void Update()
     {
+        if (isDead)
+            return;
         if (!isBattleStarted || isPerformingAction)
             return;
 
@@ -99,11 +103,22 @@ public class BossFlyerControll : BaseBossController
     }
     public override void OnDefeat()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
         GameProgressManager.instance.bossDefeated[3] = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        isDead = true;
+        rb.velocity = Vector2.zero;
+        anim.Play("Death");
+        hitZone.SetActive(false);
+        sideAttack.enabled = false;
+        centerAttack.enabled = false;
+        flyerCharge.enabled = false;
+        flyAround.enabled = false;
     }
     public void Move(Vector2 movedir)
     {
+        if (isDead)
+            return;
         rb.velocity = movedir * moveSpeed;
 
         if ((movedir.x > 0 && !facingRight) || (movedir.x < 0 && facingRight))

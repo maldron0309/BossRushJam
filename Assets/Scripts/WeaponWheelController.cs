@@ -61,7 +61,7 @@ public class WeaponWheelController : MonoBehaviour
             {
                 item.transform.rotation = Quaternion.identity;
             }
-            Debug.Log(gameObject.transform.rotation.eulerAngles.z);
+            //Debug.Log(gameObject.transform.rotation.eulerAngles.z);
         }
         //Debug.Log(targetDeg);
         //Debug.Log(startingDeg);

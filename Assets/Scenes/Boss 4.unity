@@ -555,11 +555,12 @@ MonoBehaviour:
   timeBetweenActions: 0.2
   moveSpeed: 5
   health: {fileID: 87514338}
-  anim: {fileID: 0}
+  anim: {fileID: 2104913090}
   flyAround: {fileID: 87514341}
   sideAttack: {fileID: 87514342}
   centerAttack: {fileID: 87514343}
   flyerCharge: {fileID: 87514344}
+  hitZone: {fileID: 617573055}
   wheel: {fileID: 549278791}
   platforms:
   - {fileID: 1054135202}
@@ -2756,7 +2757,7 @@ GameObject:
   - component: {fileID: 617573058}
   - component: {fileID: 617573057}
   m_Layer: 11
-  m_Name: GameObject
+  m_Name: hitZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

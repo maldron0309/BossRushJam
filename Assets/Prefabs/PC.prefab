@@ -157,6 +157,7 @@ MonoBehaviour:
   - Display message. part 2
   - Display message. part 3
   markLocation: {fileID: 5566330313508136382}
+  soundEffect: {fileID: 8300000, guid: 7211d6ae55e682d41b03a81504c13489, type: 3}
 --- !u!61 &3611281478874875426
 BoxCollider2D:
   m_ObjectHideFlags: 0

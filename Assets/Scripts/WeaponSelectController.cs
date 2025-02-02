@@ -16,6 +16,9 @@ public class WeaponSelectController : MonoBehaviour
     public TMP_Text description;
     public InventorySlotUI[] weaponbuttons;
     public PlayerController player;
+    public AudioClip soundEffectOK;
+    public AudioClip soundEffectError;
+    public AudioClip soundEffectBeep;
 
     private void Awake()
     {
@@ -50,15 +53,10 @@ public class WeaponSelectController : MonoBehaviour
         good = true;
         if (good)
         {
-            Debug.Log("resume player");
             player.Resume();
-            Debug.Log("give weapon");
             inv.GiveWeapon(player);
-            Debug.Log("hide screen");
             gameObject.SetActive(false);
-            Debug.Log("show wheel");
             WeaponWheelController.instance.gameObject.SetActive(true);
-            Debug.Log("update wheel");
             WeaponWheelController.instance.updateWheel();
         }
         
@@ -68,8 +66,9 @@ public class WeaponSelectController : MonoBehaviour
     {
         transform.Find("Buttons").transform.GetChild(currentslot).GetComponent<Button>().interactable = true;
         currentslot = num;
-        Debug.Log("Set active to slot " + num.ToString());
+        //Debug.Log("Set active to slot " + num.ToString());
         transform.Find("Buttons").transform.GetChild(num).GetComponent<Button>().interactable = false;
+        SoundEffectsManager.Instance.PlaySound(soundEffectBeep);
     }
     public void setWeapon(WeaponSlot weapon)
     {
@@ -78,7 +77,7 @@ public class WeaponSelectController : MonoBehaviour
 
         currentweapon = weapon;
         description.text = weapon.weaponDescription;
-        Debug.Log("Set active to slot " + weapon.weaponName);
+        //Debug.Log("Set active to slot " + weapon.weaponName);
         //weaponbuttons.transform.Find(weapon.weaponName).GetComponent<Button>().interactable = false;
     }
 
@@ -119,17 +118,25 @@ public class WeaponSelectController : MonoBehaviour
 
     public void swap()
     {
-        inv.weapons[currentslot] = currentweapon;
-        filled[currentslot] = true;
-        updateWheel();
+        if(currentweapon != null)
+        {
+            inv.weapons[currentslot] = currentweapon;
+            filled[currentslot] = true;
+            updateWheel();
+            SoundEffectsManager.Instance.PlaySound(soundEffectOK);
+        }
+        else
+        {
+            SoundEffectsManager.Instance.PlaySound(soundEffectError);
+        }
     }
     private void OnEnable()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     private void OnDisable()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
 }

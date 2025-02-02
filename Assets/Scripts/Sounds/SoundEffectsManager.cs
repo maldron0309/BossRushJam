@@ -22,7 +22,6 @@ public class SoundEffectsManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
-            Debug.Log($"sound manager set");
         }
         else
         {

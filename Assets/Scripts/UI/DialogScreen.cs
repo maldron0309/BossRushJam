@@ -10,6 +10,8 @@ public class DialogScreen : MonoBehaviour
     public GameObject root;
     private string[] messageArray;
     private int currentmsgIdx = 0;
+    public AudioClip soundEffect;
+    public AudioClip closeSoundEffect;
     private void Awake()
     {
         instance = this;
@@ -24,10 +26,12 @@ public class DialogScreen : MonoBehaviour
         if (currentmsgIdx < messageArray.Length)
         {
             DisplayMessage(messageArray[currentmsgIdx]);
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
         }
         else
         {
             Close();
+            SoundEffectsManager.Instance.PlaySound(closeSoundEffect);
         }
     }
     public void Open(string[] messages)

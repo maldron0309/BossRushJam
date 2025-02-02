@@ -1422,6 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9ce46c2da575e4ab3fe59b3a09b2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentweapon: {fileID: 0}
   slots:
   - {fileID: 3764814944071458675}
   - {fileID: 1028269011488915884}
@@ -1439,8 +1440,10 @@ MonoBehaviour:
   - {fileID: 8481587030577578946}
   - {fileID: 6268778379890399185}
   - {fileID: 5525824410499612910}
-  weaponWheel: {fileID: 0}
   player: {fileID: 0}
+  soundEffectOK: {fileID: 8300000, guid: 7211d6ae55e682d41b03a81504c13489, type: 3}
+  soundEffectError: {fileID: 8300000, guid: bd69df056f7f2a346b3dba4b057704e8, type: 3}
+  soundEffectBeep: {fileID: 8300000, guid: c5741fba8d8d1f548b85f2c948c09d02, type: 3}
 --- !u!1 &3774524533803764213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,7 +2561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00010205633}
+  m_AnchoredPosition: {x: 0, y: 0.00005880003}
   m_SizeDelta: {x: 0, y: 296.93}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &6091440517741066092

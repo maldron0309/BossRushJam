@@ -23,7 +23,6 @@ public class BackgroundMusicManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Debug.Log($"music manager set");
             //audioSource = gameObject.AddComponent<AudioSource>();
             //audioSource.loop = true;
             //audioSource.volume = 0.5f;
@@ -31,7 +30,6 @@ public class BackgroundMusicManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"music manager destroy");
             Destroy(gameObject);
             //Instance.StopBGM();
         }
@@ -39,11 +37,6 @@ public class BackgroundMusicManager : MonoBehaviour
 
     void Start()
     {
-        if (adSrc)
-            Debug.Log("has audio source");
-        else
-            Debug.Log("music source missing");
-        Debug.Log($"set volume");
         adSrc.volume = 0.25f;
     }
 
