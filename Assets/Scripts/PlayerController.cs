@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
     //private AnimatorStateInfo stateInfo;
     public bool isInputEnabled = true;
 
+    public GameObject afterImagePrefab;
+    public float afterImageRate;
+    private float afterImageCounter;
+    private bool makeAfterImages = false;
+
     [Header("Jumping")]
     public float minJumpHeight = 2f;
     public float maxJumpHeight = 4f;
@@ -39,6 +44,15 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private bool canDash = true;
     private float dashTimer = 0f;
+
+    [Header("Hover")]
+    public float hoverMaxTime = 3;
+    private float hoverTime;
+    private bool isHovering;
+    public float hoverCooldown = 1;
+    private float hoverReloadCounter;
+    public ProgressBar hoverProgress;
+    public bool HoverEnabled;
 
     [Header("Physics")]
     public LayerMask groundLayer;
@@ -92,6 +106,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         originalSpeed = moveSpeed;
         health = GetComponent<PlayerHealth>();
+        afterImageCounter = afterImageRate;
     }
 
     private void Update()
@@ -127,6 +142,36 @@ public class PlayerController : MonoBehaviour
             evadeProgress.UpdateProgress(1 - (dashTimer / dashCooldown));
             if(dashTimer <= 0 && evadeProgress.gameObject.activeInHierarchy)
                 evadeProgress.gameObject.SetActive(false);
+        }
+        HandleHover();
+        if (makeAfterImages)
+        {
+            if (afterImageCounter > 0)
+            {
+                afterImageCounter -= Time.deltaTime;
+            }
+            else
+            {
+                afterImageCounter = afterImageRate;
+                SpawnAfterImage();
+            }
+        }
+
+    }
+    public void HandleHover()
+    {
+        if (isHovering)
+        {
+            if(hoverTime > 0)
+            {
+                hoverTime -= Time.deltaTime;
+                //hoverProgress.UpdateProgress(1 - (hoverTime / hoverMaxTime));
+                hoverProgress.UpdateProgress(hoverTime / hoverMaxTime);
+            }
+            else
+            {
+                EndHover();
+            }
         }
     }
     private void WallSlide()
@@ -262,6 +307,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded || isWallSliding)
         {
             coyoteTimeCounter = coyoteTime;
+            hoverTime = hoverMaxTime;
         }
         else
         {
@@ -296,7 +342,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             // Normal movement
-            rb.velocity = externalVelocity +  new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
+            TemportalPush push = GetComponent<TemportalPush>();
+            if (push)
+                rb.velocity = externalVelocity + new Vector2(rb.velocity.x + moveInput.x * moveSpeed, rb.velocity.y) + push.pushVelocity;
+            else
+                rb.velocity = externalVelocity +  new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
         }
 
         if ((moveInput.x > 0 && !facingRight) || (moveInput.x < 0 && facingRight))
@@ -320,12 +370,16 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if ((rb.velocity.y >= 0) )
+            if (isHovering)
+            {
+                anim.Play("Hover");
+            }
+            else if((rb.velocity.y >= 0) )
             {
                 if(!anim.GetCurrentAnimatorStateInfo(0).IsName("DoubleJump"))
                     anim.Play("Jump");
             }
-            else
+            else 
             {
                 anim.Play("Fall");
             }
@@ -346,7 +400,7 @@ public class PlayerController : MonoBehaviour
         if (isDashing || !jumpEnable || !isAlive)
             return;
 
-        if (jumpBufferCounter > 0 && (coyoteTimeCounter > 0 || canDoubleJump || isTouchingWallLeft || isTouchingWallRight))
+        if (jumpBufferCounter > 0 && (coyoteTimeCounter > 0 || canDoubleJump || HoverEnabled || isTouchingWallLeft || isTouchingWallRight))
         {
             if (coyoteTimeCounter > 0)
             {
@@ -366,6 +420,11 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter = 0;
         }
 
+        if(jumpHeld && rb.velocity.y < 0 && HoverEnabled && hoverTime > 0)
+        {
+            BeginHover();
+        }
+
         if (!jumpHeld && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
@@ -376,6 +435,21 @@ public class PlayerController : MonoBehaviour
     public void OnJumpReleased()
     {
         isWallStickAllowed = true;
+        if (isHovering)
+            EndHover();
+    }
+    public void BeginHover()
+    {
+        rb.gravityScale = 0;
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        isHovering = true;
+        hoverProgress.gameObject.SetActive(true);
+    }
+    public void EndHover()
+    {
+        rb.gravityScale = 1;
+        isHovering = false;
+        hoverProgress.gameObject.SetActive(false);
     }
 
     private void Jump(Vector2 direction)
@@ -444,8 +518,11 @@ public class PlayerController : MonoBehaviour
 
         Vector2 dashDirection = facingRight ? Vector2.right : Vector2.left;
         rb.velocity = dashDirection * dashSpeed;
+        makeAfterImages = true;
 
         yield return new WaitForSeconds(dashDuration);
+
+        makeAfterImages = false;
         anim.Play("Idle");
 
         rb.gravityScale = 1; // Restore gravity
@@ -467,7 +544,9 @@ public class PlayerController : MonoBehaviour
         Vector2 dashDirection = facingRight ? Vector2.right : Vector2.left;
         rb.velocity = dashDirection * rollSpeed;
 
+        makeAfterImages = true;
         yield return new WaitForSeconds(dashDuration);
+        makeAfterImages = false;
         anim.Play("Idle");
         // fix weapon placement if wepaon switch happened mid roll
         GetComponentInChildren<BaseAttack>().gameObject.transform.rotation = Quaternion.identity;
@@ -477,6 +556,31 @@ public class PlayerController : MonoBehaviour
         canDash = true;
         dashTimer = dashCooldown;
         evadeProgress.gameObject.SetActive(true);
+    }
+    void SpawnAfterImage()
+    {
+        GameObject afterImage = Instantiate(afterImagePrefab, transform.position, transform.rotation);
+        SpriteRenderer afterImageRenderer = afterImage.GetComponent<SpriteRenderer>();
+        SpriteRenderer playerRenderer = anim.GetComponent<SpriteRenderer>();
+
+        // Copy player body sprite
+        afterImageRenderer.sprite = playerRenderer.sprite;
+        //afterImageRenderer.flipX = playerRenderer.flipX;
+        afterImage.transform.localScale = anim.transform.localScale;
+        afterImage.transform.rotation = anim.transform.rotation;
+        afterImageRenderer.sortingLayerID = playerRenderer.sortingLayerID;
+        afterImageRenderer.sortingOrder = playerRenderer.sortingOrder;
+
+        // Copy player hands sprite
+        GameObject handsAfterImage = Instantiate(afterImagePrefab, weapon.transform.position, weapon.transform.rotation);
+        afterImageRenderer = handsAfterImage.GetComponent<SpriteRenderer>();
+        playerRenderer = weapon.GetComponentInChildren<SpriteRenderer>();
+        afterImageRenderer.sprite = playerRenderer.sprite;
+        handsAfterImage.transform.localScale = anim.transform.localScale;
+        handsAfterImage.transform.rotation = anim.transform.rotation;
+        afterImageRenderer.sortingLayerID = playerRenderer.sortingLayerID;
+        afterImageRenderer.sortingOrder = playerRenderer.sortingOrder;
+
     }
 
     public bool IsDashing()

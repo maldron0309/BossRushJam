@@ -15,4 +15,4 @@ MonoBehaviour:
   weaponName: Spread shooter
   weaponDescription: Shoots multiple bullets at once!
   weaponPrefab: {fileID: 1283368908312018702, guid: 9e293f0b03910ab4986eaa076886892d, type: 3}
-  weaponImage: {fileID: 21300000, guid: 2cae374914b5ec24aa164d2ab9d76383, type: 3}
+  weaponImage: {fileID: 21300000, guid: 7e4be9c9f847fcf48b196eded6ede3bd, type: 3}

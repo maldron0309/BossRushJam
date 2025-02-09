@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 class BossRoomTrigger : MonoBehaviour
@@ -11,22 +12,30 @@ class BossRoomTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player entered the boss room");
-            boss.GetComponent<BaseBossController>().StartBossBattle();
-            bossUI.SetActive(true);
+            StartCoroutine(ShowBossIntro());
 
-            BossHealthUI bossHealthUI = bossUI.GetComponent<BossHealthUI>();
-            BossHealth bossHealth = boss.GetComponent<BossHealth>();
-            if (bossHealthUI != null && bossHealth != null)
-            {
-                bossHealth.Initialize(bossHealthUI);
-            }
-            if (doorObject)
-                doorObject.SetActive(true);
-
-            BackgroundMusicManager.Instance.PlayBossMusic(bossNumber);
-
-            Destroy(gameObject);
         }
+    }
+    public IEnumerator ShowBossIntro()
+    {
+        yield return new WaitForSeconds(1);
+        if (BossIntroUI.instance)
+        {
+            BossIntroUI.instance.Show();
+            yield return new WaitForSeconds(3);
+        }
+        boss.GetComponent<BaseBossController>().StartBossBattle();
+        bossUI.SetActive(true);
+        BossHealthUI bossHealthUI = bossUI.GetComponent<BossHealthUI>();
+        BossHealth bossHealth = boss.GetComponent<BossHealth>();
+        if (bossHealthUI != null && bossHealth != null)
+        {
+            bossHealth.Initialize(bossHealthUI);
+        }
+        if (doorObject)
+            doorObject.SetActive(true);
+
+        BackgroundMusicManager.Instance.PlayBossMusic(bossNumber);
+        Destroy(gameObject);
     }
 }

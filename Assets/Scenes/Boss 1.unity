@@ -33856,6 +33856,10 @@ PrefabInstance:
       propertyPath: bossAnim
       value: 
       objectReference: {fileID: 266243813}
+    - target: {fileID: 6672855341750763990, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
+      propertyPath: shieldSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b5113d7b8b98cc4ba0969449951c87d, type: 3}
     - target: {fileID: 7078087690089636793, guid: 245e49fc156ef6946810e5fc3be401fb, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.009693085
@@ -34348,7 +34352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311166131835308876, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00013074731
+      value: 0.00014533076
       objectReference: {fileID: 0}
     - target: {fileID: 6610346714494397541, guid: f8e0b6478c2c52243a8bae6ad3372a71, type: 3}
       propertyPath: m_AnchorMax.y

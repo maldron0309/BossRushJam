@@ -7,6 +7,7 @@ public class InventorySlotUI : MonoBehaviour
 {
     public WeaponSlot weapon;
     public AudioClip soundEffect;
+    public Image itemImage;
     void Start()
     {
         
@@ -22,5 +23,12 @@ public class InventorySlotUI : MonoBehaviour
         WeaponSelectController.instance.setWeapon(weapon);
         GetComponent<Button>().interactable = false;
         SoundEffectsManager.Instance.PlaySound(soundEffect);
+    }
+    private void OnValidate()
+    {
+        if (weapon)
+        {
+            itemImage.sprite = weapon.weaponImage;
+        }
     }
 }

@@ -223,3 +223,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
   soundEffect: {fileID: 8300000, guid: c5741fba8d8d1f548b85f2c948c09d02, type: 3}
+  itemImage: {fileID: 7638784924247556574}

@@ -13,6 +13,7 @@ public class MultiShooter : BaseAttack
     public int numProjectiles = 5;
     public int damage = 4;
     public AudioClip attackSound;
+    public Transform barrelEnd;
 
     private float nextAttackCounter;
     private bool isAttackBuffered;
@@ -48,11 +49,12 @@ public class MultiShooter : BaseAttack
             {
                 float angle = baseAngle + (-(numProjectiles - 1) / 2f + i) * angleStep;
 
-                GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+                GameObject projectile = Instantiate(projectilePrefab, barrelEnd.position, Quaternion.identity);
                 Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
                 projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
                 projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
                 projectile.GetComponent<Projectile>().damage = damage;
+                projectile.GetComponent<Projectile>().timeToLive = 0.5f;
             }
             nextAttackCounter = attackCooldown;
 

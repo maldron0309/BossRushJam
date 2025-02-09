@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GuardBossShieldOrb : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioClip soundEffect;
     void Start()
     {
         
@@ -13,6 +13,7 @@ public class GuardBossShieldOrb : MonoBehaviour
     {
         if (collision.CompareTag("PlayerProjectile"))
         {
+            SoundEffectsManager.Instance.PlaySound(soundEffect);
             Destroy(collision.gameObject);
         }
     }

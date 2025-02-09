@@ -16,6 +16,7 @@ public class BossGuardController : BaseBossController
     private float nextActionCounter;
     public bool isPerformingAction = false;
     [SerializeField] private Animator bossAnim;
+    public AudioClip shieldSound;
 
     // count repeates of same attack. used to restain long repeats
     private int rapidStrikes = 0;
@@ -56,14 +57,17 @@ public class BossGuardController : BaseBossController
         if(shields.activeStage == 0  && health.PercentageHealth() < 0.75f)
         {
             shields.EnterStage(1);
+            SoundEffectsManager.Instance.PlaySound(shieldSound);
         }
         if (shields.activeStage == 1 && health.PercentageHealth() < 0.50f)
         {
             shields.EnterStage(2);
+            SoundEffectsManager.Instance.PlaySound(shieldSound);
         }
         if (shields.activeStage == 2 && health.PercentageHealth() < 0.15f)
         {
             shields.EnterStage(3);
+            SoundEffectsManager.Instance.PlaySound(shieldSound);
         }
         if (health.PercentageHealth() == 0)
             isBattleStarted = false;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TemportalPush : MonoBehaviour
 {
     public Vector2 pushVector;
+    public Vector2 pushVelocity;
     Rigidbody2D rb;
     private float life;
     void Start()
@@ -24,6 +25,7 @@ public class TemportalPush : MonoBehaviour
     void FixedUpdate()
     {
         life -= Time.deltaTime;
-        rb.velocity += life * 4 * pushVector;
+        //rb.velocity += life * 4 * pushVector;
+        pushVelocity = life * 4 * pushVector;
     }
 }
