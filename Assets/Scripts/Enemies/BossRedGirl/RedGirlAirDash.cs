@@ -68,6 +68,7 @@ public class RedGirlAirDash : MonoBehaviour
     {
         anim.Play("Dash");
         isDashing = true;
+        boss.makeAfterImages = true;
 
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0; // Temporarily disable gravity during dash
@@ -92,5 +93,6 @@ public class RedGirlAirDash : MonoBehaviour
 
         isFInishing = true;
         dashFinished = true;
+        boss.makeAfterImages = false;
     }
 }

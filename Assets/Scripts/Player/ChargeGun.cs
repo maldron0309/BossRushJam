@@ -9,7 +9,9 @@ public class ChargeGun : BaseAttack
     public Transform projectileSpawnPoint;
     public Animator anim;
     public float projectileSpeed;
-    public AudioClip attackSound;
+    public AudioClip attackSoundWeak;
+    public AudioClip attackSoundStrong;
+    public AudioSource chargeSound;
     public int weakDamage = 14;
     public int strongDamage = 14;
     public float recoilForce;
@@ -42,19 +44,20 @@ public class ChargeGun : BaseAttack
     {
         if (isCharging)
         {
+            chargeSound.Stop();
             isCharging = false;
             if (isChargeComplete)
             {
-                FireProjectile(strongProjectile, strongDamage);
+                FireProjectile(strongProjectile, strongDamage, recoilForce, attackSoundStrong);
                 isChargeComplete = false;
             }
             else
             {
-                FireProjectile(weakProjectile, weakDamage);
+                FireProjectile(weakProjectile, weakDamage, recoilForce * 0.5f, attackSoundWeak);
             }
         }
     }
-    private void FireProjectile(GameObject projectilePrefab, int damage)
+    private void FireProjectile(GameObject projectilePrefab, int damage, float recoil, AudioClip sound)
     {
         if (currentCharges > 0 && canShoot)
         {
@@ -72,10 +75,10 @@ public class ChargeGun : BaseAttack
                 WeaponsInventory.instance.GiveNextWeapon(PlayerController.instance);
 
             TemportalPush tp = PlayerController.instance.gameObject.AddComponent<TemportalPush>();
-            tp.pushVector = -direction * recoilForce;
+            tp.pushVector = -direction * recoil;
 
             OnPressed();
-            SoundEffectsManager.Instance.PlaySound(attackSound);
+            SoundEffectsManager.Instance.PlaySound(sound);
             anim.gameObject.SetActive(false);
         }
     }
@@ -87,6 +90,7 @@ public class ChargeGun : BaseAttack
             chargeCounter = chargeTime;
             anim.gameObject.SetActive(true);
             anim.Play("ChargeSmall");
+            chargeSound.Play();
         }
     }
 }

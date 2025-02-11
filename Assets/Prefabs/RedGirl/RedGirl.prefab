@@ -159,6 +159,9 @@ MonoBehaviour:
   tornadoAttack: {fileID: 3797035683750802971}
   health: {fileID: 3478296428786145581}
   anim: {fileID: 4226884154247431549}
+  afterImagePrefab: {fileID: 5455494710119955308, guid: 71db67d0ecb929f4aa9c74baaded8548, type: 3}
+  afterImageRate: 0.02
+  makeAfterImages: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 192

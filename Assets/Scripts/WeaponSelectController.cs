@@ -23,15 +23,15 @@ public class WeaponSelectController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-    void Start()
-    {
         filled = new bool[8];
         currentslot = 0;
         for (int i = 0; i < filled.Length; i++)
         {
             filled[i] = true;
         }
+    }
+    void Start()
+    {
         updateWheel();
         gameObject.SetActive(false);
     }
@@ -81,7 +81,7 @@ public class WeaponSelectController : MonoBehaviour
         //weaponbuttons.transform.Find(weapon.weaponName).GetComponent<Button>().interactable = false;
     }
 
-    void updateWheel()
+    public void updateWheel()
     {
         
         for (int i = 0; i < inv.weapons.Length; i++)

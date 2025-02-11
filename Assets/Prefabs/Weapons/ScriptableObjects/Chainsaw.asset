@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Chainsaw
   m_EditorClassIdentifier: 
   weaponName: Chainsaw
-  weaponDescription: ...
+  weaponDescription: 'Close combat weapon that deals 6 damage per hit.
+
+    Each
+    successful hit also heals you for 1 hp'
   weaponPrefab: {fileID: 7858170756528366886, guid: c01f563060465cb408c125621fd54881, type: 3}
   weaponImage: {fileID: 21300000, guid: efc660b521c91984baf524cc5e8a0922, type: 3}

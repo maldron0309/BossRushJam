@@ -30,10 +30,11 @@ public class WeaponsInventory : MonoBehaviour
             WeaponWheel.inv = instance;
             WeaponWheel.updateWheel();
             instance.GiveWeapon(PlayerController.instance);
+            WeaponSelectController.instance.updateWheel();
         }
-        PlayerController player = FindAnyObjectByType<PlayerController>();
-        if(player)
-            GiveWeapon(player);
+        //PlayerController player = FindAnyObjectByType<PlayerController>();
+        //if(player)
+        //    GiveWeapon(player);
     }
     public void GiveNextWeapon(PlayerController player)
     {

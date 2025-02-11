@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: ChargeGun
   m_EditorClassIdentifier: 
   weaponName: Charge Gun
-  weaponDescription: ...
+  weaponDescription: 'Hold fire button to release strong attack on release.
+
+    Early
+    release does weaker attack'
   weaponPrefab: {fileID: 7858170756528366886, guid: f3f0d8976e19f1a4197dc98603b67977, type: 3}
   weaponImage: {fileID: 21300000, guid: 2cae374914b5ec24aa164d2ab9d76383, type: 3}

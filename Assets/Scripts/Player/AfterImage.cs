@@ -18,7 +18,7 @@ public class AfterImage : MonoBehaviour
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        float alpha = Mathf.Lerp(startColor.a, 0, timeElapsed / duration);  // Gradually fade out
+        float alpha = Mathf.Lerp(0.5f, 0, timeElapsed / duration);  // Gradually fade out
         spriteRenderer.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
 
         if (timeElapsed >= duration)

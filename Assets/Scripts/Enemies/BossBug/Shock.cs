@@ -8,6 +8,8 @@ public class Shock : MonoBehaviour
     public float stunTime = 5f;
     public float lifetime = 20f;
     public float speed;
+    public GameObject stunEffect;
+    public AudioClip stunSound;
 
     PlayerController player;
 
@@ -41,11 +43,14 @@ public class Shock : MonoBehaviour
     }
     IEnumerator stun(float time)
     {
+        SoundEffectsManager.Instance.PlaySound(stunSound);
+        GameObject effectObject = Instantiate(stunEffect, player.transform.position, Quaternion.identity);
         player.enabled = false;
         player.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<BaseAttack>().canShoot = false;
         yield return new WaitForSeconds(time);
         player.enabled = true; ;
         player.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<BaseAttack>().canShoot = true;
+        Destroy(effectObject);
 
     }
 }

@@ -12,6 +12,10 @@ public class BossRedGirlController : BaseBossController
     public RedGirlTornado tornadoAttack;
     public BossHealth health;
     public Animator anim;
+    public GameObject afterImagePrefab;
+    public float afterImageRate;
+    private float afterImageCounter;
+    public bool makeAfterImages = false;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
@@ -36,6 +40,21 @@ public class BossRedGirlController : BaseBossController
     void Start()
     {
         nextActionCounter = timeBetweenActions;
+    }
+    public void FixedUpdate()
+    {
+        if (makeAfterImages)
+        {
+            if (afterImageCounter > 0)
+            {
+                afterImageCounter -= Time.deltaTime;
+            }
+            else
+            {
+                afterImageCounter = afterImageRate;
+                SpawnAfterImage();
+            }
+        }
     }
     public bool IsGrounded()
     {
@@ -148,5 +167,19 @@ public class BossRedGirlController : BaseBossController
             
         }
         hadMoved = !hadMoved;
+    }
+    void SpawnAfterImage()
+    {
+        GameObject afterImage = Instantiate(afterImagePrefab, transform.position, transform.rotation);
+        SpriteRenderer afterImageRenderer = afterImage.GetComponent<SpriteRenderer>();
+        SpriteRenderer playerRenderer = anim.GetComponent<SpriteRenderer>();
+
+        // Copy player body sprite
+        afterImageRenderer.sprite = playerRenderer.sprite;
+        //afterImageRenderer.flipX = playerRenderer.flipX;
+        afterImage.transform.localScale = anim.transform.localScale;
+        afterImage.transform.rotation = anim.transform.rotation;
+        afterImageRenderer.sortingLayerID = playerRenderer.sortingLayerID;
+        afterImageRenderer.sortingOrder = playerRenderer.sortingOrder;
     }
 }

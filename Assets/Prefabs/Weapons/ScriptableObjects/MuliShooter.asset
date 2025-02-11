@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3f36acd6707fa438bad3a0190f69f6, type: 3}
   m_Name: MuliShooter
   m_EditorClassIdentifier: 
-  weaponName: Spread shooter
-  weaponDescription: Shoots multiple bullets at once!
+  weaponName: Shotgun
+  weaponDescription: 'Short range burst weapon doing 4x5 damage.
+
+    Shooting stops
+    you in place for short time!'
   weaponPrefab: {fileID: 1283368908312018702, guid: 9e293f0b03910ab4986eaa076886892d, type: 3}
   weaponImage: {fileID: 21300000, guid: 7e4be9c9f847fcf48b196eded6ede3bd, type: 3}

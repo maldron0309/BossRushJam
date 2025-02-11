@@ -10,7 +10,11 @@ public class Chainsaw : BaseAttack
     public float attackRate;
     private float attackCounter;
     public int damagePerHit;
+    public int healPerHit;
     private List<BaseBossController> entities = new List<BaseBossController>();
+    public AudioClip buzzSound;
+    public AudioClip hitSound;
+    public GameObject healEffect;
     void Start()
     {
         currentCharges = maxCharges;
@@ -25,6 +29,15 @@ public class Chainsaw : BaseAttack
                 attackCounter -= Time.deltaTime;
             else
             {
+                entities.RemoveAll(item => item == null);
+                if (entities.Count == 0)
+                    SoundEffectsManager.Instance.PlaySound(buzzSound);
+                else
+                {
+                    SoundEffectsManager.Instance.PlaySound(hitSound); 
+                    PlayerController.instance.GetComponent<PlayerHealth>().Heal(healPerHit);
+                    Instantiate(healEffect, transform.position, Quaternion.identity);
+                }
                 foreach (var item in entities)
                 {
                     item.GetComponent<BossHealth>().TakeDamage(damagePerHit);

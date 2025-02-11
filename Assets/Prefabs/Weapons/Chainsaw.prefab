@@ -305,7 +305,11 @@ MonoBehaviour:
   canShoot: 1
   attackEffect: {fileID: 638013963042981104}
   attackRate: 0.2
-  damagePerHit: 5
+  damagePerHit: 6
+  healPerHit: 1
+  buzzSound: {fileID: 8300000, guid: 52e39169697113f48be4fabc8154d0c1, type: 3}
+  hitSound: {fileID: 8300000, guid: 16aa57d100d96524199ed9140cbdeeb8, type: 3}
+  healEffect: {fileID: 8538422803324167097, guid: 0cf5f98f0a0f89d45938894be31f40c7, type: 3}
 --- !u!61 &464113918975727009
 BoxCollider2D:
   m_ObjectHideFlags: 0

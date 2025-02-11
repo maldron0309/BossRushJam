@@ -84,6 +84,7 @@ public class RedGirlTornado : MonoBehaviour
         // jump
         if (stage == 2)
         {
+            boss.makeAfterImages = true;
             if (!isFalling)
             {
                 isFalling = rb.velocity.y < 0;
@@ -111,6 +112,7 @@ public class RedGirlTornado : MonoBehaviour
 
         if(stage == 3)
         {
+            boss.makeAfterImages = false;
             boss.isPerformingAction = false;
             isStarted = false;
         }

@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 51.8948, y: 4.7118, z: 0}
-  m_LocalScale: {x: 3.5812852, y: 3.5812852, z: 3.5812852}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acidPool: {fileID: 5327946437497395094, guid: 0d8a514d55fdfb8498736c0c6b7f7af8, type: 3}
+  soundEffect: {fileID: 8300000, guid: 0a106d55f3c542b46a494bffaff769b6, type: 3}
