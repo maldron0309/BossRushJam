@@ -7,6 +7,8 @@ public class RoomTransition : MonoBehaviour
     public RoomCamera.RoomType newRoomType;
     public BoxCollider2D roomBounds;
     public float cameraRelativePosition = 0.5f; // Determines where the camera should start in the new room
+    public bool keepMomentum = false;
+    public bool isInstant = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,8 +27,13 @@ public class RoomTransition : MonoBehaviour
                 if (boxCollider != null)
                 {
                     roomCamera.cameraRelativePosition = cameraRelativePosition;
-                    roomCamera.SetRoomBounds(boxCollider, newRoomType);
-                    StartCoroutine( HoldPlayer(collision.GetComponent<PlayerController>()));
+                    roomCamera.SetRoomBounds(boxCollider, newRoomType, !isInstant);
+                    if (!isInstant)
+                        StartCoroutine(HoldPlayer(collision.GetComponent<PlayerController>()));
+                    else
+                    {
+                        
+                    }
                 }
                 else
                 {
@@ -49,11 +56,16 @@ public class RoomTransition : MonoBehaviour
         {
             Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.bounds.size);
         }
+        if(roomBounds != null)
+            Gizmos.DrawWireCube(roomBounds.bounds.center, roomBounds.bounds.size);
     }
     private IEnumerator HoldPlayer(PlayerController player)
     {
+        Vector2 momentum = player.GetComponent<Rigidbody2D>().velocity;
         player.Stop();
         yield return new WaitForSeconds(1);
         player.Resume();
+        if (keepMomentum)
+            player.GetComponent<Rigidbody2D>().velocity = momentum;
     }
 }

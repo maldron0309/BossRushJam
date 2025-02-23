@@ -6,6 +6,7 @@ public class WeaponsInventory : MonoBehaviour
 {
     public static WeaponsInventory instance;
     public WeaponSlot[] weapons;
+    public InventorySlot[] slots;
     public WeaponWheelController WeaponWheel;
     public int currentIdx;
     private void Awake()
@@ -32,13 +33,13 @@ public class WeaponsInventory : MonoBehaviour
             instance.GiveWeapon(PlayerController.instance);
             WeaponSelectController.instance.updateWheel();
         }
-        //PlayerController player = FindAnyObjectByType<PlayerController>();
-        //if(player)
-        //    GiveWeapon(player);
     }
     public void GiveNextWeapon(PlayerController player)
     {
-        currentIdx = (currentIdx + 1) % weapons.Length;
+        if(weapons.Length > 0)
+            currentIdx = (currentIdx + 1) % weapons.Length;
+        else
+            currentIdx = (currentIdx + 1) % slots.Length;
         StartCoroutine(GiveWeaponWithDelay(player));
 
     }
@@ -46,7 +47,11 @@ public class WeaponsInventory : MonoBehaviour
     {
         GameObject oldWeapon = player.weapon.gameObject;
 
-        GameObject newWeapon = Instantiate(weapons[currentIdx].weaponPrefab);
+        GameObject newWeapon;
+        if (weapons.Length > 0)
+            newWeapon = Instantiate(weapons[currentIdx].weaponPrefab);
+        else
+            newWeapon = Instantiate(slots[currentIdx].weapon.weaponPrefab);
         newWeapon.transform.position = player.weaponPlacement.transform.position;
         newWeapon.transform.SetParent(player.weaponPlacement.transform);
         if (!player.facingRight)

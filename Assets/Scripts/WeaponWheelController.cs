@@ -30,14 +30,13 @@ public class WeaponWheelController : MonoBehaviour
         {
             slots[i].gameObject.SetActive(false);
         }
-        for (int i = 0; i < inv.weapons.Length; i++)
+        for (int i = 0; i < inv.slots.Length; i++)
         {
-            slots[i].sprite = inv.weapons[i].weaponImage;
+            slots[i].sprite = inv.slots[i].weapon.weaponImage;
             slots[i].gameObject.SetActive(true);
         }
         gameObject.transform.rotation = Quaternion.identity;
     }
-
     public IEnumerator RotateWheel(float targetDeg)
     {
         

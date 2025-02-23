@@ -109,7 +109,7 @@ public class RoomCamera : MonoBehaviour
                                        leftBound + cameraBounds.x,
                                        rightBound - cameraBounds.x);
         transform.position = new Vector3(currentPosition.x, (topBound + bottomBound) / 2, transform.position.z) + (Vector3)cameraOffset;
-        cameraRelativePosition = (player.position.x) / (rightBound - cameraBounds.x);
+        cameraRelativePosition = (player.position.x - leftBound) / (rightBound - leftBound - cameraBounds.x);
     }
 
     private void FollowPlayerVertical()
@@ -126,7 +126,7 @@ public class RoomCamera : MonoBehaviour
         transform.position = new Vector3((leftBound + rightBound) / 2, (topBound + bottomBound) / 2, transform.position.z) + (Vector3)cameraOffset;
     }
 
-    public void SetRoomBounds(BoxCollider2D roomBounds, RoomType newRoomType)
+    public void SetRoomBounds(BoxCollider2D roomBounds, RoomType newRoomType, bool hasTransition = true)
     {
         leftBound = roomBounds.bounds.min.x;
         rightBound = roomBounds.bounds.max.x;
@@ -134,7 +134,8 @@ public class RoomCamera : MonoBehaviour
         bottomBound = roomBounds.bounds.min.y;
         roomType = newRoomType;
 
-        StartTransition();
+        if(hasTransition)
+            StartTransition();
     }
 
     private void StartTransition()

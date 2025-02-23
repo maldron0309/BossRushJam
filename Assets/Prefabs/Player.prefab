@@ -1202,7 +1202,7 @@ MonoBehaviour:
   afterImagePrefab: {fileID: 5455494710119955308, guid: 71db67d0ecb929f4aa9c74baaded8548, type: 3}
   afterImageRate: 0.02
   minJumpHeight: 5
-  maxJumpHeight: 20
+  maxJumpHeight: 20.75
   jumpBufferTime: 0.2
   coyoteTime: 0.2
   wallJumpEnabled: 0
@@ -1210,6 +1210,7 @@ MonoBehaviour:
   wallJumpUpwardForce: 5
   wallSnapDistance: 0.5
   jumpEnable: 1
+  isDoubleJumpEnabled: 0
   dashSpeed: 25
   rollSpeed: 18
   dashDuration: 0.25

@@ -34,7 +34,7 @@ public class WeaponUIController : MonoBehaviour
         if (weaponsInventory != null && weaponText != null)
         {
             // WeaponsInventory에서 현재 무기 이름 가져오기
-            string currentWeaponName = weaponsInventory.weapons[weaponsInventory.currentIdx].weaponName;
+            string currentWeaponName = weaponsInventory.slots[weaponsInventory.currentIdx].weapon.weaponName;
             weaponText.text = $"CURRENT WEAPON: {currentWeaponName.ToUpper()}";
         }
     }

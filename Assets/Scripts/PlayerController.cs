@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public float wallJumpUpwardForce = 10f;
     public float wallSnapDistance = 0.5f;
     public bool jumpEnable = true;
+    public bool isDoubleJumpEnabled = false;
 
     [Header("Roll and Dash")]
 
@@ -409,7 +410,7 @@ public class PlayerController : MonoBehaviour
                 coyoteTimeCounter = 0;
                 SoundEffectsManager.Instance.PlaySound(jumpSound);
             }
-            else if (canDoubleJump)
+            else if (canDoubleJump && isDoubleJumpEnabled)
             {
                 Jump(Vector2.up);
                 canDoubleJump = false;
